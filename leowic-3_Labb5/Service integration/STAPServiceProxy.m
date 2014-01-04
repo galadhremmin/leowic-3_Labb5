@@ -144,17 +144,17 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"STAPServiceProxy" object:self userInfo:userInfo];
     
-    [self handleRequest];
+    [self handleRequestResponse];
 }
 
 -(void) service: (STService *)service failedWithError: (NSDictionary *)errorData
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"STAPServiceProxy" object:self userInfo:errorData];
     
-    [self handleRequest];
+    [self handleRequestResponse];
 }
 
--(void) handleRequest
+-(void) handleRequestResponse
 {
     @synchronized(self) {
         // Some requests don't require network activity, so protect against potential integer overflow
