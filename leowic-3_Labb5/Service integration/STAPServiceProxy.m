@@ -105,16 +105,16 @@
     [arguments setValue:[NSNumber numberWithInt:userID] forKey:@"testUserId"];
     
     [_APIAuthenticationService execute:@"ApiAuthenticate" methodID:STAPILoginUser arguments:arguments];
-    
-    @synchronized(self) {
-        [self setAPIActiveRequests:self.APIActiveRequests + 1];
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    }
 }
 
 -(void) APIEstablishSession
 {
-
+    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
+    
+    [arguments setValue:@"true" forKey:@"resume"];
+    [arguments setValue:@"Placering" forKey:@"type"];
+    
+    [_APIAuthenticationService execute:@"CreateSession" methodID:STAPILoginUser arguments:arguments];
 }
 
 #pragma mark - STServiceDelegation
@@ -143,29 +143,11 @@
                               nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"STAPServiceProxy" object:self userInfo:userInfo];
-    
-    [self handleRequestResponse];
 }
 
 -(void) service: (STService *)service failedWithError: (NSDictionary *)errorData
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"STAPServiceProxy" object:self userInfo:errorData];
-    
-    [self handleRequestResponse];
-}
-
--(void) handleRequestResponse
-{
-    @synchronized(self) {
-        // Some requests don't require network activity, so protect against potential integer overflow
-        // by checking the current number of active requests.
-        NSUInteger requests = self.APIActiveRequests > 0 ? self.APIActiveRequests - 1 : 0;
-        [self setAPIActiveRequests:requests];
-        
-        if (requests < 1) {
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        }
-    }
 }
 
 @end

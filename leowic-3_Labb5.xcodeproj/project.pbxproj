@@ -33,6 +33,7 @@
 		D73FCDD9187557BD00742C26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB0187557BC00742C26 /* Foundation.framework */; };
 		D73FCDDA187557BD00742C26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB4187557BC00742C26 /* UIKit.framework */; };
 		D73FCDDB187557BD00742C26 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB6187557BC00742C26 /* CoreData.framework */; };
+		D7A9194E1878C2AD001707D2 /* STRiskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		D73FCDD0187557BD00742C26 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D73FCDD6187557BD00742C26 /* leowic-3_Labb5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "leowic-3_Labb5Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73FCDD7187557BD00742C26 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D7A9194C1878C2AD001707D2 /* STRiskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRiskQuestionViewController.h; sourceTree = "<group>"; };
+		D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRiskQuestionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 			children = (
 				D7375A381876DC3100FBED76 /* STSplashScreenViewController.h */,
 				D7375A391876DC3100FBED76 /* STSplashScreenViewController.m */,
+				D7A9194C1878C2AD001707D2 /* STRiskQuestionViewController.h */,
+				D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7375A441876ECE200FBED76 /* STAPSession.m in Sources */,
+				D7A9194E1878C2AD001707D2 /* STRiskQuestionViewController.m in Sources */,
 				D7375A3A1876DC3100FBED76 /* STSplashScreenViewController.m in Sources */,
 				D7375A2B1876BCC800FBED76 /* STServiceConnection.m in Sources */,
 				D7375A2E1876CAE000FBED76 /* STAPServiceProxy.m in Sources */,

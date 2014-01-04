@@ -10,6 +10,12 @@
 #import "STServiceDelegate.h"
 #import "STServiceConnection.h"
 
+@interface STService ()
+
+@property(atomic) NSUInteger activeRequests;
+
+@end
+
 @implementation STService
 
 -(id) initWithURL: (NSURL *)URL delegate:(NSObject<STServiceDelegate> *)delegate
@@ -17,6 +23,7 @@
     self = [super init];
     if (self) {
         [self setURL:URL];
+        [self setActiveRequests:0];
         [self setDelegate:delegate];
     }
     return self;
@@ -37,6 +44,7 @@
 
     STServiceConnection *serviceConnection = [[STServiceConnection alloc] initWithRequest:serviceRequest methodName:method methodID:methodID delegate:self];
     [serviceConnection start];
+    [self beginDataTraffic];
 }
 
 -(NSString *) convertDictionaryOfArgumentsToJSON: (NSDictionary *)arguments
@@ -76,6 +84,7 @@
         NSLog(@"%@: %@ (expires %@)", cookie.name, cookie.value, cookie.expiresDate);
     }
     
+    [self endDataTraffic];
     [self.delegate service:self finishedMethod:serviceConnection.methodName methodID:serviceConnection.methodID withData:data];
 }
 
@@ -90,7 +99,32 @@
                                       error.localizedRecoverySuggestion, @"localizedRecoverySuggestion",
                                       nil];
 
+    [self endDataTraffic];
     [self.delegate service:self failedWithError:errorDescription];
+}
+
+#pragma mark - Data connection activity indicator
+
+-(void) beginDataTraffic
+{
+    @synchronized(self) {
+        [self setActiveRequests:self.activeRequests + 1];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    }
+}
+
+-(void) endDataTraffic
+{
+    @synchronized(self) {
+        // Some requests don't require network activity, so protect against potential integer overflow
+        // by checking the current number of active requests.
+        NSUInteger requests = self.activeRequests > 0 ? self.activeRequests - 1 : 0;
+        [self setActiveRequests:requests];
+        
+        if (requests < 1) {
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        }
+    }
 }
 
 @end
