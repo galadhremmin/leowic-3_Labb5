@@ -7,8 +7,8 @@
 //
 
 #import "STMasterViewController.h"
-
 #import "STDetailViewController.h"
+#import "STAPServiceProxy.h"
 
 @interface STMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -29,6 +29,14 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+}
+
+-(void) viewDidAppear:(BOOL)animated    {
+    
+    
+    UIViewController *ctrl =  [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"SplashIdentifier"];
+    ctrl.modalPresentationStyle =UIModalPresentationFullScreen;
+    [self presentViewController:ctrl animated:NO completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,8 +7,8 @@
 //
 
 #import "STAppDelegate.h"
-
 #import "STMasterViewController.h"
+#import "STSplashScreenViewController.h"
 
 @implementation STAppDelegate
 
@@ -22,6 +22,7 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     STMasterViewController *controller = (STMasterViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    
     return YES;
 }
 							

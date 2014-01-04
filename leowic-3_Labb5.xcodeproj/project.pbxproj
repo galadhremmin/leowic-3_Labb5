@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7375A2B1876BCC800FBED76 /* STServiceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D7375A2A1876BCC800FBED76 /* STServiceConnection.m */; };
+		D7375A2E1876CAE000FBED76 /* STAPServiceProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7375A2D1876CAE000FBED76 /* STAPServiceProxy.m */; };
+		D7375A361876D8AA00FBED76 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D7375A351876D8AA00FBED76 /* logo.png */; };
+		D7375A3A1876DC3100FBED76 /* STSplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7375A391876DC3100FBED76 /* STSplashScreenViewController.m */; };
+		D7375A441876ECE200FBED76 /* STAPSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D7375A411876ECE200FBED76 /* STAPSession.m */; };
+		D7375A451876ECE200FBED76 /* STAPTestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D7375A431876ECE200FBED76 /* STAPTestUser.m */; };
+		D7375A491876EE5700FBED76 /* STAPIApiAvailableUsersHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D7375A481876EE5700FBED76 /* STAPIApiAvailableUsersHandler.m */; };
+		D7375A4D1877387D00FBED76 /* STAPIApiAuthenticateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D7375A4C1877387D00FBED76 /* STAPIApiAuthenticateHandler.m */; };
+		D7375A511877479700FBED76 /* STNotificationCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = D7375A501877479700FBED76 /* STNotificationCoordinator.m */; };
+		D73B0D53187592A40060C666 /* STService.m in Sources */ = {isa = PBXBuildFile; fileRef = D73B0D52187592A40060C666 /* STService.m */; };
 		D73FCDB1187557BC00742C26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB0187557BC00742C26 /* Foundation.framework */; };
 		D73FCDB3187557BC00742C26 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB2187557BC00742C26 /* CoreGraphics.framework */; };
 		D73FCDB5187557BC00742C26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB4187557BC00742C26 /* UIKit.framework */; };
@@ -23,8 +33,6 @@
 		D73FCDD9187557BD00742C26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB0187557BC00742C26 /* Foundation.framework */; };
 		D73FCDDA187557BD00742C26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB4187557BC00742C26 /* UIKit.framework */; };
 		D73FCDDB187557BD00742C26 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB6187557BC00742C26 /* CoreData.framework */; };
-		D73FCDE3187557BD00742C26 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D73FCDE1187557BD00742C26 /* InfoPlist.strings */; };
-		D73FCDE5187557BD00742C26 /* leowic_3_Labb5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FCDE4187557BD00742C26 /* leowic_3_Labb5Tests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +46,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D7375A291876BCC800FBED76 /* STServiceConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STServiceConnection.h; sourceTree = "<group>"; };
+		D7375A2A1876BCC800FBED76 /* STServiceConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STServiceConnection.m; sourceTree = "<group>"; };
+		D7375A2C1876CAE000FBED76 /* STAPServiceProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPServiceProxy.h; sourceTree = "<group>"; };
+		D7375A2D1876CAE000FBED76 /* STAPServiceProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPServiceProxy.m; sourceTree = "<group>"; };
+		D7375A331876CE3100FBED76 /* STServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STServiceDelegate.h; sourceTree = "<group>"; };
+		D7375A351876D8AA00FBED76 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		D7375A381876DC3100FBED76 /* STSplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSplashScreenViewController.h; sourceTree = "<group>"; };
+		D7375A391876DC3100FBED76 /* STSplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSplashScreenViewController.m; sourceTree = "<group>"; };
+		D7375A401876ECE200FBED76 /* STAPSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPSession.h; sourceTree = "<group>"; };
+		D7375A411876ECE200FBED76 /* STAPSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPSession.m; sourceTree = "<group>"; };
+		D7375A421876ECE200FBED76 /* STAPTestUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPTestUser.h; sourceTree = "<group>"; };
+		D7375A431876ECE200FBED76 /* STAPTestUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPTestUser.m; sourceTree = "<group>"; };
+		D7375A471876EE5700FBED76 /* STAPIApiAvailableUsersHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPIApiAvailableUsersHandler.h; sourceTree = "<group>"; };
+		D7375A481876EE5700FBED76 /* STAPIApiAvailableUsersHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPIApiAvailableUsersHandler.m; sourceTree = "<group>"; };
+		D7375A4A1876EE6600FBED76 /* STAPIResponseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAPIResponseHandler.h; sourceTree = "<group>"; };
+		D7375A4B1877387D00FBED76 /* STAPIApiAuthenticateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPIApiAuthenticateHandler.h; sourceTree = "<group>"; };
+		D7375A4C1877387D00FBED76 /* STAPIApiAuthenticateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPIApiAuthenticateHandler.m; sourceTree = "<group>"; };
+		D7375A4F1877479700FBED76 /* STNotificationCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STNotificationCoordinator.h; sourceTree = "<group>"; };
+		D7375A501877479700FBED76 /* STNotificationCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STNotificationCoordinator.m; sourceTree = "<group>"; };
+		D73B0D51187592A40060C666 /* STService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STService.h; sourceTree = "<group>"; };
+		D73B0D52187592A40060C666 /* STService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STService.m; sourceTree = "<group>"; };
 		D73FCDAD187557BC00742C26 /* leowic-3_Labb5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "leowic-3_Labb5.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73FCDB0187557BC00742C26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D73FCDB2187557BC00742C26 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,9 +87,6 @@
 		D73FCDD0187557BD00742C26 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D73FCDD6187557BD00742C26 /* leowic-3_Labb5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "leowic-3_Labb5Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73FCDD7187557BD00742C26 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D73FCDE0187557BD00742C26 /* leowic-3_Labb5Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "leowic-3_Labb5Tests-Info.plist"; sourceTree = "<group>"; };
-		D73FCDE2187557BD00742C26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D73FCDE4187557BD00742C26 /* leowic_3_Labb5Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = leowic_3_Labb5Tests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,11 +115,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7375A341876D88900FBED76 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D7375A351876D8AA00FBED76 /* logo.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		D7375A371876DC1500FBED76 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7375A381876DC3100FBED76 /* STSplashScreenViewController.h */,
+				D7375A391876DC3100FBED76 /* STSplashScreenViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D7375A3F1876ECE200FBED76 /* Business objects */ = {
+			isa = PBXGroup;
+			children = (
+				D7375A401876ECE200FBED76 /* STAPSession.h */,
+				D7375A411876ECE200FBED76 /* STAPSession.m */,
+				D7375A421876ECE200FBED76 /* STAPTestUser.h */,
+				D7375A431876ECE200FBED76 /* STAPTestUser.m */,
+			);
+			path = "Business objects";
+			sourceTree = "<group>";
+		};
+		D7375A461876ED0800FBED76 /* Response handlers */ = {
+			isa = PBXGroup;
+			children = (
+				D7375A4A1876EE6600FBED76 /* STAPIResponseHandler.h */,
+				D7375A471876EE5700FBED76 /* STAPIApiAvailableUsersHandler.h */,
+				D7375A481876EE5700FBED76 /* STAPIApiAvailableUsersHandler.m */,
+				D7375A4B1877387D00FBED76 /* STAPIApiAuthenticateHandler.h */,
+				D7375A4C1877387D00FBED76 /* STAPIApiAuthenticateHandler.m */,
+			);
+			path = "Response handlers";
+			sourceTree = "<group>";
+		};
+		D73B0D501875924F0060C666 /* Service integration */ = {
+			isa = PBXGroup;
+			children = (
+				D7375A3F1876ECE200FBED76 /* Business objects */,
+				D7375A461876ED0800FBED76 /* Response handlers */,
+				D7375A291876BCC800FBED76 /* STServiceConnection.h */,
+				D7375A2A1876BCC800FBED76 /* STServiceConnection.m */,
+				D73B0D51187592A40060C666 /* STService.h */,
+				D73B0D52187592A40060C666 /* STService.m */,
+				D7375A331876CE3100FBED76 /* STServiceDelegate.h */,
+				D7375A2C1876CAE000FBED76 /* STAPServiceProxy.h */,
+				D7375A2D1876CAE000FBED76 /* STAPServiceProxy.m */,
+				D7375A4F1877479700FBED76 /* STNotificationCoordinator.h */,
+				D7375A501877479700FBED76 /* STNotificationCoordinator.m */,
+			);
+			path = "Service integration";
+			sourceTree = "<group>";
+		};
 		D73FCDA4187557BC00742C26 = {
 			isa = PBXGroup;
 			children = (
 				D73FCDB8187557BC00742C26 /* leowic-3_Labb5 */,
-				D73FCDDE187557BD00742C26 /* leowic-3_Labb5Tests */,
 				D73FCDAF187557BC00742C26 /* Frameworks */,
 				D73FCDAE187557BC00742C26 /* Products */,
 			);
@@ -123,6 +206,9 @@
 		D73FCDB8187557BC00742C26 /* leowic-3_Labb5 */ = {
 			isa = PBXGroup;
 			children = (
+				D7375A341876D88900FBED76 /* Assets */,
+				D7375A371876DC1500FBED76 /* Controllers */,
+				D73B0D501875924F0060C666 /* Service integration */,
 				D73FCDC1187557BC00742C26 /* STAppDelegate.h */,
 				D73FCDC2187557BC00742C26 /* STAppDelegate.m */,
 				D73FCDC4187557BC00742C26 /* Main.storyboard */,
@@ -144,24 +230,6 @@
 				D73FCDBB187557BC00742C26 /* InfoPlist.strings */,
 				D73FCDBE187557BC00742C26 /* main.m */,
 				D73FCDC0187557BC00742C26 /* leowic-3_Labb5-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D73FCDDE187557BD00742C26 /* leowic-3_Labb5Tests */ = {
-			isa = PBXGroup;
-			children = (
-				D73FCDE4187557BD00742C26 /* leowic_3_Labb5Tests.m */,
-				D73FCDDF187557BD00742C26 /* Supporting Files */,
-			);
-			path = "leowic-3_Labb5Tests";
-			sourceTree = "<group>";
-		};
-		D73FCDDF187557BD00742C26 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D73FCDE0187557BD00742C26 /* leowic-3_Labb5Tests-Info.plist */,
-				D73FCDE1187557BD00742C26 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -243,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7375A361876D8AA00FBED76 /* logo.png in Resources */,
 				D73FCDD1187557BD00742C26 /* Images.xcassets in Resources */,
 				D73FCDBD187557BC00742C26 /* InfoPlist.strings in Resources */,
 				D73FCDC6187557BC00742C26 /* Main.storyboard in Resources */,
@@ -253,7 +322,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D73FCDE3187557BD00742C26 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,11 +332,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7375A441876ECE200FBED76 /* STAPSession.m in Sources */,
+				D7375A3A1876DC3100FBED76 /* STSplashScreenViewController.m in Sources */,
+				D7375A2B1876BCC800FBED76 /* STServiceConnection.m in Sources */,
+				D7375A2E1876CAE000FBED76 /* STAPServiceProxy.m in Sources */,
 				D73FCDBF187557BC00742C26 /* main.m in Sources */,
 				D73FCDCF187557BD00742C26 /* STDetailViewController.m in Sources */,
 				D73FCDCC187557BD00742C26 /* STMasterViewController.m in Sources */,
 				D73FCDC3187557BC00742C26 /* STAppDelegate.m in Sources */,
+				D7375A511877479700FBED76 /* STNotificationCoordinator.m in Sources */,
+				D7375A491876EE5700FBED76 /* STAPIApiAvailableUsersHandler.m in Sources */,
+				D7375A4D1877387D00FBED76 /* STAPIApiAuthenticateHandler.m in Sources */,
+				D73B0D53187592A40060C666 /* STService.m in Sources */,
 				D73FCDC9187557BD00742C26 /* leowic_3_Labb5.xcdatamodeld in Sources */,
+				D7375A451876ECE200FBED76 /* STAPTestUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +353,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D73FCDE5187557BD00742C26 /* leowic_3_Labb5Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,14 +381,6 @@
 				D73FCDC5187557BC00742C26 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D73FCDE1187557BD00742C26 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D73FCDE2187557BD00742C26 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -477,6 +545,7 @@
 				D73FCDEA187557BD00742C26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D73FCDEB187557BD00742C26 /* Build configuration list for PBXNativeTarget "leowic-3_Labb5Tests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +554,7 @@
 				D73FCDED187557BD00742C26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
