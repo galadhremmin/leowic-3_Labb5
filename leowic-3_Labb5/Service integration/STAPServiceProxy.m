@@ -120,7 +120,7 @@
     NSArray *cacheSignalResetters = @[ [NSNumber numberWithInteger:STAPILoginUser] ];
     STServiceCacheConfiguration *cacheConfiguration = [[STServiceCacheConfiguration alloc] initWithResetForSignals:cacheSignalResetters];
     
-    [self.APIGuideService execute:@"CreateSession" methodID:STAPILoginUser arguments:arguments cache:cacheConfiguration];
+    [self.APIGuideService execute:@"CreateSession" methodID:STAPIEstablishSession arguments:arguments cache:cacheConfiguration];
 }
 
 #pragma mark - STServiceDelegation

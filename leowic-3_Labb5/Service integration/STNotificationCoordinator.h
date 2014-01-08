@@ -20,4 +20,6 @@
 -(void) startCoordination;
 -(void) stopCoordination;
 
+-(BOOL) handleNotification: (NSNotification *)notification;
+
 @end

@@ -11,7 +11,7 @@
 
 @interface STAPNotificationCoordinator : STNotificationCoordinator
 
--(id) initWithProxy: (STAPServiceProxy *)proxy context: (id)selectorContext establishGuideSession: (BOOL)establishGuideSession;
+-(id) initWithProxy: (STAPServiceProxy *)proxy context: (id)selectorContext sessionCompulsory: (BOOL)establishGuideSession;
 -(void) startCoordination;
 
 @end

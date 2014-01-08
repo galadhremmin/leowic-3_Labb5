@@ -33,7 +33,7 @@
     [self setSelectedQuestionIndex:-1];
     
     STAPServiceProxy *proxy = [STAPServiceProxy sharedProxy];
-    STAPNotificationCoordinator *coordinator = [[STAPNotificationCoordinator alloc] initWithProxy:proxy context:self establishGuideSession:YES];
+    STAPNotificationCoordinator *coordinator = [[STAPNotificationCoordinator alloc] initWithProxy:proxy context:self sessionCompulsory:YES];
     [self setCoordinator:coordinator];
     [self.coordinator startCoordination];
 }
@@ -42,6 +42,11 @@
 {
     [self.coordinator stopCoordination];
     [self setCoordinator:nil];
+}
+
+-(NSIndexPath *) tableView: (UITableView *)tableView willSelectRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    return indexPath;
 }
 
 -(BOOL) shouldPerformSegueWithIdentifier: (NSString *)identifier sender: (id)sender

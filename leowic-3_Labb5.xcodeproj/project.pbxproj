@@ -26,8 +26,6 @@
 		D73FCDC3187557BC00742C26 /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FCDC2187557BC00742C26 /* STAppDelegate.m */; };
 		D73FCDC6187557BC00742C26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D73FCDC4187557BC00742C26 /* Main.storyboard */; };
 		D73FCDC9187557BD00742C26 /* leowic_3_Labb5.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D73FCDC7187557BD00742C26 /* leowic_3_Labb5.xcdatamodeld */; };
-		D73FCDCC187557BD00742C26 /* STMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FCDCB187557BD00742C26 /* STMasterViewController.m */; };
-		D73FCDCF187557BD00742C26 /* STDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D73FCDCE187557BD00742C26 /* STDetailViewController.m */; };
 		D73FCDD1187557BD00742C26 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D73FCDD0187557BD00742C26 /* Images.xcassets */; };
 		D73FCDD8187557BD00742C26 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDD7187557BD00742C26 /* XCTest.framework */; };
 		D73FCDD9187557BD00742C26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB0187557BC00742C26 /* Foundation.framework */; };
@@ -90,10 +88,6 @@
 		D73FCDC2187557BC00742C26 /* STAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
 		D73FCDC5187557BC00742C26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D73FCDC8187557BD00742C26 /* leowic_3_Labb5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = leowic_3_Labb5.xcdatamodel; sourceTree = "<group>"; };
-		D73FCDCA187557BD00742C26 /* STMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMasterViewController.h; sourceTree = "<group>"; };
-		D73FCDCB187557BD00742C26 /* STMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STMasterViewController.m; sourceTree = "<group>"; };
-		D73FCDCD187557BD00742C26 /* STDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STDetailViewController.h; sourceTree = "<group>"; };
-		D73FCDCE187557BD00742C26 /* STDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STDetailViewController.m; sourceTree = "<group>"; };
 		D73FCDD0187557BD00742C26 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D73FCDD6187557BD00742C26 /* leowic-3_Labb5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "leowic-3_Labb5Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73FCDD7187557BD00742C26 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -261,10 +255,6 @@
 				D73FCDC1187557BC00742C26 /* STAppDelegate.h */,
 				D73FCDC2187557BC00742C26 /* STAppDelegate.m */,
 				D73FCDC4187557BC00742C26 /* Main.storyboard */,
-				D73FCDCA187557BD00742C26 /* STMasterViewController.h */,
-				D73FCDCB187557BD00742C26 /* STMasterViewController.m */,
-				D73FCDCD187557BD00742C26 /* STDetailViewController.h */,
-				D73FCDCE187557BD00742C26 /* STDetailViewController.m */,
 				D73FCDD0187557BD00742C26 /* Images.xcassets */,
 				D73FCDC7187557BD00742C26 /* leowic_3_Labb5.xcdatamodeld */,
 				D73FCDB9187557BC00742C26 /* Supporting Files */,
@@ -411,8 +401,6 @@
 				D7BE7D5A187D9BDE00210AB5 /* STAPPensionObject.m in Sources */,
 				D7BE7D57187D9AE300210AB5 /* STAPPersonObject.m in Sources */,
 				D73FCDBF187557BC00742C26 /* main.m in Sources */,
-				D73FCDCF187557BD00742C26 /* STDetailViewController.m in Sources */,
-				D73FCDCC187557BD00742C26 /* STMasterViewController.m in Sources */,
 				D73FCDC3187557BC00742C26 /* STAppDelegate.m in Sources */,
 				D7375A511877479700FBED76 /* STNotificationCoordinator.m in Sources */,
 				D7CE957018799291006B0B73 /* STServiceCacheConfiguration.m in Sources */,

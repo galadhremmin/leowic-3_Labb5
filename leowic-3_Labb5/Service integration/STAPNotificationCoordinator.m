@@ -7,16 +7,18 @@
 //
 
 #import "STAPNotificationCoordinator.h"
+#import "STAPGuideObject.h"
 
 @interface STAPNotificationCoordinator ()
 
-@property(nonatomic) BOOL establishGuideSession;
+@property (nonatomic)      BOOL             establishGuideSession;
+@property (atomic, strong) STAPGuideObject *guideSession;
 
 @end
 
 @implementation STAPNotificationCoordinator
 
--(id) initWithProxy: (STAPServiceProxy *)proxy context: (id)selectorContext establishGuideSession: (BOOL)establishGuideSession
+-(id) initWithProxy: (STAPServiceProxy *)proxy context: (id)selectorContext sessionCompulsory: (BOOL)establishGuideSession
 {
     self = [super initWithProxy:proxy context:selectorContext];
     if (self) {

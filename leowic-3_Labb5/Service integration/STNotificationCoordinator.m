@@ -64,14 +64,14 @@
     [self setIsCoordinating:NO];
 }
 
--(void) handleNotification: (NSNotification *)notification
+-(BOOL) handleNotification: (NSNotification *)notification
 {
     NSDictionary *notificationData = notification.userInfo;
     
     if ([notificationData objectForKey:@"error"] != nil) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oj, något gick fel!" message:[notificationData objectForKey:@"localizedDescription"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        return;
+        return NO;
     }
     
     id methodID    = [[notificationData objectForKey:@"methodID"] stringValue];
@@ -80,17 +80,18 @@
     
     if (methodValue == nil) {
         NSLog(@"STSplashScreenViewController: Unsupported signal %@.", methodID);
-        return;
+        return NO;
     }
     
     SEL method;
     [methodValue getValue:&method];
     
     if (method == nil) {
-        return;
+        return NO;
     }
     
     [self.context performSelector:method withObject:data afterDelay:0];
+    return YES;
 }
 
 @end

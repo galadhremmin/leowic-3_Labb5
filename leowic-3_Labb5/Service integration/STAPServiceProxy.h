@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "STServiceDelegate.h"
 
+@class STAPRiskProfileObject;
+
 @interface STAPServiceProxy : NSObject<STServiceDelegate>
 
 typedef enum {
@@ -26,6 +28,7 @@ typedef enum {
 -(void) APIRequestLoginUsers;
 -(void) APILoginUser: (int)userID;
 -(void) APICreateGuideSession;
+-(void) APIUpdateRiskProfile: (STAPRiskProfileObject *)riskProfile;
 
 -(void) addListener: (id)listener selector: (SEL)handler;
 -(void) removeListener: (id)listener;

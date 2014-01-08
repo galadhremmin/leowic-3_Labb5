@@ -32,7 +32,7 @@
     [self.navigationController setNavigationBarHidden:YES];
     
     STAPServiceProxy *proxy = [STAPServiceProxy sharedProxy];
-    STAPNotificationCoordinator *coordinator = [[STAPNotificationCoordinator alloc] initWithProxy:proxy context:self establishGuideSession:NO];
+    STAPNotificationCoordinator *coordinator = [[STAPNotificationCoordinator alloc] initWithProxy:proxy context:self sessionCompulsory:NO];
     
     [coordinator registerSelector:@selector(handleTestUsers:) forSignal:STAPIRequestLoginUsers];
     [coordinator registerSelector:@selector(handleAuthentication:) forSignal:STAPILoginUser];
