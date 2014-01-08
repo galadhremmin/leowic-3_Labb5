@@ -7,13 +7,13 @@
 //
 
 #import "STRiskQuestionViewController.h"
-#import "STNotificationCoordinator.h"
+#import "STAPNotificationCoordinator.h"
 #import "STAPServiceProxy.h"
 
 @interface STRiskQuestionViewController ()
 
-@property(nonatomic, strong) STNotificationCoordinator *coordinator;
-@property(nonatomic)         NSInteger                  selectedQuestionIndex;
+@property(nonatomic, strong) STAPNotificationCoordinator *coordinator;
+@property(nonatomic)         NSInteger                    selectedQuestionIndex;
 
 @end
 
@@ -33,7 +33,8 @@
     [self setSelectedQuestionIndex:-1];
     
     STAPServiceProxy *proxy = [STAPServiceProxy sharedProxy];
-    STNotificationCoordinator *coordinator = [[STNotificationCoordinator alloc] initWithProxy:proxy context:self];
+    STAPNotificationCoordinator *coordinator = [[STAPNotificationCoordinator alloc] initWithProxy:proxy context:self establishGuideSession:YES];
+    [self setCoordinator:coordinator];
     [self.coordinator startCoordination];
 }
 

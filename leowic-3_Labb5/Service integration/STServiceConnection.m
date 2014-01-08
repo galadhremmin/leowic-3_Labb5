@@ -10,20 +10,22 @@
 
 @interface STServiceConnection ()
 
-@property(nonatomic, strong) NSMutableData *receivedData;
-@property(nonatomic, copy)   NSString      *methodName;
-@property(nonatomic)         NSUInteger     methodID;
+@property(nonatomic, strong) STServiceCacheConfiguration *cacheConfiguration;
+@property(nonatomic, strong) NSMutableData               *receivedData;
+@property(nonatomic, copy)   NSString                    *methodName;
+@property(nonatomic)         NSUInteger                   methodID;
 
 @end
 
 @implementation STServiceConnection
 
--(id) initWithRequest: (NSURLRequest *)request methodName: (NSString *)methodName methodID: (NSUInteger)methodID delegate: (id)delegate
+-(id) initWithRequest: (NSURLRequest *)request methodName: (NSString *)methodName methodID: (NSUInteger)methodID cache: (STServiceCacheConfiguration *)cacheConfiguration delegate: (id)delegate
 {
     self = [super initWithRequest:request delegate:delegate startImmediately:NO];
     if (self) {
         [self setMethodName:methodName];
         [self setMethodID:methodID];
+        [self setCacheConfiguration:cacheConfiguration];
         [self setReceivedData:[[NSMutableData alloc] init]];
     }
     return self;

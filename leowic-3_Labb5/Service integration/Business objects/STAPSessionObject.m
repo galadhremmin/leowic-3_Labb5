@@ -1,13 +1,15 @@
 //
-//  STAPSession.h
+//  STAPSession.m
 //  leowic-3_Labb5
 //
 //  Created by Leonard Wickmark on 03/01/14.
 //  Copyright (c) 2014 Softronic AB. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "STAPSessionObject.h"
 
-@interface STAPSession : NSObject
+@implementation STAPSessionObject
+
+
 
 @end

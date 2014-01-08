@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Softronic AB. All rights reserved.
 //
 
-#import "STAPTestUser.h"
+#import "STAPTestUserObject.h"
 
-@implementation STAPTestUser
+@implementation STAPTestUserObject
 
 -(id) initWithID: (NSUInteger)userID name: (NSString *)name
 {

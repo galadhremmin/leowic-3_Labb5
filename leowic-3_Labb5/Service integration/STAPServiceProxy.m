@@ -6,15 +6,18 @@
 //  Copyright (c) 2014 Softronic AB. All rights reserved.
 //
 
+#import "STServiceCacheConfiguration.h"
 #import "STService.h"
 #import "STAPServiceProxy.h"
 #import "STAPIResponseHandler.h"
+#import "STAPSessionObject.h"
 
 @interface STAPServiceProxy ()
 
-@property(nonatomic, strong) STService  *APIAuthenticationService;
-@property(nonatomic, strong) STService  *APIGuideService;
-@property(atomic)            NSUInteger  APIActiveRequests;
+@property(nonatomic, strong) STService   *APIAuthenticationService;
+@property(nonatomic, strong) STService   *APIGuideService;
+@property(atomic, strong)    STAPSessionObject *guideSession;
+@property(atomic)            NSUInteger   APIActiveRequests;
  
 @end
 
@@ -94,7 +97,7 @@
     [users setObject:@"William Faulkner, ITP2, inkomst över 7,5 IBB" forKey:@"9"];
     [users setObject:@"Winston Churchill, ITP2" forKey:@"11"];
     
-    [self service:_APIGuideService finishedMethod:@"ApiAvailableUsers" methodID:STAPIRequestLoginUsers withData:users];
+    [self service:self.APIAuthenticationService finishedMethod:@"ApiAvailableUsers" methodID:STAPIRequestLoginUsers withData:users];
 }
 
 -(void) APILoginUser: (int)userID
@@ -104,17 +107,20 @@
     [arguments setValue:[STAPServiceProxy APIKey] forKey:@"serviceApiKey"];
     [arguments setValue:[NSNumber numberWithInt:userID] forKey:@"testUserId"];
     
-    [_APIAuthenticationService execute:@"ApiAuthenticate" methodID:STAPILoginUser arguments:arguments];
+    [self.APIAuthenticationService execute:@"ApiAuthenticate" methodID:STAPILoginUser arguments:arguments cache:nil];
 }
 
--(void) APIEstablishSession
+-(void) APICreateGuideSession
 {
     NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
     
     [arguments setValue:@"true" forKey:@"resume"];
     [arguments setValue:@"Placering" forKey:@"type"];
     
-    [_APIAuthenticationService execute:@"CreateSession" methodID:STAPILoginUser arguments:arguments];
+    NSArray *cacheSignalResetters = @[ [NSNumber numberWithInteger:STAPILoginUser] ];
+    STServiceCacheConfiguration *cacheConfiguration = [[STServiceCacheConfiguration alloc] initWithResetForSignals:cacheSignalResetters];
+    
+    [self.APIGuideService execute:@"CreateSession" methodID:STAPILoginUser arguments:arguments cache:cacheConfiguration];
 }
 
 #pragma mark - STServiceDelegation

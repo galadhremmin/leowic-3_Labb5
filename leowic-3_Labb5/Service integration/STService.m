@@ -6,13 +6,16 @@
 //  Copyright (c) 2014 Softronic AB. All rights reserved.
 //
 
+#import "STCacheItem.h"
 #import "STService.h"
 #import "STServiceDelegate.h"
 #import "STServiceConnection.h"
 
 @interface STService ()
 
-@property(atomic) NSUInteger activeRequests;
+@property(atomic, strong) NSMutableArray *executionQueue;
+@property(atomic, strong) NSCache        *cache;
+@property(atomic)         NSUInteger      activeRequests;
 
 @end
 
@@ -25,12 +28,25 @@
         [self setURL:URL];
         [self setActiveRequests:0];
         [self setDelegate:delegate];
+        [self setCache:nil];
+        [self setExecutionQueue:nil];
     }
     return self;
 }
 
--(void) execute: (NSString *)method methodID: (NSUInteger)methodID arguments: (NSDictionary *)arguments
+-(void) execute: (NSString *)method methodID: (NSUInteger)methodID arguments: (NSDictionary *)arguments cache: (STServiceCacheConfiguration *)cacheConfiguration
 {
+    if (self.executionQueue == nil) {
+        NSMutableArray *queue = [[NSMutableArray alloc] init];
+        [self setExecutionQueue:queue];
+    }
+    
+    // Inject cache hash unless inferred.
+    if (cacheConfiguration != nil && cacheConfiguration.cacheHash == nil) {
+        [cacheConfiguration setCacheHashWithUnsignedInteger:arguments.hash];
+    }
+    
+    // There is no data, so build a request to the web server
     NSURL *requestURL = [_URL URLByAppendingPathComponent:method];
     NSString *postBody = [self convertDictionaryOfArgumentsToJSON:arguments];
     
@@ -42,8 +58,48 @@
     [serviceRequest setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
     [serviceRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
 
-    STServiceConnection *serviceConnection = [[STServiceConnection alloc] initWithRequest:serviceRequest methodName:method methodID:methodID delegate:self];
+    STServiceConnection *serviceConnection = [[STServiceConnection alloc] initWithRequest:serviceRequest methodName:method methodID:methodID cache:cacheConfiguration delegate:self];
+    
+    @synchronized(_executionQueue) {
+        [self.executionQueue addObject:serviceConnection];
+        
+        if (self.executionQueue.count == 1) {
+            [self executeNext];
+        }
+    }
+}
+
+-(void) executeNext
+{
+    // Dequeue a service connection
+    STServiceConnection *serviceConnection;
+    @synchronized(_executionQueue) {
+        if (self.executionQueue.count < 1) {
+            return;
+        }
+        
+        serviceConnection = (STServiceConnection *) [self.executionQueue firstObject];
+        [self.executionQueue removeObject:serviceConnection];
+    }
+    
+    if (self.cache != nil && serviceConnection.cacheConfiguration != nil) {
+        STCacheItem *item = [self.cache objectForKey:serviceConnection.methodName];
+        if (item != nil) {
+            if (item.hash == [serviceConnection.cacheConfiguration.cacheHash unsignedIntegerValue]) {
+                // There's an item in the cache  which is up to date.
+                [self method:serviceConnection.methodName withID:serviceConnection.methodID didReceiveData:item.data];
+                return;
+            }
+            
+            // The cache is either out-dated or no longer relevant. Remove it from the collection.
+            [self.cache removeObjectForKey:serviceConnection.methodName];
+        }
+    }
+    
+    // The service communication will happen asynchronously
     [serviceConnection start];
+    
+    // Notify the client that the phone's data traffic is in use
     [self beginDataTraffic];
 }
 
@@ -75,17 +131,18 @@
 {
     STServiceConnection *serviceConnection = (STServiceConnection *)connection;
     
-    NSError *error;
-    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:serviceConnection.receivedData options:0 error:&error];
-    
-    NSLog(@"%@ reply: %@", serviceConnection.methodName, data);
-    NSArray *cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies;
-    for (NSHTTPCookie *cookie in cookies) {
-        NSLog(@"%@: %@ (expires %@)", cookie.name, cookie.value, cookie.expiresDate);
+    if (serviceConnection.cacheConfiguration != nil) {
+        if (self.cache == nil) {
+            self.cache = [[NSCache alloc] init];
+        }
+        
+        STCacheItem *item = [[STCacheItem alloc] initWithData:serviceConnection.receivedData hash:[serviceConnection.cacheConfiguration.cacheHash unsignedIntegerValue]];
+        [self.cache setObject:item forKey:serviceConnection.methodName];
     }
     
     [self endDataTraffic];
-    [self.delegate service:self finishedMethod:serviceConnection.methodName methodID:serviceConnection.methodID withData:data];
+    
+    [self method:serviceConnection.methodName withID:serviceConnection.methodID didReceiveData:serviceConnection.receivedData];
 }
 
 -(void) connection: (NSURLConnection *)connection didFailWithError: (NSError *)error
@@ -100,7 +157,26 @@
                                       nil];
 
     [self endDataTraffic];
+    [self executeNext];
+    
     [self.delegate service:self failedWithError:errorDescription];
+}
+
+#pragma mark - Handlers for response data 
+
+-(void) method: (NSString *)methodName withID: (NSUInteger)methodID didReceiveData: (NSData *)data
+{
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    
+    NSLog(@"%@ reply: %@", methodName, json);
+    NSArray *cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies;
+    for (NSHTTPCookie *cookie in cookies) {
+        NSLog(@"%@: %@ (expires %@)", cookie.name, cookie.value, cookie.expiresDate);
+    }
+
+    [self executeNext];
+    [self.delegate service:self finishedMethod:methodName methodID:methodID withData:json];
 }
 
 #pragma mark - Data connection activity indicator

@@ -8,13 +8,13 @@
 
 #import "STSplashScreenViewController.h"
 #import "STAPServiceProxy.h"
-#import "STNotificationCoordinator.h"
-#import "STAPTestUser.h"
+#import "STAPNotificationCoordinator.h"
+#import "STAPTestUserObject.h"
 
 @interface STSplashScreenViewController ()
 
 @property(nonatomic, strong) NSArray *testUsers;
-@property(nonatomic, strong) STNotificationCoordinator *coordinator;
+@property(nonatomic, strong) STAPNotificationCoordinator *coordinator;
 
 @end
 
@@ -28,8 +28,11 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+    
     STAPServiceProxy *proxy = [STAPServiceProxy sharedProxy];
-    STNotificationCoordinator *coordinator = [[STNotificationCoordinator alloc] initWithProxy:proxy context:self];
+    STAPNotificationCoordinator *coordinator = [[STAPNotificationCoordinator alloc] initWithProxy:proxy context:self establishGuideSession:NO];
     
     [coordinator registerSelector:@selector(handleTestUsers:) forSignal:STAPIRequestLoginUsers];
     [coordinator registerSelector:@selector(handleAuthentication:) forSignal:STAPILoginUser];
@@ -42,6 +45,9 @@
 
 -(void) viewWillDisappear: (BOOL)animated
 {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+
     [self.coordinator stopCoordination];
     [self setCoordinator:nil];
 }
@@ -57,7 +63,7 @@
 {
     BOOL success = [result boolValue];
     if (success) {
-        [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+        [self performSegueWithIdentifier:@"GuideSegue" sender:nil];
     } else {
         NSLog(@"failed!");
     }
@@ -66,7 +72,7 @@
 #pragma mark - Interface actions
 - (IBAction)performAuthenticationTest:(UIButton *)sender {
     NSUInteger selectedIndex =  [self.APITestUserPicker selectedRowInComponent:0];
-    STAPTestUser *user = self.testUsers[selectedIndex];
+    STAPTestUserObject *user = self.testUsers[selectedIndex];
     
     [[STAPServiceProxy sharedProxy] APILoginUser:user.userID];
 }
@@ -93,7 +99,7 @@
 
 -(NSString *) pickerView: (UIPickerView *)pickerView titleForRow: (NSInteger)row forComponent: (NSInteger)component
 {
-    STAPTestUser *user = (STAPTestUser *)self.testUsers[row];
+    STAPTestUserObject *user = (STAPTestUserObject *)self.testUsers[row];
     return user.name;
 }
 @end

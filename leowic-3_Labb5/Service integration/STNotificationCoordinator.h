@@ -11,7 +11,8 @@
 
 @interface STNotificationCoordinator : NSObject
 
-@property(nonatomic) BOOL isCoordinating;
+@property(nonatomic, weak) NSObject<STServiceDelegate> *proxy;
+@property(nonatomic)       BOOL                         isCoordinating;
 
 -(id) initWithProxy: (NSObject<STServiceDelegate> *)proxy context: (id)selectorContext;
 -(void) registerSelector: (SEL)selector forSignal: (NSUInteger)signal;

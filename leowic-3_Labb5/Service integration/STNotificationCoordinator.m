@@ -11,9 +11,8 @@
 
 @interface STNotificationCoordinator ()
 
-@property(nonatomic, strong) NSMutableDictionary         *signalSelectors;
-@property(nonatomic, weak)   NSObject<STServiceDelegate> *proxy;
-@property(nonatomic, weak)   id                           context;
+@property(nonatomic, strong) NSMutableDictionary *signalSelectors;
+@property(nonatomic, weak)   id                   context;
 
 @end
 
@@ -52,7 +51,7 @@
     if (!self.isCoordinating) {
         [self.proxy addListener:self selector:@selector(handleNotification:)];
     }
-    
+
     [self setIsCoordinating:YES];
 }
 

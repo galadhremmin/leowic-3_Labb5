@@ -7,7 +7,7 @@
 //
 
 #import "STAPIApiAvailableUsersHandler.h"
-#import "STAPTestUser.h"
+#import "STAPTestUserObject.h"
 
 @implementation STAPIApiAvailableUsersHandler
 
@@ -17,7 +17,7 @@
     
     for (NSString *key in responseData.allKeys) {
         NSString *name = [responseData objectForKey:key];
-        STAPTestUser *user = [[STAPTestUser alloc] initWithID:[key integerValue] name:name];
+        STAPTestUserObject *user = [[STAPTestUserObject alloc] initWithID:[key integerValue] name:name];
         
         [users addObject:user];
     }

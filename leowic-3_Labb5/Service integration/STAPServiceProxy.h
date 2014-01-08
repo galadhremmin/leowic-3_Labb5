@@ -25,7 +25,7 @@ typedef enum {
 
 -(void) APIRequestLoginUsers;
 -(void) APILoginUser: (int)userID;
--(void) APIEstablishSession;
+-(void) APICreateGuideSession;
 
 -(void) addListener: (id)listener selector: (SEL)handler;
 -(void) removeListener: (id)listener;

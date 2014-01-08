@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface STAPTestUser : NSObject
+@interface STAPTestUserObject : NSObject
 
-@property (nonatomic)       NSUInteger  userID;
-@property (nonatomic, copy) NSString   *name;
+@property (atomic)       NSUInteger  userID;
+@property (atomic, copy) NSString   *name;
 
 -(id) initWithID: (NSUInteger)userID name: (NSString *)name;
 
