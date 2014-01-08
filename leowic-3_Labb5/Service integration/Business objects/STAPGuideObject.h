@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "STAPRiskProfileObject.h"
+#import "STAPPersonObject.h"
 
 @interface STAPGuideObject : NSObject
 
-@property(atomic)         NSUInteger             adviceID;
-@property(atomic, strong) STAPRiskProfileObject *riskProfile;
+@property (atomic)         NSUInteger             adviceID;
+@property (atomic, strong) STAPPersonObject      *person;
+@property (atomic, strong) STAPRiskProfileObject *riskProfile;
 
 @end

@@ -8,11 +8,15 @@
 
 #import "STAPICreateSessionHandler.h"
 #import "STAPGuideObject.h"
+#import "STAPPensionObject.h"
 
 @interface STAPICreateSessionHandler ()
 
 -(void) populateSession: (STAPGuideObject *)guideSession withData: (NSDictionary *)data;
 -(void) populateRiskProfile: (STAPRiskProfileObject *)riskProfile withData: (NSDictionary *)data;
+-(void) populatePerson: (STAPPersonObject *)person withData: (NSDictionary *)data;
+-(void) populatePension: (STAPPensionObject *)pension withData: (NSDictionary *)data;
+-(void) populateName: (STAPNameObject *)name withData: (NSDictionary *)data;
 
 @end
 
@@ -28,6 +32,9 @@
     
     data = [root objectForKey:@"AdviceRiskProfile"];
     [self populateRiskProfile:session.riskProfile withData:data];
+    
+    data = [root objectForKey:@"AffectedPerson"];
+    [self populatePerson:session.person withData:data];
     
     return session;
 }
@@ -55,6 +62,31 @@
     for (NSNumber *answer in answers) {
         [riskProfile.riskQuestionAnswers addObject:answer];
     }
+}
+
+-(void) populatePerson: (STAPPersonObject *)person withData: (NSDictionary *)data
+{
+    [person setPersonID:[[data objectForKey:@"PersonID"] integerValue]];
+    [person setVisiPersonID:[[data objectForKey:@"VisiPersonID"] integerValue]];
+    [person setAge:[[data objectForKey:@"Age"] unsignedIntegerValue]];
+    [person setMonthlyIncome:[[data objectForKey:@"MonthlyIncome"] unsignedIntegerValue]];
+    [person setCivicRegistrationNumber:[data objectForKey:@"CivicRegistrationNumber"]];
+    [person setEmail:[data objectForKey:@"Email"]];
+    
+    [self populatePension:person.pension withData:[data objectForKey:@"Pension"]];
+    [self populateName:person.name withData:[data objectForKey:@"Name"]];
+}
+
+-(void) populatePension: (STAPPensionObject *)pension withData: (NSDictionary *)data
+{
+    [pension setPensionType:(STPensionTypeEnum)[[data objectForKey:@"PensionType"] integerValue]];
+    [pension setWorkedSinceYear:[[data objectForKey:@"WorkedSinceYear"] unsignedIntegerValue]];
+}
+
+-(void) populateName: (STAPNameObject *)name withData: (NSDictionary *)data
+{
+    [name setGivenName:[data objectForKey:@"GivenName"]];
+    [name setSurname:[data objectForKey:@"Surname"]];
 }
 
 @end

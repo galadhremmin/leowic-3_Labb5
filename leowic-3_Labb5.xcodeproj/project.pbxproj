@@ -37,6 +37,9 @@
 		D7BE7D4E187D711E00210AB5 /* STAPGuideObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D4D187D711E00210AB5 /* STAPGuideObject.m */; };
 		D7BE7D51187D752C00210AB5 /* STAPICreateSessionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D50187D752C00210AB5 /* STAPICreateSessionHandler.m */; };
 		D7BE7D54187D798900210AB5 /* STAPRiskProfileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D53187D798900210AB5 /* STAPRiskProfileObject.m */; };
+		D7BE7D57187D9AE300210AB5 /* STAPPersonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D56187D9AE300210AB5 /* STAPPersonObject.m */; };
+		D7BE7D5A187D9BDE00210AB5 /* STAPPensionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D59187D9BDE00210AB5 /* STAPPensionObject.m */; };
+		D7BE7D61187DA19500210AB5 /* STAPNameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D60187DA19500210AB5 /* STAPNameObject.m */; };
 		D7CE956D18798A81006B0B73 /* STAPNotificationCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CE956C18798A81006B0B73 /* STAPNotificationCoordinator.m */; };
 		D7CE957018799291006B0B73 /* STServiceCacheConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CE956F18799291006B0B73 /* STServiceCacheConfiguration.m */; };
 		D7D9E094187C51E40017CA7E /* STCacheItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D9E093187C51E40017CA7E /* STCacheItem.m */; };
@@ -102,6 +105,13 @@
 		D7BE7D50187D752C00210AB5 /* STAPICreateSessionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPICreateSessionHandler.m; sourceTree = "<group>"; };
 		D7BE7D52187D798900210AB5 /* STAPRiskProfileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPRiskProfileObject.h; sourceTree = "<group>"; };
 		D7BE7D53187D798900210AB5 /* STAPRiskProfileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPRiskProfileObject.m; sourceTree = "<group>"; };
+		D7BE7D55187D9AE300210AB5 /* STAPPersonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPPersonObject.h; sourceTree = "<group>"; };
+		D7BE7D56187D9AE300210AB5 /* STAPPersonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPPersonObject.m; sourceTree = "<group>"; };
+		D7BE7D58187D9BDE00210AB5 /* STAPPensionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPPensionObject.h; sourceTree = "<group>"; };
+		D7BE7D59187D9BDE00210AB5 /* STAPPensionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPPensionObject.m; sourceTree = "<group>"; };
+		D7BE7D5C187D9E4D00210AB5 /* STPensionTypeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPensionTypeEnum.h; sourceTree = "<group>"; };
+		D7BE7D5F187DA19500210AB5 /* STAPNameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPNameObject.h; sourceTree = "<group>"; };
+		D7BE7D60187DA19500210AB5 /* STAPNameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPNameObject.m; sourceTree = "<group>"; };
 		D7CE956B18798A81006B0B73 /* STAPNotificationCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPNotificationCoordinator.h; sourceTree = "<group>"; };
 		D7CE956C18798A81006B0B73 /* STAPNotificationCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPNotificationCoordinator.m; sourceTree = "<group>"; };
 		D7CE956E18799291006B0B73 /* STServiceCacheConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STServiceCacheConfiguration.h; sourceTree = "<group>"; };
@@ -166,6 +176,12 @@
 				D7BE7D4D187D711E00210AB5 /* STAPGuideObject.m */,
 				D7BE7D52187D798900210AB5 /* STAPRiskProfileObject.h */,
 				D7BE7D53187D798900210AB5 /* STAPRiskProfileObject.m */,
+				D7BE7D55187D9AE300210AB5 /* STAPPersonObject.h */,
+				D7BE7D56187D9AE300210AB5 /* STAPPersonObject.m */,
+				D7BE7D58187D9BDE00210AB5 /* STAPPensionObject.h */,
+				D7BE7D59187D9BDE00210AB5 /* STAPPensionObject.m */,
+				D7BE7D5F187DA19500210AB5 /* STAPNameObject.h */,
+				D7BE7D60187DA19500210AB5 /* STAPNameObject.m */,
 			);
 			path = "Business objects";
 			sourceTree = "<group>";
@@ -240,6 +256,7 @@
 			children = (
 				D7375A341876D88900FBED76 /* Assets */,
 				D7375A371876DC1500FBED76 /* Controllers */,
+				D7BE7D5B187D9E3500210AB5 /* Enumerations */,
 				D73B0D501875924F0060C666 /* Service integration */,
 				D73FCDC1187557BC00742C26 /* STAppDelegate.h */,
 				D73FCDC2187557BC00742C26 /* STAppDelegate.m */,
@@ -264,6 +281,14 @@
 				D73FCDC0187557BC00742C26 /* leowic-3_Labb5-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7BE7D5B187D9E3500210AB5 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE7D5C187D9E4D00210AB5 /* STPensionTypeEnum.h */,
+			);
+			path = Enumerations;
 			sourceTree = "<group>";
 		};
 		D7D9E095187C51F10017CA7E /* Cache */ = {
@@ -378,10 +403,13 @@
 				D7375A441876ECE200FBED76 /* STAPSessionObject.m in Sources */,
 				D7A9194E1878C2AD001707D2 /* STRiskQuestionViewController.m in Sources */,
 				D7BE7D54187D798900210AB5 /* STAPRiskProfileObject.m in Sources */,
+				D7BE7D61187DA19500210AB5 /* STAPNameObject.m in Sources */,
 				D7375A3A1876DC3100FBED76 /* STSplashScreenViewController.m in Sources */,
 				D7375A2B1876BCC800FBED76 /* STServiceConnection.m in Sources */,
 				D7D9E094187C51E40017CA7E /* STCacheItem.m in Sources */,
 				D7375A2E1876CAE000FBED76 /* STAPServiceProxy.m in Sources */,
+				D7BE7D5A187D9BDE00210AB5 /* STAPPensionObject.m in Sources */,
+				D7BE7D57187D9AE300210AB5 /* STAPPersonObject.m in Sources */,
 				D73FCDBF187557BC00742C26 /* main.m in Sources */,
 				D73FCDCF187557BD00742C26 /* STDetailViewController.m in Sources */,
 				D73FCDCC187557BD00742C26 /* STMasterViewController.m in Sources */,

@@ -16,6 +16,9 @@
     if (self) {
         STAPRiskProfileObject *riskProfile = [[STAPRiskProfileObject alloc] init];
         [self setRiskProfile:riskProfile];
+        
+        STAPPersonObject *person = [[STAPPersonObject alloc] init];
+        [self setPerson:person];
     }
     return self;
 }
