@@ -17,6 +17,12 @@
 @property(atomic, strong) NSCache        *cache;
 @property(atomic)         NSUInteger      activeRequests;
 
+-(void) executeNextItemInQueue;
+-(NSString *) convertDictionaryOfArgumentsToJSON: (NSDictionary *)arguments;
+
+-(void) beginDataTraffic;
+-(void) endDataTraffic;
+
 @end
 
 @implementation STService
@@ -34,16 +40,17 @@
     return self;
 }
 
--(void) execute: (NSString *)method methodID: (NSUInteger)methodID arguments: (NSDictionary *)arguments cache: (STServiceCacheConfiguration *)cacheConfiguration
+-(void) execute: (NSString *)method methodID: (NSUInteger)methodID arguments: (NSDictionary *)arguments cache: (BOOL)enableCache
 {
     if (self.executionQueue == nil) {
         NSMutableArray *queue = [[NSMutableArray alloc] init];
         [self setExecutionQueue:queue];
     }
     
-    // Inject cache hash unless inferred.
-    if (cacheConfiguration != nil && cacheConfiguration.cacheHash == nil) {
-        [cacheConfiguration setCacheHashWithUnsignedInteger:arguments.hash];
+    // Enable caching if configured.
+    STServiceCacheConfiguration *cacheConfiguration = nil;
+    if (enableCache) {
+        cacheConfiguration = [[STServiceCacheConfiguration alloc] initWithHash:arguments.hash resetForSignals:nil];
     }
     
     // There is no data, so build a request to the web server
@@ -64,12 +71,18 @@
         [self.executionQueue addObject:serviceConnection];
         
         if (self.executionQueue.count == 1) {
-            [self executeNext];
+            [self executeNextItemInQueue];
         }
     }
 }
 
--(void) executeNext
+-(void) clearCache
+{
+    // Remove all objects from the cache object
+    [self.cache removeAllObjects];
+}
+
+-(void) executeNextItemInQueue
 {
     // Dequeue a service connection
     STServiceConnection *serviceConnection;
@@ -96,6 +109,9 @@
         }
     }
     
+    NSLog(@"-------------------------------");
+    NSLog(@"SERVICE REQUEST: %@", serviceConnection.methodName);
+    
     // The service communication will happen asynchronously
     [serviceConnection start];
     
@@ -113,8 +129,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arguments options:NSJSONWritingPrettyPrinted error:&serializationError];
     NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"Error: %@", serializationError);
-    NSLog(@"Arguments: %@", json);
+    NSLog(@"ARGUMENTS: %@", json);
     
     return json;
 }
@@ -148,16 +163,15 @@
 -(void) connection: (NSURLConnection *)connection didFailWithError: (NSError *)error
 {
     // Send a failure signal, in case some of the controllers are listening to this
-    NSDictionary *errorDescription = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      [NSNumber numberWithBool:YES], @"error",
-                                      error.localizedDescription, @"localizedDescription",
-                                      error.localizedFailureReason, @"localizedFailureReason",
-                                      error.localizedRecoveryOptions, @"localizedRecoveryOptions",
-                                      error.localizedRecoverySuggestion, @"localizedRecoverySuggestion",
-                                      nil];
+    NSDictionary *errorDescription = @{
+                                       @"error": [NSNumber numberWithBool:YES],
+                                       @"localizedDescription": error.localizedDescription,
+                                       @"localizedFailureReason": error.localizedFailureReason,
+                                       @"localizedRecoveryOptions": error.localizedRecoveryOptions,
+                                       @"localizedRecoverySuggestion": error.localizedRecoverySuggestion};
 
     [self endDataTraffic];
-    [self executeNext];
+    [self executeNextItemInQueue];
     
     [self.delegate service:self failedWithError:errorDescription];
 }
@@ -169,14 +183,28 @@
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
-    NSLog(@"%@ reply: %@", methodName, json);
-    NSArray *cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies;
-    for (NSHTTPCookie *cookie in cookies) {
-        NSLog(@"%@: %@ (expires %@)", cookie.name, cookie.value, cookie.expiresDate);
+    if (error) {
+        NSString *responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"ERROR: %@", responseText);
+        
+        NSDictionary *errorDescription = @{
+                                           @"error": [NSNumber numberWithBool:YES],
+                                           @"localizedDescription": error.description
+                                           };
+        [self.delegate service:self failedWithError:errorDescription];
+        
+    } else {
+        
+        NSLog(@"REPLY: %@", json);
+        NSArray *cookies = [NSHTTPCookieStorage sharedHTTPCookieStorage].cookies;
+        for (NSHTTPCookie *cookie in cookies) {
+            NSLog(@"%@: %@ (expires %@)", cookie.name, cookie.value, cookie.expiresDate);
+        }
+        
+        [self executeNextItemInQueue];
+        [self.delegate service:self finishedMethod:methodName methodID:methodID withData:json];
     }
-
-    [self executeNext];
-    [self.delegate service:self finishedMethod:methodName methodID:methodID withData:json];
 }
 
 #pragma mark - Data connection activity indicator

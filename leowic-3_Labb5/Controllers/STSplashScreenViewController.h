@@ -10,8 +10,9 @@
 
 @interface STSplashScreenViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *APISecurityKeyField;
+@property (weak, nonatomic) IBOutlet UITextField  *APISecurityKeyField;
 @property (weak, nonatomic) IBOutlet UIPickerView *APITestUserPicker;
+@property (weak, nonatomic) IBOutlet UIButton     *APITestButton;
 
 -(IBAction) performAuthenticationTest: (UIButton *)sender;
 

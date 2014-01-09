@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "STServiceDelegate.h"
-
-@class STAPRiskProfileObject;
+#import "STAPRiskProfileObject.h"
 
 @interface STAPServiceProxy : NSObject<STServiceDelegate>
 
 typedef enum {
     STAPIRequestLoginUsers = 1,
     STAPILoginUser,
-    STAPIEstablishSession
+    STAPIEstablishSession,
+    STAPIUpdateRiskProfile
 } STAPServiceMethod;
 
 +(NSString *)         APIKey;

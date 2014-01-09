@@ -10,10 +10,10 @@
 
 @interface STAPNameObject : NSObject
 
-@property (atomic, copy) NSString *givenName;
-@property (atomic, copy) NSString *surname;
+@property (nonatomic, copy) NSString *givenName;
+@property (nonatomic, copy) NSString *surname;
 
 -(id) initWithGivenName: (NSString *)givenName surname: (NSString *)surname;
--(NSString *)fullName;
+-(NSString *) fullName;
 
 @end

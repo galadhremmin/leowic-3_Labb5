@@ -8,15 +8,16 @@
 
 #import "STSplashScreenViewController.h"
 #import "STAPServiceProxy.h"
-#import "STAPNotificationCoordinator.h"
+#import "STNotificationCoordinator.h"
 #import "STAPTestUserObject.h"
 
 @interface STSplashScreenViewController ()
 
-@property(nonatomic, strong) NSArray *testUsers;
-@property(nonatomic, strong) STAPNotificationCoordinator *coordinator;
+@property (nonatomic, strong) NSArray                   *testUsers;
+@property (nonatomic, strong) STNotificationCoordinator *coordinator;
 
 @end
+
 
 @implementation STSplashScreenViewController
 
@@ -32,15 +33,15 @@
     [self.navigationController setNavigationBarHidden:YES];
     
     STAPServiceProxy *proxy = [STAPServiceProxy sharedProxy];
-    STAPNotificationCoordinator *coordinator = [[STAPNotificationCoordinator alloc] initWithProxy:proxy context:self sessionCompulsory:NO];
+    STNotificationCoordinator *coordinator = [[STNotificationCoordinator alloc] initWithProxy:[STAPServiceProxy sharedProxy]];
     
-    [coordinator registerSelector:@selector(handleTestUsers:) forSignal:STAPIRequestLoginUsers];
-    [coordinator registerSelector:@selector(handleAuthentication:) forSignal:STAPILoginUser];
+    [coordinator registerSelector:@selector(handleTestUsers:) onDelegate:self forSignal:STAPIRequestLoginUsers];
+    [coordinator registerSelector:@selector(handleAuthentication:) onDelegate:self forSignal:STAPILoginUser];
     [coordinator startCoordination];
     
-    [proxy APIRequestLoginUsers];
-    
     [self setCoordinator:coordinator];
+    
+    [proxy APIRequestLoginUsers];
 }
 
 -(void) viewWillDisappear: (BOOL)animated
@@ -49,7 +50,6 @@
     [self.navigationController setNavigationBarHidden:NO];
 
     [self.coordinator stopCoordination];
-    [self setCoordinator:nil];
 }
 
 #pragma mark - Service integration
@@ -67,14 +67,19 @@
     } else {
         NSLog(@"failed!");
     }
+    
+    [self.APITestButton setEnabled:YES];
 }
 
 #pragma mark - Interface actions
-- (IBAction)performAuthenticationTest:(UIButton *)sender {
+-(IBAction) performAuthenticationTest: (UIButton *)sender {
     NSUInteger selectedIndex =  [self.APITestUserPicker selectedRowInComponent:0];
     STAPTestUserObject *user = self.testUsers[selectedIndex];
     
     [[STAPServiceProxy sharedProxy] APILoginUser:user.userID];
+    
+    // Disable the button for the now.
+    [sender setEnabled:NO];
 }
 
 #pragma mark - Text field delegation

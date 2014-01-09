@@ -10,9 +10,16 @@
 
 @interface STAPRiskProfileObject : NSObject
 
-@property(atomic)         NSInteger       activity;
-@property(atomic)         NSInteger       currentRiskTendency;
-@property(atomic)         NSInteger       calculatedRiskTendency;
-@property(atomic, strong) NSMutableArray *riskQuestionAnswers;
+@property(nonatomic)         NSInteger       activity;
+@property(nonatomic)         NSInteger       currentRiskTendency;
+@property(nonatomic)         NSInteger       calculatedRiskTendency;
+@property(nonatomic, strong) NSMutableArray *riskQuestionAnswers;
+
+-(NSUInteger) countOfRiskQuestionAnswers;
+-(id) objectInRiskQuestionAnswersAtIndex: (NSUInteger)index;
+-(void) addRiskQuestionAnswersObject: (NSNumber *)answer;
+-(void) insertObject: (id)object inRiskQuestionAnswersAtIndex: (NSUInteger)index;
+-(void) removeObjectFromRiskQuestionAnswersAtIndex: (NSUInteger)index;
+-(void) replaceObjectInRiskQuestionAnswersAtIndex: (NSUInteger)index withObject: (id)object;
 
 @end

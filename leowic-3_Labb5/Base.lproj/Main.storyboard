@@ -119,6 +119,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="APISecurityKeyField" destination="W0Y-3b-DgB" id="aGo-dJ-qLl"/>
+                        <outlet property="APITestButton" destination="lt0-9s-GQQ" id="crk-Ct-I5W"/>
                         <outlet property="APITestUserPicker" destination="Eao-Kk-fTj" id="98p-h1-fZU"/>
                         <segue destination="RZc-9a-mY6" kind="push" identifier="GuideSegue" id="5Ye-W3-9Sp"/>
                     </connections>
@@ -188,7 +189,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag hyr/är inneboende" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ylr-39-TTU">
                                                     <rect key="frame" x="15" y="0.0" width="290" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

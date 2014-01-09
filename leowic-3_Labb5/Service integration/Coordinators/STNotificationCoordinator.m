@@ -8,6 +8,7 @@
 
 #import "STNotificationCoordinator.h"
 #import "STServiceDelegate.h"
+#import "STCoordinatorItem.h"
 
 @interface STNotificationCoordinator ()
 
@@ -18,13 +19,12 @@
 
 @implementation STNotificationCoordinator
 
--(id) initWithProxy: (NSObject<STServiceDelegate> *)proxy context: (id)selectorContext
+-(id) initWithProxy: (NSObject<STServiceDelegate> *)proxy
 {
     self = [super init];
     if (self) {
         [self setProxy:proxy];
         [self setSignalSelectors:[[NSMutableDictionary alloc] init]];
-        [self setContext:selectorContext];
     }
     return self;
 }
@@ -34,16 +34,29 @@
     [self stopCoordination];
 }
 
--(void) registerSelector: (SEL)selector forSignal: (NSUInteger)signal
+-(void) registerSelector: (SEL)selector onDelegate: (NSObject *)delegate forSignal: (NSUInteger)signal
 {
     if (self.isCoordinating) {
         [NSException raise:@"The coordinator cannot be changed while running." format:@"Disable coordination in order to add more selectors. "];
     }
-    
     NSString *key = [NSString stringWithFormat:@"%d", signal];
-    NSValue *value = [NSValue valueWithPointer:selector];
+    NSMutableArray *selectors = [self.signalSelectors objectForKey:key];
     
-    [self.signalSelectors setObject:value forKey:key];
+    if (selectors == nil) {
+        selectors = [[NSMutableArray alloc] init];
+    }
+    
+    STCoordinatorItem *item = [[STCoordinatorItem alloc] initWithSelector:selector delegate:delegate];
+    
+    if (![selectors containsObject:item]) {
+        [selectors addObject:item];
+        [self.signalSelectors setObject:selectors forKey:key];
+    }
+}
+
+-(void) removeAllSelectors
+{
+    [self.signalSelectors removeAllObjects];
 }
 
 -(void) startCoordination
@@ -74,23 +87,19 @@
         return NO;
     }
     
-    id methodID    = [[notificationData objectForKey:@"methodID"] stringValue];
-    id data        = [notificationData objectForKey:@"data"];
-    id methodValue = (NSValue *) [self.signalSelectors objectForKey:methodID];
+    id       methodID    = [[notificationData objectForKey:@"methodID"] stringValue];
+    id       data        = [notificationData objectForKey:@"data"];
+    NSArray *selectors   = [self.signalSelectors objectForKey:methodID];
     
-    if (methodValue == nil) {
+    if (selectors == nil) {
         NSLog(@"STSplashScreenViewController: Unsupported signal %@.", methodID);
         return NO;
     }
     
-    SEL method;
-    [methodValue getValue:&method];
-    
-    if (method == nil) {
-        return NO;
+    for (STCoordinatorItem *item in selectors) {
+        [item.delegate performSelector:item.selector withObject:data afterDelay:0];
     }
     
-    [self.context performSelector:method withObject:data afterDelay:0];
     return YES;
 }
 

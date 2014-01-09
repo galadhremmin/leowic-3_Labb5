@@ -20,5 +20,34 @@
     return self;
 }
 
+-(NSUInteger) countOfRiskQuestionAnswers
+{
+    return self.riskQuestionAnswers.count;
+}
+
+-(id) objectInRiskQuestionAnswersAtIndex: (NSUInteger)index
+{
+    return [self.riskQuestionAnswers objectAtIndex:index];
+}
+
+-(void) addRiskQuestionAnswersObject: (NSNumber *)answer
+{
+    [self insertObject:answer inRiskQuestionAnswersAtIndex:self.riskQuestionAnswers.count];
+}
+
+-(void) insertObject: (id)object inRiskQuestionAnswersAtIndex: (NSUInteger)index
+{
+    [self.riskQuestionAnswers insertObject:object atIndex:index];
+}
+
+-(void) removeObjectFromRiskQuestionAnswersAtIndex: (NSUInteger)index
+{
+    [self.riskQuestionAnswers removeObjectAtIndex:index];
+}
+
+-(void) replaceObjectInRiskQuestionAnswersAtIndex: (NSUInteger)index withObject: (id)object
+{
+    [self.riskQuestionAnswers replaceObjectAtIndex:index withObject:object];
+}
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STAPGuideObject.h"
 
 @interface STAPSessionObject : NSObject
+
+@property (atomic, strong) STAPGuideObject *session;
 
 @end

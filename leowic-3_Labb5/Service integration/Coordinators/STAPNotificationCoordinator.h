@@ -8,10 +8,14 @@
 
 #import "STNotificationCoordinator.h"
 #import "STAPServiceProxy.h"
+#import "STAPGuideObject.h"
 
 @interface STAPNotificationCoordinator : STNotificationCoordinator
 
--(id) initWithProxy: (STAPServiceProxy *)proxy context: (id)selectorContext sessionCompulsory: (BOOL)establishGuideSession;
--(void) startCoordination;
++(STAPNotificationCoordinator *) sharedCoordinator;
+
+@property (nonatomic, strong) STAPGuideObject *session;
+
+-(STAPServiceProxy *) serviceProxy;
 
 @end

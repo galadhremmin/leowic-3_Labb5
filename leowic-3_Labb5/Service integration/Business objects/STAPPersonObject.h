@@ -12,13 +12,13 @@
 
 @interface STAPPersonObject : NSObject
 
-@property (atomic)         NSInteger          personID;
-@property (atomic)         NSInteger          visiPersonID;
-@property (atomic)         NSUInteger         age;
-@property (atomic)         NSUInteger         monthlyIncome;
-@property (atomic, copy)   NSString          *civicRegistrationNumber;
-@property (atomic, copy)   NSString          *email;
-@property (atomic, strong) STAPPensionObject *pension;
-@property (atomic, strong) STAPNameObject    *name;
+@property (nonatomic)         NSInteger          personID;
+@property (nonatomic)         NSInteger          visiPersonID;
+@property (nonatomic)         NSUInteger         age;
+@property (nonatomic)         NSUInteger         monthlyIncome;
+@property (nonatomic, copy)   NSString          *civicRegistrationNumber;
+@property (nonatomic, copy)   NSString          *email;
+@property (nonatomic, strong) STAPPensionObject *pension;
+@property (nonatomic, strong) STAPNameObject    *name;
 
 @end

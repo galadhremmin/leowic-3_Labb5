@@ -10,8 +10,8 @@
 
 @interface STAPTestUserObject : NSObject
 
-@property (atomic)       NSUInteger  userID;
-@property (atomic, copy) NSString   *name;
+@property (nonatomic)       NSUInteger  userID;
+@property (nonatomic, copy) NSString   *name;
 
 -(id) initWithID: (NSUInteger)userID name: (NSString *)name;
 

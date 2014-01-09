@@ -11,7 +11,7 @@
 
 @interface STAPPensionObject : NSObject
 
-@property (atomic) STPensionTypeEnum  pensionType;
-@property (atomic) NSUInteger         workedSinceYear;
+@property (nonatomic) STPensionTypeEnum  pensionType;
+@property (nonatomic) NSUInteger         workedSinceYear;
 
 @end

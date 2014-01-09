@@ -10,13 +10,11 @@
 #import "STService.h"
 #import "STAPServiceProxy.h"
 #import "STAPIResponseHandler.h"
-#import "STAPSessionObject.h"
 
 @interface STAPServiceProxy ()
 
 @property(nonatomic, strong) STService   *APIAuthenticationService;
 @property(nonatomic, strong) STService   *APIGuideService;
-@property(atomic, strong)    STAPSessionObject *guideSession;
 @property(atomic)            NSUInteger   APIActiveRequests;
  
 @end
@@ -102,30 +100,40 @@
 
 -(void) APILoginUser: (int)userID
 {
-    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
+    NSDictionary *arguments = @{ @"serviceApiKey": [STAPServiceProxy APIKey],
+                                 @"testUserId": [NSNumber numberWithInt:userID] };
     
-    [arguments setValue:[STAPServiceProxy APIKey] forKey:@"serviceApiKey"];
-    [arguments setValue:[NSNumber numberWithInt:userID] forKey:@"testUserId"];
-    
-    [self.APIAuthenticationService execute:@"ApiAuthenticate" methodID:STAPILoginUser arguments:arguments cache:nil];
+    [self.APIAuthenticationService clearCache];
+    [self.APIAuthenticationService execute:@"ApiAuthenticate" methodID:STAPILoginUser arguments:arguments cache:NO];
 }
 
 -(void) APICreateGuideSession
 {
-    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
+    NSDictionary *arguments = @{@"resume":@"false",
+                                @"type":@"Placering"};
     
-    [arguments setValue:@"true" forKey:@"resume"];
-    [arguments setValue:@"Placering" forKey:@"type"];
+    [self.APIGuideService execute:@"CreateSession" methodID:STAPIEstablishSession arguments:arguments cache:YES];
+}
+
+-(void) APIUpdateRiskProfile: (STAPRiskProfileObject *)riskProfile
+{
+    id        activity  = [NSNull null];
+    NSNumber *riskLevel = [NSNumber numberWithInteger:riskProfile.calculatedRiskTendency];
     
-    NSArray *cacheSignalResetters = @[ [NSNumber numberWithInteger:STAPILoginUser] ];
-    STServiceCacheConfiguration *cacheConfiguration = [[STServiceCacheConfiguration alloc] initWithResetForSignals:cacheSignalResetters];
+    if (riskProfile.activity > -1) {
+        activity = [NSNumber numberWithInteger:riskProfile.activity];
+    }
     
-    [self.APIGuideService execute:@"CreateSession" methodID:STAPIEstablishSession arguments:arguments cache:cacheConfiguration];
+    NSDictionary *arguments = @{@"riskLevel":     riskLevel,
+                                @"answers":       riskProfile.riskQuestionAnswers,
+                                @"activityLevel": activity};
+    
+    [self.APIGuideService execute:@"UpdateAlderspensionRiskProfile" methodID:STAPIUpdateRiskProfile arguments:arguments cache:NO];
 }
 
 #pragma mark - STServiceDelegation
 
--(void) service: (STService *)service finishedMethod: (NSString *)method methodID:(NSUInteger)methodID withData: (NSDictionary *)jsonData
+-(void) service: (STService *)service finishedMethod: (NSString *)method methodID: (NSUInteger)methodID withData: (NSDictionary *)jsonData
 {
     // Build the class name for the converter class. The converter class will translate the
     // dictionary into business objects.

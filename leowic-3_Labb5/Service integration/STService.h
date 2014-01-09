@@ -17,6 +17,9 @@
 @property(nonatomic, weak)   NSObject<STServiceDelegate> *delegate;
 
 -(id) initWithURL: (NSURL *)URL delegate: (NSObject<STServiceDelegate> *)delegate;
--(void) execute: (NSString *)method methodID: (NSUInteger)methodID arguments: (NSDictionary *)arguments cache: (STServiceCacheConfiguration *)cacheConfiguration;
+
+-(void) execute: (NSString *)method methodID: (NSUInteger)methodID arguments: (NSDictionary *)arguments cache: (BOOL)enableCache;
+
+-(void) clearCache;
 
 @end

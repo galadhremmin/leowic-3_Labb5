@@ -12,8 +12,8 @@
 
 @interface STAPGuideObject : NSObject
 
-@property (atomic)         NSUInteger             adviceID;
-@property (atomic, strong) STAPPersonObject      *person;
-@property (atomic, strong) STAPRiskProfileObject *riskProfile;
+@property (nonatomic)         NSUInteger             adviceID;
+@property (nonatomic, strong) STAPPersonObject      *person;
+@property (nonatomic, strong) STAPRiskProfileObject *riskProfile;
 
 @end
