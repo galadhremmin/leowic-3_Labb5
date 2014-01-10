@@ -316,15 +316,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="FAN-P1-ZvP" rowHeight="65" style="IBUITableViewCellStyleDefault" id="p8N-0G-Dfr">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="FAN-P1-ZvP" rowHeight="65" style="IBUITableViewCellStyleDefault" id="p8N-0G-Dfr">
                                         <rect key="frame" x="0.0" y="220" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8N-0G-Dfr" id="B84-MA-F2z">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag har eget företag" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="FAN-P1-ZvP">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag har eget företag" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="FAN-P1-ZvP">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -436,15 +436,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NmN-Fq-fGg" rowHeight="85" style="IBUITableViewCellStyleDefault" id="dSC-cj-UgO">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NmN-Fq-fGg" rowHeight="85" style="IBUITableViewCellStyleDefault" id="dSC-cj-UgO">
                                         <rect key="frame" x="0.0" y="240" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dSC-cj-UgO" id="XaL-eV-pQe">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag föredrar möjlighet till högre avkastning om det innebär låg risk att de förlorar i värde." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="NmN-Fq-fGg">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag föredrar möjlighet till högre avkastning om det innebär låg risk att de förlorar i värde." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="NmN-Fq-fGg">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -666,13 +666,33 @@
                             <outlet property="delegate" destination="KXN-i8-02U" id="HXO-3M-Z5m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Riskbenägenhet" id="77r-Uv-Tj8">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="41L-Wg-uZz"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Riskbenägenhet" id="77r-Uv-Tj8"/>
+                    <connections>
+                        <segue destination="Rx5-HB-Njf" kind="push" identifier="RiskQuestionSegue5" id="XGx-NN-jF0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWP-dw-AzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2704" y="64"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZM4-wd-pNF">
+            <objects>
+                <viewController id="Rx5-HB-Njf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="66l-1w-Wev"/>
+                        <viewControllerLayoutGuide type="bottom" id="cOB-y8-vzS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9MU-Nh-9Xq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wYL-F8-GiL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XH2-yY-7M4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3134" y="64"/>
         </scene>
     </scenes>
     <resources>

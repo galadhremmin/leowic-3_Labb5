@@ -12,7 +12,14 @@
 
 -(id) handleResponseWithData: (NSDictionary *)responseData
 {
-    return [NSNumber numberWithBool:YES];
+    NSDictionary *root = [responseData objectForKey:@"UpdateAlderspensionRiskProfileResult"];
+    id riskTendency = [root objectForKey:@"Level"];
+    
+    if (!riskTendency && riskTendency == [NSNull null]) {
+        riskTendency = [NSNumber numberWithInt:0];
+    }
+    
+    return riskTendency;
 }
 
 @end

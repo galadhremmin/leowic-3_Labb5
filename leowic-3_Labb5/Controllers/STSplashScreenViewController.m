@@ -9,6 +9,7 @@
 #import "STSplashScreenViewController.h"
 #import "STAPServiceProxy.h"
 #import "STNotificationCoordinator.h"
+#import "STAPNotificationCoordinator.h"
 #import "STAPTestUserObject.h"
 
 @interface STSplashScreenViewController ()
@@ -49,7 +50,9 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 
+    // Stop and destroy the coordinator, effectually releasing it from the memory.
     [self.coordinator stopCoordination];
+    [self setCoordinator:nil];
 }
 
 #pragma mark - Service integration
@@ -63,6 +66,10 @@
 {
     BOOL success = [result boolValue];
     if (success) {
+        // Purges the shared coordinator's state, which will force fresh data collection.
+        [[STAPNotificationCoordinator sharedCoordinator] clearState];
+        
+        // Let's begin!
         [self performSegueWithIdentifier:@"GuideSegue" sender:nil];
     } else {
         NSLog(@"failed!");

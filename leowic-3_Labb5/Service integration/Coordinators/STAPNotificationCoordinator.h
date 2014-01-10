@@ -14,7 +14,7 @@
 
 +(STAPNotificationCoordinator *) sharedCoordinator;
 
-@property (nonatomic, strong) STAPGuideObject *session;
+@property (nonatomic, strong, readonly) STAPGuideObject *session;
 
 -(STAPServiceProxy *) serviceProxy;
 

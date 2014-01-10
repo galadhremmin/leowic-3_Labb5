@@ -7,11 +7,13 @@
 //
 
 #import "STAppDelegate.h"
+#import "NUIAppearance.h"
 
 @implementation STAppDelegate
 
 -(BOOL) application: (UIApplication *)application didFinishLaunchingWithOptions: (NSDictionary *)launchOptions
 {
+    [NUIAppearance init];
     return YES;
 }
 

@@ -15,7 +15,6 @@
 
 @property(nonatomic, strong) STService   *APIAuthenticationService;
 @property(nonatomic, strong) STService   *APIGuideService;
-@property(atomic)            NSUInteger   APIActiveRequests;
  
 @end
 
@@ -62,8 +61,6 @@
         URL = [NSURL URLWithString:[bundle objectForInfoDictionaryKey:@"API Guide URL"]];
         service = [[STService alloc] initWithURL:URL delegate:self];
         [self setAPIGuideService:service];
-        
-        [self setAPIActiveRequests:0];
     }
     return self;
 }
@@ -132,6 +129,11 @@
 }
 
 #pragma mark - STServiceDelegation
+
+-(BOOL) isActive
+{
+    return self.APIAuthenticationService.activeRequests + self.APIGuideService.activeRequests > 0;
+}
 
 -(void) service: (STService *)service finishedMethod: (NSString *)method methodID: (NSUInteger)methodID withData: (NSDictionary *)jsonData
 {

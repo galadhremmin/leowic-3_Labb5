@@ -11,6 +11,8 @@
 
 @protocol STServiceDelegate <NSObject>
 
+-(BOOL) isActive;
+
 -(void) service: (STService *)service finishedMethod: (NSString *)method methodID: (NSUInteger)methodID withData: (NSDictionary *)jsonData;
 -(void) service: (STService *)service failedWithError: (NSDictionary *)errorData;
 

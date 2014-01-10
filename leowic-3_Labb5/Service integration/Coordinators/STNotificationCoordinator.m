@@ -59,6 +59,11 @@
     [self.signalSelectors removeAllObjects];
 }
 
+-(void) clearState
+{
+    // Does nothing – there is no state for this class.
+}
+
 -(void) startCoordination
 {
     if (!self.isCoordinating) {

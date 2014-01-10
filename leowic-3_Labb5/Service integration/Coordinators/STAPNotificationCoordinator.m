@@ -13,7 +13,7 @@
 @interface STAPNotificationCoordinator ()
 
 @property (nonatomic, weak) id               delegate;
-@property (atomic, strong)  STAPGuideObject *guideSession;
+@property (atomic, strong)  STAPGuideObject *session;
 
 -(STAPServiceProxy *) serviceProxy;
 -(void) handleGuideSession: (NSNotification *)notification;
@@ -38,6 +38,17 @@
     return (STAPServiceProxy *) self.proxy;
 }
 
+-(void) clearState
+{
+    [super clearState];
+    
+    if (self.session) {
+        [self.session removeObserver:self forKeyPath:@"riskProfile.riskQuestionAnswers"];
+    }
+    
+    [self setSession:nil];
+}
+
 -(void) startCoordination
 {
     [self registerSelector:@selector(handleGuideSession:) onDelegate:self forSignal:STAPIEstablishSession];
@@ -58,10 +69,7 @@
 
 -(void) handleGuideSession: (STAPGuideObject *)session
 {
-    if (self.session) {
-        [self.session removeObserver:self forKeyPath:@"riskProfile.riskQuestionAnswers"];
-    }
-    
+    [self clearState];
     [session addObserver:self forKeyPath:@"riskProfile.riskQuestionAnswers" options:NSKeyValueObservingOptionNew context:NULL];
     [self setSession:session];
 }

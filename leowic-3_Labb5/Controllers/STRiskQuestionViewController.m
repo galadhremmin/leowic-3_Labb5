@@ -12,12 +12,12 @@
 
 @interface STRiskQuestionViewController ()
 
-@property(nonatomic) NSInteger                selectedQuestionIndex;
-@property(nonatomic) UIActivityIndicatorView *spinnerView;
+@property(nonatomic) UITableViewCell *selectedQuestionCell;
 
+-(STAPNotificationCoordinator *) coordinator;
 -(NSString *) previousSegueIdentifier;
 -(NSString *) nextSegueIdentifier;
--(void) handleRiskProfile: (STAPRiskProfileObject *)riskProfile;
+-(void) handleRiskProfile: (NSNumber *)calculatedRiskTendency;
 
 @end
 
@@ -34,21 +34,23 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
-    [self setSelectedQuestionIndex:-1];
-    
-    STAPNotificationCoordinator *coordinator = [STAPNotificationCoordinator sharedCoordinator];
-    [coordinator registerSelector:@selector(handleRiskProfile:) onDelegate:self forSignal:STAPIUpdateRiskProfile];
-    [coordinator startCoordination];
+    [self.coordinator registerSelector:@selector(handleRiskProfile:) onDelegate:self forSignal:STAPIUpdateRiskProfile];
+    [self.coordinator startCoordination];
 }
 
 -(void) viewWillDisappear: (BOOL)animated
 {
-    [[STAPNotificationCoordinator sharedCoordinator] stopCoordination];
+    [self.coordinator stopCoordination];
     
-    if (self.spinnerView) {
-        [self.spinnerView removeFromSuperview];
-        [self setSpinnerView:nil];
+    if (self.selectedQuestionCell) {
+        [self.selectedQuestionCell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        [self.selectedQuestionCell setAccessoryView:nil];
     }
+}
+
+-(STAPNotificationCoordinator *) coordinator
+{
+    return [STAPNotificationCoordinator sharedCoordinator];
 }
 
 -(NSString *) previousSegueIdentifier
@@ -63,17 +65,26 @@
     return [NSString stringWithFormat:@"RiskQuestionSegue%d", nextQuestionIndex];
 }
 
--(void) handleRiskProfile: (STAPRiskProfileObject *)riskProfile
+-(void) handleRiskProfile: (NSNumber *)calculatedRiskTendency
 {
+    [self.coordinator.session.riskProfile setCalculatedRiskTendency:[calculatedRiskTendency intValue]];
+    
     // Go to the next segue
     [self performSegueWithIdentifier:self.nextSegueIdentifier sender:nil];
 }
 
 -(NSIndexPath *) tableView: (UITableView *)tableView willSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    // If there's a spinner somewhere, something's loaded and further user interaction is disabled.
-    if (self.spinnerView) {
+    // If the service proxy is still handling requests, wait for it to finish before
+    // enabling the client to move on.
+    if (self.coordinator.serviceProxy.isActive) {
         return nil;
+    }
+    
+    // Deselect the cell currently selected
+    if (self.selectedQuestionCell) {
+        [self.selectedQuestionCell setAccessoryType:UITableViewCellAccessoryNone];
+        [self setSelectedQuestionCell:nil];
     }
     
     // Acquire the cell upon which the client clicked.
@@ -83,8 +94,7 @@
     }
     
     // Update the risk profile and notify the service proxy of this change.
-    STAPNotificationCoordinator *coordinator = [STAPNotificationCoordinator sharedCoordinator];
-    STAPRiskProfileObject *risk = coordinator.session.riskProfile;
+    STAPRiskProfileObject *risk = self.coordinator.session.riskProfile;
     NSNumber *answer = [NSNumber numberWithInteger:indexPath.row];
     
     if (risk.riskQuestionAnswers.count <= self.questionIndex) {
@@ -96,16 +106,11 @@
     // Add a spinner to the cell as an indication that something's going on.
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [cell setAccessoryView: spinner];
-    [self setSpinnerView:spinner];
+    [self setSelectedQuestionCell:cell];
     
     [spinner startAnimating];
     
     return indexPath;
-}
-
--(BOOL) shouldPerformSegueWithIdentifier: (NSString *)identifier sender: (id)sender
-{
-    return self.selectedQuestionIndex >= 0;
 }
 
 -(void) prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender

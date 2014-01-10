@@ -18,6 +18,7 @@
 
 -(void) registerSelector: (SEL)selector onDelegate: (NSObject *)delegate forSignal: (NSUInteger)signal;
 -(void) removeAllSelectors;
+-(void) clearState;
 
 -(void) startCoordination;
 -(void) stopCoordination;

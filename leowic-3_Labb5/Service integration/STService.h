@@ -13,8 +13,9 @@
 
 @interface STService : NSObject<NSURLConnectionDelegate>
 
-@property(nonatomic, strong) NSURL *URL;
+@property(nonatomic, strong) NSURL                       *URL;
 @property(nonatomic, weak)   NSObject<STServiceDelegate> *delegate;
+@property(atomic, readonly)  NSUInteger                   activeRequests;
 
 -(id) initWithURL: (NSURL *)URL delegate: (NSObject<STServiceDelegate> *)delegate;
 
