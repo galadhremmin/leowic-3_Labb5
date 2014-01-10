@@ -99,6 +99,14 @@
 		D7D5C77618802B4A000D2765 /* UIWindow+NUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5C73E18802B4A000D2765 /* UIWindow+NUI.m */; };
 		D7D5C77818802B64000D2765 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D5C77718802B64000D2765 /* CoreImage.framework */; };
 		D7D5C77A18802B6D000D2765 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D5C77918802B6D000D2765 /* QuartzCore.framework */; };
+		D7D5C77D18803115000D2765 /* STGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5C77C18803115000D2765 /* STGalleryViewController.m */; };
+		D7D5C77F188036C7000D2765 /* slideshow-background.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D5C77E188036C7000D2765 /* slideshow-background.png */; };
+		D7D5C7821880423A000D2765 /* STAPGalleryItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5C7811880423A000D2765 /* STAPGalleryItemObject.m */; };
+		D7D5C78518804386000D2765 /* Gallery Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7D5C78418804386000D2765 /* Gallery Configuration.plist */; };
+		D7D5C78A1880451D000D2765 /* pension-bildspel-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D5C7861880451D000D2765 /* pension-bildspel-1.png */; };
+		D7D5C78B1880451D000D2765 /* pension-bildspel-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D5C7871880451D000D2765 /* pension-bildspel-2.png */; };
+		D7D5C78C1880451D000D2765 /* pension-bildspel-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D5C7881880451D000D2765 /* pension-bildspel-3.png */; };
+		D7D5C78D1880451D000D2765 /* pension-bildspel-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D5C7891880451D000D2765 /* pension-bildspel-4.png */; };
 		D7D9E094187C51E40017CA7E /* STCacheItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D9E093187C51E40017CA7E /* STCacheItem.m */; };
 /* End PBXBuildFile section */
 
@@ -277,6 +285,16 @@
 		D7D5C73E18802B4A000D2765 /* UIWindow+NUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+NUI.m"; sourceTree = "<group>"; };
 		D7D5C77718802B64000D2765 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		D7D5C77918802B6D000D2765 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D7D5C77B18803115000D2765 /* STGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGalleryViewController.h; sourceTree = "<group>"; };
+		D7D5C77C18803115000D2765 /* STGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGalleryViewController.m; sourceTree = "<group>"; };
+		D7D5C77E188036C7000D2765 /* slideshow-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slideshow-background.png"; sourceTree = "<group>"; };
+		D7D5C7801880423A000D2765 /* STAPGalleryItemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPGalleryItemObject.h; sourceTree = "<group>"; };
+		D7D5C7811880423A000D2765 /* STAPGalleryItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPGalleryItemObject.m; sourceTree = "<group>"; };
+		D7D5C78418804386000D2765 /* Gallery Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Gallery Configuration.plist"; sourceTree = "<group>"; };
+		D7D5C7861880451D000D2765 /* pension-bildspel-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pension-bildspel-1.png"; sourceTree = "<group>"; };
+		D7D5C7871880451D000D2765 /* pension-bildspel-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pension-bildspel-2.png"; sourceTree = "<group>"; };
+		D7D5C7881880451D000D2765 /* pension-bildspel-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pension-bildspel-3.png"; sourceTree = "<group>"; };
+		D7D5C7891880451D000D2765 /* pension-bildspel-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pension-bildspel-4.png"; sourceTree = "<group>"; };
 		D7D9E092187C51E40017CA7E /* STCacheItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCacheItem.h; sourceTree = "<group>"; };
 		D7D9E093187C51E40017CA7E /* STCacheItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCacheItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -335,6 +353,11 @@
 		D7375A341876D88900FBED76 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D7D5C7861880451D000D2765 /* pension-bildspel-1.png */,
+				D7D5C7871880451D000D2765 /* pension-bildspel-2.png */,
+				D7D5C7881880451D000D2765 /* pension-bildspel-3.png */,
+				D7D5C7891880451D000D2765 /* pension-bildspel-4.png */,
+				D7D5C77E188036C7000D2765 /* slideshow-background.png */,
 				D7375A351876D8AA00FBED76 /* logo.png */,
 			);
 			path = Assets;
@@ -345,6 +368,8 @@
 			children = (
 				D7375A381876DC3100FBED76 /* STSplashScreenViewController.h */,
 				D7375A391876DC3100FBED76 /* STSplashScreenViewController.m */,
+				D7D5C77B18803115000D2765 /* STGalleryViewController.h */,
+				D7D5C77C18803115000D2765 /* STGalleryViewController.m */,
 				D7A9194C1878C2AD001707D2 /* STRiskQuestionViewController.h */,
 				D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */,
 			);
@@ -366,6 +391,8 @@
 				D7BE7D59187D9BDE00210AB5 /* STAPPensionObject.m */,
 				D7BE7D5F187DA19500210AB5 /* STAPNameObject.h */,
 				D7BE7D60187DA19500210AB5 /* STAPNameObject.m */,
+				D7D5C7801880423A000D2765 /* STAPGalleryItemObject.h */,
+				D7D5C7811880423A000D2765 /* STAPGalleryItemObject.m */,
 			);
 			path = "Business objects";
 			sourceTree = "<group>";
@@ -437,6 +464,7 @@
 		D73FCDB8187557BC00742C26 /* leowic-3_Labb5 */ = {
 			isa = PBXGroup;
 			children = (
+				D7D5C7831880434D000D2765 /* Configuration */,
 				D7D5C6D018802B4A000D2765 /* Dependencies */,
 				D7375A341876D88900FBED76 /* Assets */,
 				D7375A371876DC1500FBED76 /* Controllers */,
@@ -630,6 +658,14 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		D7D5C7831880434D000D2765 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				D7D5C78418804386000D2765 /* Gallery Configuration.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		D7D9E095187C51F10017CA7E /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,18 +755,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7D5C75F18802B4A000D2765 /* Googolplex.NUI.nss in Resources */,
+				D7D5C78C1880451D000D2765 /* pension-bildspel-3.png in Resources */,
 				D7D5C75E18802B4A000D2765 /* Default.NUI.nss in Resources */,
 				D7D5C76218802B4A000D2765 /* SkyBlue.NUI.nss in Resources */,
 				D7375A361876D8AA00FBED76 /* logo.png in Resources */,
 				D7D5C75D18802B4A000D2765 /* Blue.NUI.nss in Resources */,
+				D7D5C78D1880451D000D2765 /* pension-bildspel-4.png in Resources */,
 				D73FCDD1187557BD00742C26 /* Images.xcassets in Resources */,
 				D7D5C76118802B4A000D2765 /* Route.NUI.nss in Resources */,
+				D7D5C78B1880451D000D2765 /* pension-bildspel-2.png in Resources */,
 				D73FCDBD187557BC00742C26 /* InfoPlist.strings in Resources */,
 				D7D5C75C18802B4A000D2765 /* NUIViewBackground.png in Resources */,
 				D7D5C75B18802B4A000D2765 /* NUIStyle.nss in Resources */,
 				D73FCDC6187557BC00742C26 /* Main.storyboard in Resources */,
 				D7D5C76018802B4A000D2765 /* Round.NUI.nss in Resources */,
+				D7D5C78518804386000D2765 /* Gallery Configuration.plist in Resources */,
+				D7D5C77F188036C7000D2765 /* slideshow-background.png in Resources */,
 				D7D5C76318802B4A000D2765 /* Switchboard.NUI.nss in Resources */,
+				D7D5C78A1880451D000D2765 /* pension-bildspel-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,6 +806,7 @@
 				D7BE7D61187DA19500210AB5 /* STAPNameObject.m in Sources */,
 				D7375A3A1876DC3100FBED76 /* STSplashScreenViewController.m in Sources */,
 				D7375A2B1876BCC800FBED76 /* STServiceConnection.m in Sources */,
+				D7D5C7821880423A000D2765 /* STAPGalleryItemObject.m in Sources */,
 				D7D9E094187C51E40017CA7E /* STCacheItem.m in Sources */,
 				D7D5C75318802B4A000D2765 /* NUITabBarItemRenderer.m in Sources */,
 				D7174E00187F038B00D8DE63 /* STAPIUpdateAlderspensionRiskProfileHandler.m in Sources */,
@@ -798,6 +841,7 @@
 				D7D5C75718802B4A000D2765 /* NUITextFieldRenderer.m in Sources */,
 				D7D5C73F18802B4A000D2765 /* NUIAppearance.m in Sources */,
 				D7375A491876EE5700FBED76 /* STAPIApiAvailableUsersHandler.m in Sources */,
+				D7D5C77D18803115000D2765 /* STGalleryViewController.m in Sources */,
 				D7D5C76A18802B4A000D2765 /* UIProgressView+NUI.m in Sources */,
 				D7BE7D51187D752C00210AB5 /* STAPICreateSessionHandler.m in Sources */,
 				D7D5C77218802B4A000D2765 /* UITableViewCell+NUI.m in Sources */,
@@ -939,6 +983,7 @@
 				GCC_PREFIX_HEADER = "leowic-3_Labb5/leowic-3_Labb5-Prefix.pch";
 				INFOPLIST_FILE = "leowic-3_Labb5/leowic-3_Labb5-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -952,6 +997,7 @@
 				GCC_PREFIX_HEADER = "leowic-3_Labb5/leowic-3_Labb5-Prefix.pch";
 				INFOPLIST_FILE = "leowic-3_Labb5/leowic-3_Labb5-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

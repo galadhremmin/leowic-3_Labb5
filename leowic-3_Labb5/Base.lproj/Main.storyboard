@@ -121,27 +121,75 @@
                         <outlet property="APISecurityKeyField" destination="W0Y-3b-DgB" id="aGo-dJ-qLl"/>
                         <outlet property="APITestButton" destination="lt0-9s-GQQ" id="crk-Ct-I5W"/>
                         <outlet property="APITestUserPicker" destination="Eao-Kk-fTj" id="98p-h1-fZU"/>
-                        <segue destination="RZc-9a-mY6" kind="push" identifier="GuideSegue" id="5Ye-W3-9Sp"/>
+                        <segue destination="fno-Qa-aq9" kind="push" identifier="GuideSegue" id="UJJ-m4-AUR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMd-pC-GWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="251" y="754"/>
         </scene>
-        <!--View Controller-->
+        <!--Gallery View Controller-->
         <scene sceneID="yfr-p4-aGo">
             <objects>
-                <viewController id="fno-Qa-aq9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GalleryIdentifier" id="fno-Qa-aq9" customClass="STGalleryViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4yt-Ya-DoT"/>
-                        <viewControllerLayoutGuide type="bottom" id="XiM-Tf-C7V"/>
+                        <viewControllerLayoutGuide type="top" id="2yj-rA-m8R"/>
+                        <viewControllerLayoutGuide type="bottom" id="JbV-nl-1Sc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="skH-se-BOO">
+                    <view key="view" contentMode="scaleToFill" id="DLb-Ki-vPv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZB9-xo-LNR">
+                                <rect key="frame" x="0.0" y="88" width="320" height="235"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="0dq-Zc-jFA"/>
+                                    <constraint firstAttribute="height" constant="235" id="bkE-qI-L4T"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="4nO-IJ-hdr">
+                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Uze-Qj-DMh">
+                                <rect key="frame" x="20" y="49" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZB9-xo-LNR" firstAttribute="leading" secondItem="DLb-Ki-vPv" secondAttribute="leading" id="5GA-zh-ARu"/>
+                            <constraint firstAttribute="trailing" secondItem="Uze-Qj-DMh" secondAttribute="trailing" constant="20" id="DFn-ch-G02"/>
+                            <constraint firstItem="Uze-Qj-DMh" firstAttribute="leading" secondItem="DLb-Ki-vPv" secondAttribute="leading" constant="20" id="Ma4-zi-czz"/>
+                            <constraint firstItem="Uze-Qj-DMh" firstAttribute="top" secondItem="4nO-IJ-hdr" secondAttribute="bottom" constant="8" id="PB2-DB-xhl"/>
+                            <constraint firstItem="ZB9-xo-LNR" firstAttribute="top" secondItem="Uze-Qj-DMh" secondAttribute="bottom" constant="18" id="RXe-Sx-J5j"/>
+                            <constraint firstAttribute="trailing" secondItem="4nO-IJ-hdr" secondAttribute="trailing" constant="20" id="b9B-wm-AZm"/>
+                            <constraint firstItem="4nO-IJ-hdr" firstAttribute="leading" secondItem="DLb-Ki-vPv" secondAttribute="leading" constant="20" id="en3-fj-BKW"/>
+                            <constraint firstAttribute="trailing" secondItem="ZB9-xo-LNR" secondAttribute="trailing" id="lBJ-vl-ONj"/>
+                            <constraint firstItem="4nO-IJ-hdr" firstAttribute="top" secondItem="2yj-rA-m8R" secondAttribute="bottom" constant="20" id="rqG-Rl-N84"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="GalleryView"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" id="0Ve-WV-Ng2"/>
+                    <navigationItem key="navigationItem" id="0Ve-WV-Ng2">
+                        <barButtonItem key="rightBarButtonItem" title="Starta rådgivning" id="iet-gw-Cvt">
+                            <connections>
+                                <action selector="startSessionButtonClicked:" destination="fno-Qa-aq9" id="Z0p-rx-Aoz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="galleryCaptionLabel" destination="4nO-IJ-hdr" id="igW-yN-vug"/>
+                        <outlet property="galleryImageView" destination="ZB9-xo-LNR" id="VcK-7o-SGm"/>
+                        <outlet property="galleryTextBodyLabel" destination="Uze-Qj-DMh" id="OoN-PS-UZC"/>
+                        <segue destination="RZc-9a-mY6" kind="push" identifier="StartSessionSegue" id="EmM-q0-HV9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lP4-2I-f56" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

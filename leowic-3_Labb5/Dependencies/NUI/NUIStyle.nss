@@ -131,3 +131,6 @@ View {
     background-color: @primaryBackgroundColor;
     background-image: NUIViewBackground.png;
 }
+View:GalleryView {
+    background-image: slideshow-background.png;
+}

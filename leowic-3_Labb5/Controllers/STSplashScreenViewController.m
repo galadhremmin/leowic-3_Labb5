@@ -72,7 +72,8 @@
         // Let's begin!
         [self performSegueWithIdentifier:@"GuideSegue" sender:nil];
     } else {
-        NSLog(@"failed!");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Misslyckad inloggning!" message:@"Du kunde inte loggas in. Kontrollera säkerhetskoden." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }
     
     [self.APITestButton setEnabled:YES];
@@ -93,6 +94,7 @@
 -(BOOL) textFieldShouldReturn: (UITextField *)textField
 {
     [textField resignFirstResponder];
+    [STAPServiceProxy setAPIKey:textField.text];
     return NO;
 }
 

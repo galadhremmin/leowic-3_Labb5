@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>caption</key>
+		<string>Välkommen {person.name.fullName}!</string>
+		<key>textBody</key>
+		<string>Du har en kollektivavtalad försäkring med ITP genom din arbetsgivare som ger dig möjlighet att påverka din pension. Här får du veta mer om vad det innebär.</string>
+		<key>illustrationPath</key>
+		<string>pension-bildspel-1.png</string>
+	</dict>
+	<dict>
+		<key>caption</key>
+		<string>Hjälp pengarna att växa</string>
+		<key>textBody</key>
+		<string>Du som har ITP kan påverka hur dina pensionspengar ska växa. Steg för steg hjälper vi dig att hitta placeringar som passar din riskprofil och din aktivitetsnivå till låga avgifter.</string>
+		<key>illustrationPath</key>
+		<string>pension-bildspel-2.png</string>
+	</dict>
+	<dict>
+		<key>caption</key>
+		<string>Våra råd gäller även din premiepension</string>
+		<key>textBody</key>
+		<string>För att du ska få en så bra pension som möjligt ger vi placeringsråd som gäller både din tjänstepension och din premiepension.</string>
+		<key>illustrationPath</key>
+		<string>pension-bildspel-3.png</string>
+	</dict>
+	<dict>
+		<key>caption</key>
+		<string>Är du redo att starta rådgivningen om ålderspension?</string>
+		<key>textBody</key>
+		<string>Börja gärna med att kontrollera uppgifterna på Min sida. Eller klicka på Starta rådgivning för att sätta igång.</string>
+		<key>illustrationPath</key>
+		<string>pension-bildspel-4.png</string>
+	</dict>
+</array>
+</plist>

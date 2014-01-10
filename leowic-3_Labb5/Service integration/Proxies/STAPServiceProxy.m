@@ -22,7 +22,12 @@
 
 +(NSString *) APIKey
 {
-    return [[NSUserDefaults standardUserDefaults] valueForKey:@"API Key"];
+    NSString *key = (NSString *)[[NSUserDefaults standardUserDefaults] valueForKey:@"API Key"];
+    if (!key) {
+        return @"";
+    }
+    
+    return key;
 }
 
 +(void) setAPIKey: (NSString *)key
