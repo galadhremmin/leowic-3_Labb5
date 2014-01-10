@@ -759,14 +759,21 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="10M-08-FvU">
-                                <rect key="frame" x="20" y="141" width="272" height="264"/>
+                                <rect key="frame" x="20" y="141" width="272" height="183"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Ju högre din riskprofil är, desto lägre blir garantin att du ska få tillbaka dina pengar. Samtidigt ökar chansen till god avkastning.
 
-Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina pengar. Samtidigt har du inte lika stor chans till hög avkastning. I takt med att risken ökar, ökar alltså spannet mellan hur mycket du kan vinna och hur mycket du kan förlora.</string>
+Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina pengar. Samtidigt har du inte lika stor chans till hög avkastning.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofu-0s-eJy">
+                                <rect key="frame" x="20" y="345" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Gå vidare">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -774,8 +781,11 @@ Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina peng
                             <constraint firstItem="10M-08-FvU" firstAttribute="top" secondItem="P0X-uR-6IT" secondAttribute="bottom" constant="21" id="4gH-Mo-JEW"/>
                             <constraint firstItem="P0X-uR-6IT" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="A08-F8-cp8"/>
                             <constraint firstItem="Bqz-Dw-9gR" firstAttribute="top" secondItem="66l-1w-Wev" secondAttribute="bottom" constant="20" id="C6m-sf-emd"/>
+                            <constraint firstItem="Ofu-0s-eJy" firstAttribute="top" secondItem="10M-08-FvU" secondAttribute="bottom" constant="21" id="Mcv-ib-xPk"/>
+                            <constraint firstAttribute="trailing" secondItem="Ofu-0s-eJy" secondAttribute="trailing" constant="20" id="RCU-CM-oQT"/>
                             <constraint firstAttribute="trailing" secondItem="Bqz-Dw-9gR" secondAttribute="trailing" constant="28" id="RaI-WC-ywg"/>
                             <constraint firstItem="Bqz-Dw-9gR" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="Rla-9v-wqk"/>
+                            <constraint firstItem="Ofu-0s-eJy" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="T4D-HD-7Us"/>
                             <constraint firstAttribute="trailing" secondItem="P0X-uR-6IT" secondAttribute="trailing" constant="28" id="lpD-7e-Bj3"/>
                             <constraint firstAttribute="trailing" secondItem="10M-08-FvU" secondAttribute="trailing" constant="28" id="pLy-gE-2WQ"/>
                             <constraint firstItem="10M-08-FvU" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="ptX-Dw-feh"/>
