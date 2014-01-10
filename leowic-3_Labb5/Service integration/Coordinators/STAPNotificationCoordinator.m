@@ -51,13 +51,15 @@
 
 -(void) startCoordination
 {
-    [self registerSelector:@selector(handleGuideSession:) onDelegate:self forSignal:STAPIEstablishSession];
+    [self registerSelector:@selector(handleGuideSession:) onDelegate:self forSignal:STAPIEstablishSession inferredPosition:0];
     
     [super startCoordination];
     
     // Force a create session request as the first enqueued request
-    if (self.session == nil) {
+    if (!self.session) {
         [self.serviceProxy APICreateGuideSession];
+    } else {
+        [super signal:[NSNumber numberWithInteger:STAPIEstablishSession] withData:self.session];
     }
 }
 

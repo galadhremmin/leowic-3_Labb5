@@ -1,4 +1,5 @@
 @primaryFontName: AppleGothic;
+@primaryFontNameBold: Helvetica-Bold;
 @secondaryFontName: HelveticaNeue-Light;
 @secondaryFontNameBold: HelveticaNeue;
 @secondaryFontNameStrong: HelveticaNeue-Medium;
@@ -133,4 +134,10 @@ View {
 }
 View:GalleryView {
     background-image: slideshow-background.png;
+}
+Label:GalleryViewTextBody {
+    font-color: #000000;
+}
+Label:TitleLabel {
+    font-name: @primaryFontNameBold;
 }

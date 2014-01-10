@@ -12,7 +12,7 @@
 
 @interface STRiskQuestionViewController ()
 
-@property(nonatomic) UITableViewCell *selectedQuestionCell;
+@property (nonatomic) UITableViewCell *selectedQuestionCell;
 
 -(STAPNotificationCoordinator *) coordinator;
 -(NSString *) previousSegueIdentifier;

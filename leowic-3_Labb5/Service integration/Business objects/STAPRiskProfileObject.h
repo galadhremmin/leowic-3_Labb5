@@ -15,6 +15,10 @@
 @property(nonatomic)         NSInteger       calculatedRiskTendency;
 @property(nonatomic, strong) NSMutableArray *riskQuestionAnswers;
 
+// String description for calculated risk tendency
+-(NSString *) calculatedRiskTendencyDescription;
+
+// KVO for riskQuestionAnswers
 -(NSUInteger) countOfRiskQuestionAnswers;
 -(id) objectInRiskQuestionAnswersAtIndex: (NSUInteger)index;
 -(void) addRiskQuestionAnswersObject: (NSNumber *)answer;

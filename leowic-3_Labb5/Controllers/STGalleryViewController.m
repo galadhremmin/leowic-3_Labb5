@@ -8,6 +8,7 @@
 
 #import "STGalleryViewController.h"
 #import "STAPGalleryItemObject.h"
+#import "STAPNotificationCoordinator.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface STGalleryViewController ()
@@ -15,6 +16,11 @@
 @property (nonatomic, strong) NSArray   *galleryItems;
 @property (nonatomic)         NSInteger  currentIndex;
 
+-(STAPNotificationCoordinator *) coordinator;
+-(void) handleSession: (STAPGuideObject *)session;
+-(void) loadGalleryItems;
+-(void) initAnimation;
+-(void) beginAnimation;
 -(void) animationFirstFrame;
 -(void) animationLastFrame;
 
@@ -24,8 +30,25 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
+    [self.coordinator registerSelector:@selector(handleSession:) onDelegate:self forSignal:STAPIEstablishSession];
+    [self.coordinator startCoordination];
+    [self initAnimation];
+}
+
+-(void) viewWillDisappear: (BOOL)animated
+{
+    [self.coordinator stopCoordination];
+}
+
+-(STAPNotificationCoordinator *) coordinator
+{
+    return [STAPNotificationCoordinator sharedCoordinator];
+}
+
+-(void) handleSession: (STAPGuideObject *)session
+{
     [self loadGalleryItems];
-    [self animationLastFrame];
+    [self beginAnimation];
 }
 
 -(void) loadGalleryItems
@@ -38,17 +61,20 @@
         STAPGalleryItemObject *item = [[STAPGalleryItemObject alloc] init];
         
         NSError *error;
-        NSRegularExpression *tagReg = [NSRegularExpression regularExpressionWithPattern:@"\\{([a-zA-Z\\.]+)\\}" options:0 error:&error];
+        NSRegularExpression *tagReg = [NSRegularExpression regularExpressionWithPattern:@"\\{([a-zA-Z0-9\\.]+)\\}" options:0 error:&error];
         
         for (NSString *key in textData.allKeys) {
-            NSString *textBody = [textData objectForKey:key];
+            NSMutableString *textBody = [NSMutableString stringWithString:[textData objectForKey:key]];
             NSArray *matches = [tagReg matchesInString:textBody options:0 range:NSMakeRange(0, textBody.length)];
             
             for (NSTextCheckingResult *match in matches) {
-                NSLog(@"%@", match.replacementString);
+                NSString *keyPath = [textBody substringWithRange:[match rangeAtIndex:1]],
+                         *value   = [self.coordinator.session valueForKeyPath:keyPath];
+                
+                [textBody replaceCharactersInRange:[match rangeAtIndex:0] withString:value];
             }
             
-            [item setValue:[textData objectForKey:key] forKeyPath:key];
+            [item setValue:textBody forKeyPath:key];
         }
         
         [items addObject:item];
@@ -57,34 +83,17 @@
     [self setGalleryItems:items];
 }
 
--(void) animationLastFrame
+-(void) initAnimation
 {
-    __weak UIView *captionLabel = self.galleryCaptionLabel,
-                *textBodyLabel = self.galleryTextBodyLabel,
-                *imageLabel = self.galleryImageView;
-    
-    STAPGalleryItemObject *item = [self.galleryItems objectAtIndex:self.currentIndex];
-    [self populateViewWithData:item];
+    [self setCurrentIndex:0];
+    self.galleryCaptionLabel.layer.opacity = 0;
+    self.galleryTextBodyLabel.layer.opacity = 0;
+    self.galleryImageView.layer.opacity = 0;
+}
 
-    __block BOOL shouldSwitch = NO;
-    if (self.currentIndex >= self.galleryItems.count) {
-        return;
-    }
-    
-    self.currentIndex += 1;
-    shouldSwitch = YES;
-    
-    [UIView animateWithDuration:0.8 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        captionLabel.layer.opacity = 1;
-        textBodyLabel.layer.opacity = 1;
-        imageLabel.layer.opacity = 1;
-    } completion:^(BOOL finished){
-        if (!finished || !shouldSwitch) {
-            return;
-        }
-
-        [self performSelector:@selector(animationFirstFrame) withObject:nil afterDelay:8.0];
-    }];
+-(void) beginAnimation
+{
+    [self animationLastFrame];
 }
 
 -(void) animationFirstFrame
@@ -92,6 +101,10 @@
     __weak UIView *captionLabel = self.galleryCaptionLabel,
                   *textBodyLabel = self.galleryTextBodyLabel,
                   *imageLabel = self.galleryImageView;
+    
+    if (self.currentIndex >= self.galleryItems.count) {
+        return;
+    }
     
     [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         captionLabel.layer.opacity = 0;
@@ -103,6 +116,32 @@
         }
         
         [self performSelector:@selector(animationLastFrame) withObject:nil afterDelay:0];
+    }];
+}
+
+-(void) animationLastFrame
+{
+    __weak UIView *captionLabel = self.galleryCaptionLabel,
+    *textBodyLabel = self.galleryTextBodyLabel,
+    *imageLabel = self.galleryImageView;
+    
+    STAPGalleryItemObject *item = [self.galleryItems objectAtIndex:self.currentIndex];
+    [self populateViewWithData:item];
+    
+    __block BOOL shouldSwitch = NO;
+    self.currentIndex += 1;
+    shouldSwitch = YES;
+    
+    [UIView animateWithDuration:0.8 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        captionLabel.layer.opacity = 1;
+        textBodyLabel.layer.opacity = 1;
+        imageLabel.layer.opacity = 1;
+    } completion:^(BOOL finished){
+        if (!finished || !shouldSwitch) {
+            return;
+        }
+        
+        [self performSelector:@selector(animationFirstFrame) withObject:nil afterDelay:8.0];
     }];
 }
 

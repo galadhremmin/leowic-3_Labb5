@@ -17,6 +17,7 @@
 -(id) initWithProxy: (NSObject<STServiceDelegate> *)proxy;
 
 -(void) registerSelector: (SEL)selector onDelegate: (NSObject *)delegate forSignal: (NSUInteger)signal;
+-(void) registerSelector: (SEL)selector onDelegate: (NSObject *)delegate forSignal: (NSUInteger)signal inferredPosition: (NSUInteger)inferredPosition;
 -(void) removeAllSelectors;
 -(void) clearState;
 
@@ -24,5 +25,6 @@
 -(void) stopCoordination;
 
 -(BOOL) handleNotification: (NSNotification *)notification;
+-(BOOL) signal: (NSNumber *)methodID withData: (id)data;
 
 @end

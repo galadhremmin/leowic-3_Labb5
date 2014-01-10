@@ -153,12 +153,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="TitleLabel"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Uze-Qj-DMh">
                                 <rect key="frame" x="20" y="49" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="GalleryViewTextBody"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -178,6 +184,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="0Ve-WV-Ng2">
+                        <barButtonItem key="backBarButtonItem" title="Bildspel" id="gaA-wp-JjM"/>
                         <barButtonItem key="rightBarButtonItem" title="Starta rådgivning" id="iet-gw-Cvt">
                             <connections>
                                 <action selector="startSessionButtonClicked:" destination="fno-Qa-aq9" id="Z0p-rx-Aoz"/>
@@ -723,10 +730,10 @@
             </objects>
             <point key="canvasLocation" x="2704" y="64"/>
         </scene>
-        <!--View Controller-->
+        <!--Risk Result View Controller-->
         <scene sceneID="ZM4-wd-pNF">
             <objects>
-                <viewController id="Rx5-HB-Njf" sceneMemberID="viewController">
+                <viewController id="Rx5-HB-Njf" customClass="STRiskResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="66l-1w-Wev"/>
                         <viewControllerLayoutGuide type="bottom" id="cOB-y8-vzS"/>
@@ -734,9 +741,50 @@
                     <view key="view" contentMode="scaleToFill" id="9MU-Nh-9Xq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nu har vi tagit fram din riskprofil. Den avgör vilka rekommendationer du kommer att få." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="Bqz-Dw-9gR">
+                                <rect key="frame" x="20" y="20" width="272" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Läser in din riskprofil ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0X-uR-6IT">
+                                <rect key="frame" x="20" y="99" width="272" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="TitleLabel"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="10M-08-FvU">
+                                <rect key="frame" x="20" y="141" width="272" height="264"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Ju högre din riskprofil är, desto lägre blir garantin att du ska få tillbaka dina pengar. Samtidigt ökar chansen till god avkastning.
+
+Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina pengar. Samtidigt har du inte lika stor chans till hög avkastning. I takt med att risken ökar, ökar alltså spannet mellan hur mycket du kan vinna och hur mycket du kan förlora.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P0X-uR-6IT" firstAttribute="top" secondItem="Bqz-Dw-9gR" secondAttribute="bottom" constant="18" id="2in-hB-DoR"/>
+                            <constraint firstItem="10M-08-FvU" firstAttribute="top" secondItem="P0X-uR-6IT" secondAttribute="bottom" constant="21" id="4gH-Mo-JEW"/>
+                            <constraint firstItem="P0X-uR-6IT" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="A08-F8-cp8"/>
+                            <constraint firstItem="Bqz-Dw-9gR" firstAttribute="top" secondItem="66l-1w-Wev" secondAttribute="bottom" constant="20" id="C6m-sf-emd"/>
+                            <constraint firstAttribute="trailing" secondItem="Bqz-Dw-9gR" secondAttribute="trailing" constant="28" id="RaI-WC-ywg"/>
+                            <constraint firstItem="Bqz-Dw-9gR" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="Rla-9v-wqk"/>
+                            <constraint firstAttribute="trailing" secondItem="P0X-uR-6IT" secondAttribute="trailing" constant="28" id="lpD-7e-Bj3"/>
+                            <constraint firstAttribute="trailing" secondItem="10M-08-FvU" secondAttribute="trailing" constant="28" id="pLy-gE-2WQ"/>
+                            <constraint firstItem="10M-08-FvU" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="ptX-Dw-feh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wYL-F8-GiL"/>
+                    <connections>
+                        <outlet property="riskResultLabel" destination="P0X-uR-6IT" id="cbj-JE-56u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XH2-yY-7M4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -36,6 +36,11 @@
 
 -(void) registerSelector: (SEL)selector onDelegate: (NSObject *)delegate forSignal: (NSUInteger)signal
 {
+    [self registerSelector:selector onDelegate:delegate forSignal:signal inferredPosition:NSUIntegerMax];
+}
+
+-(void) registerSelector: (SEL)selector onDelegate: (NSObject *)delegate forSignal: (NSUInteger)signal inferredPosition: (NSUInteger)inferredPosition
+{
     if (self.isCoordinating) {
         [NSException raise:@"The coordinator cannot be changed while running." format:@"Disable coordination in order to add more selectors. "];
     }
@@ -44,13 +49,21 @@
     
     if (selectors == nil) {
         selectors = [[NSMutableArray alloc] init];
+        [self.signalSelectors setObject:selectors forKey:key];
     }
     
     STCoordinatorItem *item = [[STCoordinatorItem alloc] initWithSelector:selector delegate:delegate];
     
     if (![selectors containsObject:item]) {
         [selectors addObject:item];
-        [self.signalSelectors setObject:selectors forKey:key];
+    }
+    
+    if (inferredPosition < selectors.count) {
+        NSUInteger index = [selectors indexOfObject:item];
+        
+        if (index != inferredPosition) {
+            [selectors exchangeObjectAtIndex:index withObjectAtIndex:inferredPosition];
+        }
     }
 }
 
@@ -92,9 +105,15 @@
         return NO;
     }
     
-    id       methodID    = [[notificationData objectForKey:@"methodID"] stringValue];
-    id       data        = [notificationData objectForKey:@"data"];
-    NSArray *selectors   = [self.signalSelectors objectForKey:methodID];
+    id methodID = [notificationData objectForKey:@"methodID"];
+    id data     = [notificationData objectForKey:@"data"];
+    
+    return [self signal:methodID withData:data];
+}
+
+-(BOOL) signal: (NSNumber *)methodID withData: (id)data
+{
+    NSArray *selectors = [self.signalSelectors objectForKey:[methodID stringValue]];
     
     if (selectors == nil) {
         NSLog(@"STSplashScreenViewController: Unsupported signal %@.", methodID);

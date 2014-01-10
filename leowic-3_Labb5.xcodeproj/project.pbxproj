@@ -108,6 +108,7 @@
 		D7D5C78C1880451D000D2765 /* pension-bildspel-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D5C7881880451D000D2765 /* pension-bildspel-3.png */; };
 		D7D5C78D1880451D000D2765 /* pension-bildspel-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D5C7891880451D000D2765 /* pension-bildspel-4.png */; };
 		D7D9E094187C51E40017CA7E /* STCacheItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D9E093187C51E40017CA7E /* STCacheItem.m */; };
+		D7E75D5C1880A3830063DE67 /* STRiskResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E75D5B1880A3830063DE67 /* STRiskResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,6 +298,8 @@
 		D7D5C7891880451D000D2765 /* pension-bildspel-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pension-bildspel-4.png"; sourceTree = "<group>"; };
 		D7D9E092187C51E40017CA7E /* STCacheItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCacheItem.h; sourceTree = "<group>"; };
 		D7D9E093187C51E40017CA7E /* STCacheItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCacheItem.m; sourceTree = "<group>"; };
+		D7E75D5A1880A3830063DE67 /* STRiskResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRiskResultViewController.h; sourceTree = "<group>"; };
+		D7E75D5B1880A3830063DE67 /* STRiskResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRiskResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +375,8 @@
 				D7D5C77C18803115000D2765 /* STGalleryViewController.m */,
 				D7A9194C1878C2AD001707D2 /* STRiskQuestionViewController.h */,
 				D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */,
+				D7E75D5A1880A3830063DE67 /* STRiskResultViewController.h */,
+				D7E75D5B1880A3830063DE67 /* STRiskResultViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -846,6 +851,7 @@
 				D7BE7D51187D752C00210AB5 /* STAPICreateSessionHandler.m in Sources */,
 				D7D5C77218802B4A000D2765 /* UITableViewCell+NUI.m in Sources */,
 				D7174DF8187EE5AE00D8DE63 /* STCoordinatorItem.m in Sources */,
+				D7E75D5C1880A3830063DE67 /* STRiskResultViewController.m in Sources */,
 				D7174DFD187EEE4500D8DE63 /* STAPServiceProxy.m in Sources */,
 				D7375A4D1877387D00FBED76 /* STAPIApiAuthenticateHandler.m in Sources */,
 				D7D5C74018802B4A000D2765 /* NUIConverter.m in Sources */,

@@ -20,6 +20,24 @@
     return self;
 }
 
+-(NSString *) calculatedRiskTendencyDescription
+{
+    switch (self.calculatedRiskTendency) {
+        case 0:
+            return @"Okänd";
+        case 1:
+            return @"Låg";
+        case 2:
+            return @"Medellåg";
+        case 3:
+            return @"Medelhög";
+        case 4:
+            return @"Hög";
+    }
+    
+    return nil;
+}
+
 -(NSUInteger) countOfRiskQuestionAnswers
 {
     return self.riskQuestionAnswers.count;
