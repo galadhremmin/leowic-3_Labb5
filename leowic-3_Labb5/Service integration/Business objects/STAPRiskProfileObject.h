@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STActivityLevelEnum.h"
+#import "STRiskLevelEnum.h"
 
 @interface STAPRiskProfileObject : NSObject
 
-@property(nonatomic)         NSInteger       activity;
-@property(nonatomic)         NSInteger       currentRiskTendency;
-@property(nonatomic)         NSInteger       calculatedRiskTendency;
-@property(nonatomic, strong) NSMutableArray *riskQuestionAnswers;
+@property(nonatomic)         STActivityLevelEnum activity;
+@property(nonatomic)         STRiskLevelEnum     currentRiskTendency;
+@property(nonatomic)         STRiskLevelEnum     calculatedRiskTendency;
+@property(nonatomic, strong) NSMutableArray     *riskQuestionAnswers;
 
 // String description for calculated risk tendency
 -(NSString *) calculatedRiskTendencyDescription;

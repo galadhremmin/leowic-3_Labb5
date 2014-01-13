@@ -34,6 +34,7 @@
 		D73FCDDA187557BD00742C26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB4187557BC00742C26 /* UIKit.framework */; };
 		D73FCDDB187557BD00742C26 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB6187557BC00742C26 /* CoreData.framework */; };
 		D74605C318831F81006141B1 /* STSingleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74605C218831F81006141B1 /* STSingleChoiceViewController.m */; };
+		D74605C61883FC60006141B1 /* STActivityQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74605C51883FC60006141B1 /* STActivityQuestionViewController.m */; };
 		D7A9194E1878C2AD001707D2 /* STRiskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */; };
 		D7BE7D4E187D711E00210AB5 /* STAPGuideObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D4D187D711E00210AB5 /* STAPGuideObject.m */; };
 		D7BE7D51187D752C00210AB5 /* STAPICreateSessionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D50187D752C00210AB5 /* STAPICreateSessionHandler.m */; };
@@ -166,6 +167,10 @@
 		D73FCDD7187557BD00742C26 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D74605C118831F81006141B1 /* STSingleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSingleChoiceViewController.h; sourceTree = "<group>"; };
 		D74605C218831F81006141B1 /* STSingleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSingleChoiceViewController.m; sourceTree = "<group>"; };
+		D74605C41883FC60006141B1 /* STActivityQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STActivityQuestionViewController.h; sourceTree = "<group>"; };
+		D74605C51883FC60006141B1 /* STActivityQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STActivityQuestionViewController.m; sourceTree = "<group>"; };
+		D74605C7188415F8006141B1 /* STActivityLevelEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STActivityLevelEnum.h; sourceTree = "<group>"; };
+		D74605C818841683006141B1 /* STRiskLevelEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STRiskLevelEnum.h; sourceTree = "<group>"; };
 		D7A9194C1878C2AD001707D2 /* STRiskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRiskQuestionViewController.h; sourceTree = "<group>"; };
 		D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRiskQuestionViewController.m; sourceTree = "<group>"; };
 		D7BE7D4C187D711E00210AB5 /* STAPGuideObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPGuideObject.h; sourceTree = "<group>"; };
@@ -382,6 +387,8 @@
 				D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */,
 				D7E75D5A1880A3830063DE67 /* STRiskResultViewController.h */,
 				D7E75D5B1880A3830063DE67 /* STRiskResultViewController.m */,
+				D74605C41883FC60006141B1 /* STActivityQuestionViewController.h */,
+				D74605C51883FC60006141B1 /* STActivityQuestionViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -505,6 +512,8 @@
 			isa = PBXGroup;
 			children = (
 				D7BE7D5C187D9E4D00210AB5 /* STPensionTypeEnum.h */,
+				D74605C7188415F8006141B1 /* STActivityLevelEnum.h */,
+				D74605C818841683006141B1 /* STRiskLevelEnum.h */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -823,6 +832,7 @@
 				D7BE7D5A187D9BDE00210AB5 /* STAPPensionObject.m in Sources */,
 				D7D5C76D18802B4A000D2765 /* UISlider+NUI.m in Sources */,
 				D7D5C75418802B4A000D2765 /* NUITabBarRenderer.m in Sources */,
+				D74605C61883FC60006141B1 /* STActivityQuestionViewController.m in Sources */,
 				D7D5C75118802B4A000D2765 /* NUISliderRenderer.m in Sources */,
 				D7D5C75618802B4A000D2765 /* NUITableViewRenderer.m in Sources */,
 				D7D5C77118802B4A000D2765 /* UITableView+NUI.m in Sources */,

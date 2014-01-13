@@ -44,6 +44,7 @@
     
     if (self.session) {
         [self.session removeObserver:self forKeyPath:@"riskProfile.riskQuestionAnswers"];
+        [self.session removeObserver:self forKeyPath:@"riskProfile.activity"];
     }
     
     [self setSession:nil];
@@ -73,12 +74,14 @@
 {
     [self clearState];
     [session addObserver:self forKeyPath:@"riskProfile.riskQuestionAnswers" options:NSKeyValueObservingOptionNew context:NULL];
+    [session addObserver:self forKeyPath:@"riskProfile.activity" options:NSKeyValueObservingOptionNew context:NULL];
     [self setSession:session];
 }
 
 -(void) observeValueForKeyPath: (NSString *)keyPath ofObject: (id)object change: (NSDictionary *)change context: (void *)context
 {
-    if ([keyPath isEqualToString:@"riskProfile.riskQuestionAnswers"]) {
+    if ([keyPath isEqualToString:@"riskProfile.riskQuestionAnswers"] ||
+        [keyPath isEqualToString:@"riskProfile.activity"]) {
         [self.serviceProxy APIUpdateRiskProfile:self.session.riskProfile];
     }
 }

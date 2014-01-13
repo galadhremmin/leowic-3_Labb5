@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    Unknown = 0,
-    Inactive = 1,
-    ITP1 = 2,
-    ITP2 = 3
+    STPensionTypeUnknown = 0,
+    STPensionTypeInactive = 1,
+    STPensionTypeITP1 = 2,
+    STPensionTypeITP2 = 3
 } STPensionTypeEnum;

@@ -12,12 +12,19 @@
 
 -(id) handleResponseWithData: (NSDictionary *)responseData
 {
-    NSDictionary *root = [responseData objectForKey:@"UpdateAlderspensionRiskProfileResult"];
-    id riskTendency = [root objectForKey:@"Level"];
-    
-    if (!riskTendency && riskTendency == [NSNull null]) {
-        riskTendency = [NSNumber numberWithInt:0];
+    id riskTendency = [NSNumber numberWithInt:0];
+    if ([responseData isKindOfClass:[NSNull class]]) {
+        return riskTendency;
     }
+    
+    id root = [responseData objectForKey:@"UpdateAlderspensionRiskProfileResult"];
+    if ([root isKindOfClass:[NSNull class]]) {
+        return riskTendency;
+    }
+    
+    id tmp = [root objectForKey:@"Level"];
+    if (tmp != [NSNull null])
+        riskTendency = (NSNumber *)tmp;
     
     return riskTendency;
 }

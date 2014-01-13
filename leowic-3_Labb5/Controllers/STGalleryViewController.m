@@ -102,6 +102,8 @@
                   *textBodyLabel = self.galleryTextBodyLabel,
                   *imageLabel = self.galleryImageView;
     
+    __weak id weakSelf = self;
+    
     if (self.currentIndex >= self.galleryItems.count) {
         return;
     }
@@ -115,15 +117,17 @@
             return;
         }
         
-        [self performSelector:@selector(animationLastFrame) withObject:nil afterDelay:0];
+        [weakSelf performSelector:@selector(animationLastFrame) withObject:nil afterDelay:0];
     }];
 }
 
 -(void) animationLastFrame
 {
     __weak UIView *captionLabel = self.galleryCaptionLabel,
-    *textBodyLabel = self.galleryTextBodyLabel,
-    *imageLabel = self.galleryImageView;
+                  *textBodyLabel = self.galleryTextBodyLabel,
+                  *imageLabel = self.galleryImageView;
+    
+    __weak id weakSelf = self;
     
     STAPGalleryItemObject *item = [self.galleryItems objectAtIndex:self.currentIndex];
     [self populateViewWithData:item];
@@ -141,7 +145,7 @@
             return;
         }
         
-        [self performSelector:@selector(animationFirstFrame) withObject:nil afterDelay:8.0];
+        [weakSelf performSelector:@selector(animationFirstFrame) withObject:nil afterDelay:8.0];
     }];
 }
 

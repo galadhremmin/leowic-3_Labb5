@@ -124,7 +124,7 @@
     id        activity  = [NSNull null];
     NSNumber *riskLevel = [NSNumber numberWithInteger:riskProfile.calculatedRiskTendency];
     
-    if (riskProfile.activity > -1) {
+    if (riskProfile.activity != STActivityLevelUnknown) {
         activity = [NSNumber numberWithInteger:riskProfile.activity];
     }
     

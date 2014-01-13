@@ -803,10 +803,10 @@ Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina peng
             </objects>
             <point key="canvasLocation" x="3134" y="64"/>
         </scene>
-        <!--Risk Question View Controller - Riskbenägenhet-->
+        <!--Activity Question View Controller - Riskbenägenhet-->
         <scene sceneID="TBB-F2-LOj">
             <objects>
-                <tableViewController title="Riskbenägenhet" id="Xku-AE-tLA" customClass="STRiskQuestionViewController" sceneMemberID="viewController">
+                <tableViewController title="Riskbenägenhet" id="Xku-AE-tLA" customClass="STActivityQuestionViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HyQ-Wv-NE6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

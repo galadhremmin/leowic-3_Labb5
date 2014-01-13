@@ -47,7 +47,7 @@
 -(void) populateRiskProfile: (STAPRiskProfileObject *)riskProfile withData: (NSDictionary *)data
 {
     // Treat activity level with special care, as this might be null.
-    [riskProfile setActivity:-1];
+    [riskProfile setActivity:STActivityLevelUnknown];
     id activity = [data objectForKey:@"Activity"];
     if (activity && activity != [NSNull null]) {
         [riskProfile setActivity:[activity integerValue]];

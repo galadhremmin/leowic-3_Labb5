@@ -23,16 +23,18 @@
 -(NSString *) calculatedRiskTendencyDescription
 {
     switch (self.calculatedRiskTendency) {
-        case 0:
-            return @"Okänd";
-        case 1:
+        case STRiskLevelLow:
             return @"Låg";
-        case 2:
+        case STRiskLevelMidLow:
             return @"Medellåg";
-        case 3:
+        case STRiskLevelMidHigh:
             return @"Medelhög";
-        case 4:
+        case STRiskLevelHigh:
             return @"Hög";
+        case STRiskLevelUnknown:
+            return @"Okänd";
+        default:
+            [NSException raise:@"Okänd risknivå." format:@"Risknivån %d är okänd.", self.calculatedRiskTendency];
     }
     
     return nil;
