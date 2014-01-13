@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "STAPNotificationCoordinator.h"
+#import <QuartzCore/QuartzCore.h>
+#import "STCoordinatedTableViewController.h"
 
-@interface STSingleChoiceViewController : UITableViewController
-
--(STAPNotificationCoordinator *) coordinator;
+@interface STSingleChoiceViewController : STCoordinatedTableViewController
 
 @end

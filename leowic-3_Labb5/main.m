@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "STAppDelegate.h"
-#import "NUISettings.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        [NUISettings init];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([STAppDelegate class]));
     }
 }

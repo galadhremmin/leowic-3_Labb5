@@ -122,7 +122,7 @@
 -(NSString *) convertDictionaryOfArgumentsToJSON: (NSDictionary *)arguments
 {
     if (arguments == nil || arguments.count < 1) {
-        return nil;
+        return @"";
     }
     
     NSError *serializationError;
@@ -177,6 +177,10 @@
 
 -(void) method: (NSString *)methodName withID: (NSUInteger)methodID didReceiveData: (NSData *)data
 {
+    // Execute next item in the queue, asyncronously.
+    [self performSelector:@selector(executeNextItemInQueue) withObject:nil afterDelay:0];
+    
+    // Handle the existing response, passing it on to the delegate.
     NSError *error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
@@ -184,7 +188,7 @@
         NSString *responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
         NSLog(@"ERROR: %@", responseText);
-        
+
         NSDictionary *errorDescription = @{
                                            @"error": [NSNumber numberWithBool:YES],
                                            @"localizedDescription": error.description
@@ -199,7 +203,6 @@
             NSLog(@"%@: %@ (expires %@)", cookie.name, cookie.value, cookie.expiresDate);
         }
         
-        [self executeNextItemInQueue];
         [self.delegate service:self finishedMethod:methodName methodID:methodID withData:json];
     }
 }

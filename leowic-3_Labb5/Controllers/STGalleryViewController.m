@@ -9,7 +9,6 @@
 #import "STGalleryViewController.h"
 #import "STAPGalleryItemObject.h"
 #import "STAPNotificationCoordinator.h"
-#import <QuartzCore/QuartzCore.h>
 
 @interface STGalleryViewController ()
 
@@ -27,6 +26,14 @@
 @end
 
 @implementation STGalleryViewController
+
+-(void) viewDidLoad
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"slideshow-background" ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    UIColor *backgroundImage = [UIColor colorWithPatternImage:image];
+    [self.view setBackgroundColor:backgroundImage];
+}
 
 -(void) viewWillAppear: (BOOL)animated
 {

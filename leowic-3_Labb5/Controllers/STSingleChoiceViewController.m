@@ -16,27 +16,14 @@
 
 @implementation STSingleChoiceViewController
 
--(void) viewWillAppear: (BOOL)animated
-{
-    [self.coordinator startCoordination];
-    [super viewWillAppear:animated];
-}
-
 -(void) viewWillDisappear: (BOOL)animated
 {
-    [self.coordinator stopCoordination];
+    [super viewWillDisappear:animated];
     
     if (self.selectedQuestionCell) {
         [self.selectedQuestionCell setAccessoryType:UITableViewCellAccessoryCheckmark];
         [self.selectedQuestionCell setAccessoryView:nil];
     }
-    
-    [super viewWillDisappear:animated];
-}
-
--(STAPNotificationCoordinator *) coordinator
-{
-    return [STAPNotificationCoordinator sharedCoordinator];
 }
 
 -(NSIndexPath *) tableView: (UITableView *)tableView willSelectRowAtIndexPath: (NSIndexPath *)indexPath

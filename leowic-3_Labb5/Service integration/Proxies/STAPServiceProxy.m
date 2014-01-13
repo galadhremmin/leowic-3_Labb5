@@ -135,6 +135,18 @@
     [self.APIGuideService execute:@"UpdateAlderspensionRiskProfile" methodID:STAPIUpdateRiskProfile arguments:arguments cache:NO];
 }
 
+-(void) APIInitializeRecommendationSteps
+{
+    [self.APIGuideService execute:@"InitializeRecommendationSteps" methodID:STAPIInitializeRecommendationSteps arguments:nil cache:NO];
+}
+
+-(void) APIGetRecommendationStep: (NSUInteger)category
+{
+    NSDictionary *arguments = @{@"category": [NSNumber numberWithUnsignedInteger:category],
+                                @"fribrevVisiID": [NSNumber numberWithUnsignedInteger:0]};
+    [self.APIGuideService execute:@"GetRecommendationStep" methodID:STAPIRecommendationStep arguments:arguments cache:NO];
+}
+
 #pragma mark - STServiceDelegation
 
 -(BOOL) isActive

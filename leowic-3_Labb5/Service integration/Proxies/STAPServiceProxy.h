@@ -16,7 +16,9 @@ typedef enum {
     STAPIRequestLoginUsers = 1,
     STAPILoginUser,
     STAPIEstablishSession,
-    STAPIUpdateRiskProfile
+    STAPIUpdateRiskProfile,
+    STAPIInitializeRecommendationSteps,
+    STAPIRecommendationStep
 } STAPServiceMethod;
 
 +(NSString *)         APIKey;
@@ -29,6 +31,8 @@ typedef enum {
 -(void) APILoginUser: (int)userID;
 -(void) APICreateGuideSession;
 -(void) APIUpdateRiskProfile: (STAPRiskProfileObject *)riskProfile;
+-(void) APIInitializeRecommendationSteps;
+-(void) APIGetRecommendationStep: (NSUInteger)category;
 
 -(void) addListener: (id)listener selector: (SEL)handler;
 -(void) removeListener: (id)listener;

@@ -153,18 +153,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="TitleLabel"/>
-                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Uze-Qj-DMh">
                                 <rect key="frame" x="20" y="49" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="GalleryViewTextBody"/>
-                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -179,9 +173,6 @@
                             <constraint firstAttribute="trailing" secondItem="ZB9-xo-LNR" secondAttribute="trailing" id="lBJ-vl-ONj"/>
                             <constraint firstItem="4nO-IJ-hdr" firstAttribute="top" secondItem="2yj-rA-m8R" secondAttribute="bottom" constant="20" id="rqG-Rl-N84"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="GalleryView"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="0Ve-WV-Ng2">
                         <barButtonItem key="backBarButtonItem" title="Bildspel" id="gaA-wp-JjM"/>
@@ -754,9 +745,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="nuiClass" value="TitleLabel"/>
-                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="10M-08-FvU">
                                 <rect key="frame" x="20" y="141" width="272" height="183"/>
@@ -803,10 +791,90 @@ Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina peng
             </objects>
             <point key="canvasLocation" x="3134" y="64"/>
         </scene>
-        <!--Activity Question View Controller - Riskbenägenhet-->
+        <!--Advice Step View Controller-->
+        <scene sceneID="j0z-BQ-iR6">
+            <objects>
+                <tableViewController id="aWu-4g-Ids" customClass="STAdviceStepViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mME-nm-pHk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="AWO-7M-do1">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AWO-7M-do1" id="0jM-dz-Lee">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aWu-4g-Ids" id="Rc8-Qb-j5q"/>
+                            <outlet property="delegate" destination="aWu-4g-Ids" id="EcA-r2-CDC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="7CW-l5-Tja"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CL4-p6-XIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4064" y="64"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sdy-2c-jd1">
+            <objects>
+                <viewController storyboardIdentifier="AdviceProcessingIdentifier" id="8u3-zr-ICt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6nn-nj-h2x"/>
+                        <viewControllerLayoutGuide type="bottom" id="7qT-PT-iap"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sK4-KL-D8R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Var god vänta..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4x-OD-IyH">
+                                <rect key="frame" x="20" y="28" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="cRN-7Y-Gs6">
+                                <rect key="frame" x="20" y="74" width="280" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Nu tar vi fram det bästa rådet till dig, utifrån din riskprofil. Det brukar ta några sekunder. 
+
+Du skickas automatiskt vidare till nästa steg när det är färdigt.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dSz-NE-UOL">
+                                <rect key="frame" x="263" y="20" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.46666666670000001" green="0.72156862749999995" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="h4x-OD-IyH" secondAttribute="trailing" constant="20" id="16u-fN-17g"/>
+                            <constraint firstItem="cRN-7Y-Gs6" firstAttribute="leading" secondItem="h4x-OD-IyH" secondAttribute="leading" id="2h2-Fk-bx2"/>
+                            <constraint firstItem="h4x-OD-IyH" firstAttribute="leading" secondItem="sK4-KL-D8R" secondAttribute="leading" constant="20" id="9oi-mv-KHd"/>
+                            <constraint firstItem="cRN-7Y-Gs6" firstAttribute="top" secondItem="h4x-OD-IyH" secondAttribute="bottom" constant="25" id="IpT-LB-Fmf"/>
+                            <constraint firstItem="cRN-7Y-Gs6" firstAttribute="trailing" secondItem="h4x-OD-IyH" secondAttribute="trailing" id="VdQ-1i-SXX"/>
+                            <constraint firstAttribute="trailing" secondItem="dSz-NE-UOL" secondAttribute="trailing" constant="20" id="ogZ-dv-cnF"/>
+                            <constraint firstItem="dSz-NE-UOL" firstAttribute="top" secondItem="6nn-nj-h2x" secondAttribute="bottom" constant="20" id="uMV-bb-mOg"/>
+                            <constraint firstItem="h4x-OD-IyH" firstAttribute="top" secondItem="6nn-nj-h2x" secondAttribute="bottom" constant="28" id="vRs-nK-uIk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sEE-Nt-wn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3588" y="766"/>
+        </scene>
+        <!--Activity Question View Controller - Aktivitetsnivå-->
         <scene sceneID="TBB-F2-LOj">
             <objects>
-                <tableViewController title="Riskbenägenhet" id="Xku-AE-tLA" customClass="STActivityQuestionViewController" sceneMemberID="viewController">
+                <tableViewController title="Aktivitetsnivå" id="Xku-AE-tLA" customClass="STActivityQuestionViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HyQ-Wv-NE6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -881,10 +949,13 @@ Välj det alternativ som passar bäst in på dig.</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Riskbenägenhet" id="09e-Hh-Yuo"/>
+                    <connections>
+                        <segue destination="aWu-4g-Ids" kind="push" identifier="AdviceStepSegue" id="AKe-uj-tD8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2i-35-O3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3134" y="830"/>
+            <point key="canvasLocation" x="3588" y="64"/>
         </scene>
     </scenes>
     <resources>

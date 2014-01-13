@@ -11,7 +11,11 @@
 
 @interface STActivityQuestionViewController ()
 
+@property (nonatomic, strong) UIViewController *waitDialogue;
+
 -(void) handleRiskProfile: (NSNumber *)calculatedRiskTendency;
+-(void) handleRecommendationCompleted: (id)noop;
+-(void (^)(void)) moveToAdviceBlock;
 
 @end
 
@@ -19,16 +23,50 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
-    [self.coordinator registerSelector:@selector(handleRiskProfile:) onDelegate:self forSignal:STAPIUpdateRiskProfile];
-    [super viewWillAppear:animated];
+    if (!self.waitDialogue) {
+        [self.coordinator registerSelector:@selector(handleRiskProfile:) onDelegate:self forSignal:STAPIUpdateRiskProfile];
+        
+        [self.coordinator registerSelector:@selector(handleRecommendationCompleted:) onDelegate:self forSignal:STAPIInitializeRecommendationSteps];
+        
+        [super viewWillAppear:animated];
+    }
+}
+
+-(void) viewWillDisappear: (BOOL)animated
+{
+    if (!self.waitDialogue) {
+        [super viewWillDisappear:animated];
+    }
 }
 
 -(void) handleRiskProfile: (NSNumber *)calculatedRiskTendency
 {
-    [self.coordinator.session.riskProfile setCalculatedRiskTendency:[calculatedRiskTendency intValue]];
+    // Present the "please wait" dialogue with an animation during the rather lenghty
+    // initialization process.
+    UIViewController *modalDialog = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"AdviceProcessingIdentifier"];
+    modalDialog.modalPresentationStyle = UIModalPresentationFullScreen;
     
-    // Go to the next segue
-    [self performSegueWithIdentifier:@"AdviceSegue" sender:nil];
+    // Save the reference for later, so that we might close it when the initialization process
+    // is complete
+    [self setWaitDialogue:modalDialog];
+    [self presentViewController:modalDialog animated:YES completion:NULL];
+    
+    // Now, instruct the web service to perform the initialization
+    [self.coordinator.serviceProxy APIInitializeRecommendationSteps];
+}
+
+-(void) handleRecommendationCompleted: (id)noop
+{
+    // Close the modal dialogue and move on to the next step.
+    [self.waitDialogue dismissViewControllerAnimated:YES completion:[self moveToAdviceBlock]];
+    [self setWaitDialogue:nil];
+}
+
+-(void (^)(void)) moveToAdviceBlock
+{
+    return ^{
+        [self performSegueWithIdentifier:@"AdviceStepSegue" sender:nil];
+    };
 }
 
 -(NSIndexPath *) tableView: (UITableView *)tableView willSelectRowAtIndexPath: (NSIndexPath *)indexPath

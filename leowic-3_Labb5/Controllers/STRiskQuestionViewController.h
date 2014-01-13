@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Softronic AB. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "STSingleChoiceViewController.h"
 
 @interface STRiskQuestionViewController : STSingleChoiceViewController
