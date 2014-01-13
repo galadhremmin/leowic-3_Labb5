@@ -33,6 +33,7 @@
 		D73FCDD9187557BD00742C26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB0187557BC00742C26 /* Foundation.framework */; };
 		D73FCDDA187557BD00742C26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB4187557BC00742C26 /* UIKit.framework */; };
 		D73FCDDB187557BD00742C26 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73FCDB6187557BC00742C26 /* CoreData.framework */; };
+		D74605C318831F81006141B1 /* STSingleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74605C218831F81006141B1 /* STSingleChoiceViewController.m */; };
 		D7A9194E1878C2AD001707D2 /* STRiskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */; };
 		D7BE7D4E187D711E00210AB5 /* STAPGuideObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D4D187D711E00210AB5 /* STAPGuideObject.m */; };
 		D7BE7D51187D752C00210AB5 /* STAPICreateSessionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D50187D752C00210AB5 /* STAPICreateSessionHandler.m */; };
@@ -163,6 +164,8 @@
 		D73FCDD0187557BD00742C26 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D73FCDD6187557BD00742C26 /* leowic-3_Labb5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "leowic-3_Labb5Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73FCDD7187557BD00742C26 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D74605C118831F81006141B1 /* STSingleChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSingleChoiceViewController.h; sourceTree = "<group>"; };
+		D74605C218831F81006141B1 /* STSingleChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSingleChoiceViewController.m; sourceTree = "<group>"; };
 		D7A9194C1878C2AD001707D2 /* STRiskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRiskQuestionViewController.h; sourceTree = "<group>"; };
 		D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRiskQuestionViewController.m; sourceTree = "<group>"; };
 		D7BE7D4C187D711E00210AB5 /* STAPGuideObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPGuideObject.h; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 				D7375A391876DC3100FBED76 /* STSplashScreenViewController.m */,
 				D7D5C77B18803115000D2765 /* STGalleryViewController.h */,
 				D7D5C77C18803115000D2765 /* STGalleryViewController.m */,
+				D74605C118831F81006141B1 /* STSingleChoiceViewController.h */,
+				D74605C218831F81006141B1 /* STSingleChoiceViewController.m */,
 				D7A9194C1878C2AD001707D2 /* STRiskQuestionViewController.h */,
 				D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */,
 				D7E75D5A1880A3830063DE67 /* STRiskResultViewController.h */,
@@ -837,6 +842,7 @@
 				D7D5C74418802B4A000D2765 /* NUISettings.m in Sources */,
 				D7D5C77318802B4A000D2765 /* UITextField+NUI.m in Sources */,
 				D73FCDBF187557BC00742C26 /* main.m in Sources */,
+				D74605C318831F81006141B1 /* STSingleChoiceViewController.m in Sources */,
 				D73FCDC3187557BC00742C26 /* STAppDelegate.m in Sources */,
 				D7CE957018799291006B0B73 /* STServiceCacheConfiguration.m in Sources */,
 				D7D5C74718802B4A000D2765 /* NUIUtilities.m in Sources */,

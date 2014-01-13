@@ -106,6 +106,8 @@
                                  @"testUserId": [NSNumber numberWithInt:userID] };
     
     [self.APIAuthenticationService clearCache];
+    [self.APIGuideService clearCache];
+    
     [self.APIAuthenticationService execute:@"ApiAuthenticate" methodID:STAPILoginUser arguments:arguments cache:NO];
 }
 
@@ -142,19 +144,28 @@
 
 -(void) service: (STService *)service finishedMethod: (NSString *)method methodID: (NSUInteger)methodID withData: (NSDictionary *)jsonData
 {
+    // Default : no data. This only applies when there is no response handler.
+    id data = nil;
+    
     // Build the class name for the converter class. The converter class will translate the
     // dictionary into business objects.
     NSString *className = [NSString stringWithFormat:@"STAPI%@Handler", method];
-    Class blueprint = NSClassFromString(className);
+    Class handlerBlueprint = NSClassFromString(className);
     
-    if (blueprint == nil) {
-        [NSException raise:@"Unrecognised API response handler." format:@"A handler for %@ (%@) wasn't found.", method, className];
+    if (handlerBlueprint == nil) {
+        NSLog(@"Missing API response handler. A handler for %@ (%@) wasn't found.", method, className);
+        
+    } else {
+        NSObject<STAPIResponseHandler> *handler = [[handlerBlueprint alloc] init];
+    
+        // Performs the translation. We don't know the returning data type, hence _id_ in this case.
+        data = [handler handleResponseWithData:jsonData];
     }
     
-    NSObject<STAPIResponseHandler> *handler = [[blueprint alloc] init];
-    
-    // Performs the translation. We don't know the returning data type, hence _id_ in this case.
-    id data = [handler handleResponseWithData:jsonData];
+    // The NSDictionary object does not accept nil, so assign all nil values to NSNull.
+    if (!data) {
+        data = [NSNull null];
+    }
     
     // Connstruct a user info dictionary, which unfortunately is the only viable way to relay the
     // response data.

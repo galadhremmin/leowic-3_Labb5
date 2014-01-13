@@ -165,10 +165,7 @@
     // Send a failure signal, in case some of the controllers are listening to this
     NSDictionary *errorDescription = @{
                                        @"error": [NSNumber numberWithBool:YES],
-                                       @"localizedDescription": error.localizedDescription,
-                                       @"localizedFailureReason": error.localizedFailureReason,
-                                       @"localizedRecoveryOptions": error.localizedRecoveryOptions,
-                                       @"localizedRecoverySuggestion": error.localizedRecoverySuggestion};
+                                       @"localizedDescription": error.localizedDescription};
 
     [self endDataTraffic];
     [self executeNextItemInQueue];

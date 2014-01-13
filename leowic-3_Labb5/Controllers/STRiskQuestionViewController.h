@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STSingleChoiceViewController.h"
 
-@interface STRiskQuestionViewController : UITableViewController
+@interface STRiskQuestionViewController : STSingleChoiceViewController
 
 @property(nonatomic) NSUInteger questionIndex;
 

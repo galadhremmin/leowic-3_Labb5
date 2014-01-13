@@ -67,7 +67,8 @@
     BOOL success = [result boolValue];
     if (success) {
         // Purges the shared coordinator's state, which will force fresh data collection.
-        [[STAPNotificationCoordinator sharedCoordinator] clearState];
+        STAPNotificationCoordinator *coordinator = [STAPNotificationCoordinator sharedCoordinator];
+        [coordinator clearState];
         
         // Let's begin!
         [self performSegueWithIdentifier:@"GuideSegue" sender:nil];
