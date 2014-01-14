@@ -50,11 +50,29 @@
         [company setFee:[[companyData objectForKey:@"Fee"] doubleValue]];
         [company setIsTrad:[[companyData objectForKey:@"IsTrad"] boolValue]];
         [company setKapitaldelID:[[companyData objectForKey:@"KapitaldelID"] integerValue]];
-        [company setProductID:[[companyData objectForKey:@"ProductId"] integerValue]];
+        [company setProductID:[[companyData objectForKey:@"ProductId"] integerValue]]; // Heh! A discrepancy in the API! Whops! :)
         
         [self populateCompany:company withData:[companyData objectForKey:@"Data"]];
         
-        [advice.companies addObject:company];
+        
+        // For ITP 1, the API always returns three sections (50 %, 25 % and 25 %). Merge these
+        // sections, if the company choices are the same.
+        if (advice.companies.count) {
+            
+            for (STAPCompany *existingCompany in advice.companies) {
+                if (existingCompany.ID == company.ID) {
+                    // add the company's share to the existing one. Don't worry about the funds
+                    // as these will always be identical across the company sections.
+                    existingCompany.share += company.share;
+                    company = nil; // Deallocate the company, and use the existing one instead
+                    break;
+                }
+            }
+        }
+        
+        if (company) {
+            [advice.companies addObject:company];
+        }
     }
 }
 

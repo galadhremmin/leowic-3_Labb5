@@ -88,6 +88,7 @@
 		D7188A861885AAE7002A5F2C /* STAPFund.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPFund.m; sourceTree = "<group>"; };
 		D7188A881885AC04002A5F2C /* STAPIGetRecommendationStepHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPIGetRecommendationStepHandler.h; sourceTree = "<group>"; };
 		D7188A891885AC04002A5F2C /* STAPIGetRecommendationStepHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPIGetRecommendationStepHandler.m; sourceTree = "<group>"; };
+		D7188A8B1885B7BB002A5F2C /* STAdviceTypeEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAdviceTypeEnum.h; sourceTree = "<group>"; };
 		D7375A291876BCC800FBED76 /* STServiceConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STServiceConnection.h; sourceTree = "<group>"; };
 		D7375A2A1876BCC800FBED76 /* STServiceConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STServiceConnection.m; sourceTree = "<group>"; };
 		D7375A331876CE3100FBED76 /* STServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = STServiceDelegate.h; path = ../STServiceDelegate.h; sourceTree = "<group>"; };
@@ -384,6 +385,7 @@
 				D7BE7D5C187D9E4D00210AB5 /* STPensionTypeEnum.h */,
 				D74605C7188415F8006141B1 /* STActivityLevelEnum.h */,
 				D74605C818841683006141B1 /* STRiskLevelEnum.h */,
+				D7188A8B1885B7BB002A5F2C /* STAdviceTypeEnum.h */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";

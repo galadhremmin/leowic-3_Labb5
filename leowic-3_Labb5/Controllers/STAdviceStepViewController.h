@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "STCoordinatedTableViewController.h"
+#import "STAdviceTypeEnum.h"
 
 @interface STAdviceStepViewController : STCoordinatedTableViewController
+
+@property (nonatomic) STAdviceTypeEnum adviceType;
 
 @end
