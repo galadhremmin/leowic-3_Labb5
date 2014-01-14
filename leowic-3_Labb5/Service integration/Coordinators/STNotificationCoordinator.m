@@ -99,14 +99,27 @@
 {
     NSDictionary *notificationData = notification.userInfo;
     
-    if ([notificationData objectForKey:@"error"] != nil) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oj, något gick fel!" message:[notificationData objectForKey:@"localizedDescription"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        return NO;
-    }
+    // Default method ID is zero, as failure is assumed. Only successful methods are signalled.
+    // Errors are signalled as zeros. This is a bit of a quirk, if not somewhat confusing
+    // by design.
+    id methodID = [NSNumber numberWithInteger:0];
+    id data = nil;
     
-    id methodID = [notificationData objectForKey:@"methodID"];
-    id data     = [notificationData objectForKey:@"data"];
+    if ([notificationData objectForKey:@"error"] != nil) {
+        
+        NSString *errorDescription = [notificationData objectForKey:@"localizedDescription"];
+        
+        // Notify the user with an alert box with the localized description message within.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oj, något gick fel!" message:errorDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+        // Pass the error description on up, in case there are logging mechanisms to retrieve it.
+        data = errorDescription;
+        
+    } else {
+        methodID = [notificationData objectForKey:@"methodID"];
+        data     = [notificationData objectForKey:@"data"];
+    }
     
     return [self signal:methodID withData:data];
 }

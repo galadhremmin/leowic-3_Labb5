@@ -17,6 +17,10 @@
 @property (nonatomic, strong) NSArray                   *testUsers;
 @property (nonatomic, strong) STNotificationCoordinator *coordinator;
 
+-(void) handleTestUsers: (id)users;
+-(void) handleAuthentication: (id)result;
+-(void) handleFailure: (id)noop;
+
 @end
 
 
@@ -38,6 +42,7 @@
     
     [coordinator registerSelector:@selector(handleTestUsers:) onDelegate:self forSignal:STAPIRequestLoginUsers];
     [coordinator registerSelector:@selector(handleAuthentication:) onDelegate:self forSignal:STAPILoginUser];
+    [coordinator registerSelector:@selector(handleFailure:) onDelegate:self forSignal:0];
     [coordinator startCoordination];
     
     [self setCoordinator:coordinator];
@@ -77,6 +82,11 @@
         [alert show];
     }
     
+    [self.APITestButton setEnabled:YES];
+}
+
+-(void) handleFailure: (id)noop
+{
     [self.APITestButton setEnabled:YES];
 }
 

@@ -58,7 +58,9 @@
 -(void) handleRecommendationCompleted: (id)noop
 {
     // Close the modal dialogue and move on to the next step.
-    [self.waitDialogue dismissViewControllerAnimated:YES completion:[self moveToAdviceBlock]];
+    if (![self.presentedViewController isBeingDismissed]) {
+        [self dismissViewControllerAnimated:YES completion:[self moveToAdviceBlock]];
+    }
     [self setWaitDialogue:nil];
 }
 

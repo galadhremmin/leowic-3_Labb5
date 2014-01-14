@@ -21,4 +21,6 @@
 @property (nonatomic, strong) STAPPensionObject *pension;
 @property (nonatomic, strong) STAPNameObject    *name;
 
+-(id) init;
+
 @end

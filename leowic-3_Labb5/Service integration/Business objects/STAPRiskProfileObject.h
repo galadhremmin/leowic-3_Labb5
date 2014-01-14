@@ -17,6 +17,9 @@
 @property(nonatomic)         STRiskLevelEnum     calculatedRiskTendency;
 @property(nonatomic, strong) NSMutableArray     *riskQuestionAnswers;
 
+// Apart from initializaing itself, it also initializes the data containers
+-(id) init;
+
 // String description for calculated risk tendency
 -(NSString *) calculatedRiskTendencyDescription;
 

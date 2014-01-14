@@ -7,6 +7,7 @@
 //
 
 #import "STAdviceStepViewController.h"
+#import "STAPAdvice.h"
 
 @interface STAdviceStepViewController ()
 
@@ -25,9 +26,9 @@
     [self.coordinator.serviceProxy APIGetRecommendationStep:0];
 }
 
--(void) handleAdviceData: (id)data
+-(void) handleAdviceData: (STAPAdvice *)adviceData
 {
-    NSLog(@"%@", data);
+    NSLog(@"%@", adviceData);
 }
 
 @end

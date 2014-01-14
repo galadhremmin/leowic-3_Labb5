@@ -16,4 +16,6 @@
 @property (nonatomic, strong) STAPPersonObject      *person;
 @property (nonatomic, strong) STAPRiskProfileObject *riskProfile;
 
+-(id) init;
+
 @end
