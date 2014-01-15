@@ -21,3 +21,17 @@
 "Stock market" = "Aktiemarknad";
 "Properties" = "Fastigheter";
 "Other markets" = "Andra marknader";
+"Fund Group 0"  = "Okänd";
+"Fund Group 28" = "Asien exkl. Japan";
+"Fund Group 29" = "Japan";
+"Fund Group 30" = "Storbritannien";
+"Fund Group 31" = "Sverige";
+"Fund Group 32" = "Tillväxtmarknader";
+"Fund Group 33" = "Nordamerika";
+"Fund Group 34" = "Västeuropa exkl Storbritannien";
+"Fund Group 35" = "Blandfond";
+"Fund Group 36" = "Branschfond";
+"Fund Group 37" = "Globalfond";
+"Fund Group 38" = "Räntefond";
+"Fund Group 39" = "Utländsk valuta";
+"Fund Group 40" = "Övriga fonder";

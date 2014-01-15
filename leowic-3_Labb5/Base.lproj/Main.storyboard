@@ -999,15 +999,15 @@ Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina peng
                             </tableViewSection>
                             <tableViewSection headerTitle="Marknadsfördelning" id="gLs-h4-7EU">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="235" id="0wf-RY-8ad">
-                                        <rect key="frame" x="0.0" y="279" width="320" height="235"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="215" id="0wf-RY-8ad">
+                                        <rect key="frame" x="0.0" y="279" width="320" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0wf-RY-8ad" id="94R-m4-bfP">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="234"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJ1-2k-TVb" customClass="CPTGraphHostingView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="234"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>

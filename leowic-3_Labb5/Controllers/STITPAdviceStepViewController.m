@@ -85,6 +85,11 @@
     return sectionHeader;
 }
 
+-(NSIndexPath *) tableView: (UITableView *)tableView willSelectRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    return nil;
+}
+
 -(void) tableView: (UITableView *)tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *)indexPath
 {
     NSNumber *section = [NSNumber numberWithInteger:indexPath.section];

@@ -9,6 +9,7 @@
 #import "STCompanyDetailsViewController.h"
 #import "STCompanyDetailsTabsViewController.h"
 #import "STChartSeries.h"
+#import "STAPFund.h"
 
 @interface STCompanyDetailsViewController ()
 
@@ -97,6 +98,36 @@
         }
         
     } else {
+        double red = 120, green = 196, blue = 235;
+        
+        for (STAPFund *fund in company.funds) {
+            NSString *groupIdentifier = [NSString stringWithFormat:@"Fund Group %d", fund.fundGroupID];
+            NSString *group = NSLocalizedString(groupIdentifier, nil);
+            
+            STChartSeries *series = nil;
+            for (STChartSeries *existingSeries in data) {
+                if ([existingSeries.dataLegend isEqualToString:group]) {
+                    series = existingSeries;
+                    break;
+                }
+            }
+            
+            if (series) {
+                NSNumber *newValue = @( [series.dataValue doubleValue] + fund.share * 0.01 );
+                [series setDataValue:newValue];
+            } else {
+                CPTColor *color = [CPTColor colorWithComponentRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+                CPTFill *fill = [CPTFill fillWithColor:color];
+                series = [[STChartSeries alloc] initWithLegend:group value:fund.share * 0.01 fillStyle:fill];
+                
+                // Increment colour brightness with 10 %. Cap to 255 obviously, as this is white.
+                red   = MIN(red * 1.1, 255);
+                green = MIN(green * 1.1, 255);
+                blue  = MIN(blue * 1.1, 255);
+                
+                [data addObject:series];
+            }
+        }
         
     }
     
@@ -105,34 +136,20 @@
 
 -(void) configurePieChart
 {
-    // Create and initialise graph
+    // Create and initialise the pie graph
 	CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.distributionChartView.bounds];
 	self.distributionChartView.hostedGraph = graph;
     
-	graph.paddingLeft = 0.0f;
-	graph.paddingTop = 0.0f;
-	graph.paddingRight = 0.0f;
-	graph.paddingBottom = 0.0f;
+	graph.paddingLeft = 0;
+	graph.paddingTop = 0;
+	graph.paddingRight = 0;
+	graph.paddingBottom = 0;
 	graph.axisSet = nil;
+    graph.borderLineStyle = nil;
     
-	// Set up text style
-	CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
-	textStyle.color = [CPTColor grayColor];
-	textStyle.fontName = @"Helvetica";
-	textStyle.fontSize = 15.0f;
-	
-    // Configure title
-    /*
-	NSString *title = @"Portfolio Prices: May 1, 2012";
-	graph.title = title;
-	graph.titleTextStyle = textStyle;
-	graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
-	graph.titleDisplacement = CGPointMake(0.0f, -12.0f);
-    */
-    
-	// Set theme
-	CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
-	[graph applyTheme:theme];
+    graph.plotAreaFrame.borderLineStyle = nil;
+    graph.plotAreaFrame.borderWidth = 0;
+    graph.plotAreaFrame.cornerRadius = 0;
     
     // Create a pie chart
     CPTPieChart *pieChart = [[CPTPieChart alloc] init];
@@ -142,21 +159,23 @@
 	pieChart.identifier = graph.title;
 	pieChart.startAngle = M_PI_4;
 	pieChart.sliceDirection = CPTPieDirectionClockwise;
+    pieChart.borderLineStyle = nil;
     
 	// Add pie  to graph
 	[graph addPlot:pieChart];
     
     CPTLegend *theLegend = [CPTLegend legendWithGraph:graph];
     CPTMutableTextStyle *legendStyle = [[CPTMutableTextStyle alloc] init];
-    legendStyle.fontSize = 13;
+    legendStyle.fontSize = 10;
     
 	// Configure legend
+    theLegend.borderLineStyle = nil;
     theLegend.textStyle = legendStyle;
 	theLegend.numberOfColumns = self.dataSource.count;
     
 	// Add legend to graph
 	graph.legend = theLegend;
-	graph.legendAnchor = CPTRectAnchorBottomLeft;
+	graph.legendAnchor = CPTRectAnchorTop;
 	graph.legendDisplacement = CGPointZero;
 }
 
