@@ -17,6 +17,7 @@
 -(void) populateAdvice: (STAPAdvice *)advice withCompanies: (NSArray *)dataForCompanies;
 -(void) populateCompany: (STAPCompany *)company withData: (NSDictionary *)data;
 -(void) populateCompany: (STAPCompany *)company withFunds: (NSArray *)dataForFunds;
+-(void) populateCompany: (STAPCompany *)company withTradData: (NSDictionary *)data;
 
 @end
 
@@ -54,14 +55,13 @@
         
         [self populateCompany:company withData:[companyData objectForKey:@"Data"]];
         
-        
         // For ITP 1, the API always returns three sections (50 %, 25 % and 25 %). Merge these
         // sections, if the company choices are the same.
         if (advice.companies.count) {
             
             for (STAPCompany *existingCompany in advice.companies) {
                 if (existingCompany.ID == company.ID &&
-                    existingCompany.isTrad == company.isTrad) {
+                    existingCompany.isTrad == company.isTrad) { // must check due to AMF
                     // add the company's share to the existing one. Don't worry about the funds
                     // as these will always be identical across the company sections.
                     existingCompany.share += company.share;
@@ -83,7 +83,21 @@
     
     if (!company.isTrad) {
         [self populateCompany:company withFunds:[root objectForKey:@"Funds"]];
+    } else {
+        [self populateCompany:company withTradData:root];
     }
+}
+
+-(void) populateCompany: (STAPCompany *)company withTradData: (NSDictionary *)data
+{
+    double interest = round(100 * MAX([[data objectForKey:@"DistributionInterest"] doubleValue], 0)) * 0.01;
+    double shares = round(100 * MAX([[data objectForKey:@"DistributionShares"] doubleValue], 0)) * 0.01;
+    double property = round(100 * MAX([[data objectForKey:@"DistributionProperty"] doubleValue], 0)) * 0.01;
+    double other = 1 - interest - shares - property;
+    
+    STAPTradAllocationObject *allocation = [[STAPTradAllocationObject alloc] initWithInterest:interest shares:shares property:property other:other];
+    
+    [company setAllocation:allocation];
 }
 
 -(void) populateCompany: (STAPCompany *)company withFunds: (NSArray *)dataForFunds

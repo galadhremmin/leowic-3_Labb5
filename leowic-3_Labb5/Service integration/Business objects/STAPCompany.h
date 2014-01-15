@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STAPTradAllocationObject.h"
 
 @interface STAPCompany : NSObject
 
@@ -18,5 +19,7 @@
 @property (nonatomic)         BOOL            isTrad;
 @property (nonatomic)         NSInteger       kapitaldelID;
 @property (nonatomic)         NSInteger       productID;
+
+@property (nonatomic, strong) STAPTradAllocationObject* allocation;
 
 @end

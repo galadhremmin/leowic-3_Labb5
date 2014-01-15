@@ -27,7 +27,7 @@
 {
     STAPGuideObject *session = self.coordinator.session;
     
-    NSString *text = [NSString stringWithFormat:@"Din riskprofil är %@.", [session.riskProfile.calculatedRiskTendencyDescription lowercaseStringWithLocale:[NSLocale currentLocale]]];
+    NSString *text = [NSString stringWithFormat:NSLocalizedString(@"Your risk profile is %@.", nil), [session.riskProfile.calculatedRiskTendencyDescription lowercaseStringWithLocale:[NSLocale currentLocale]]];
     [self.riskResultLabel setText:text];
 }
 

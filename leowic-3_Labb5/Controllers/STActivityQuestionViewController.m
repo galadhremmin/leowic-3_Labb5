@@ -7,7 +7,7 @@
 //
 
 #import "STActivityQuestionViewController.h"
-#import "STAdviceStepViewController.h"
+#import "STITPAdviceStepViewController.h"
 #import "STActivityLevelEnum.h"
 
 @interface STActivityQuestionViewController ()
@@ -87,19 +87,4 @@
     
     return indexPath;
 }
-
--(void) prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender
-{
-    if (![segue.identifier isEqualToString:@"AdviceStepSegue"]) {
-        return;
-    }
-    
-    STAdviceStepViewController *controller = (STAdviceStepViewController *)segue.destinationViewController;
-    
-    // First advice is always ITP, unless deliberately disabled, according to the API. As
-    // this app doesn't support choosing what aspects of your pension you'd like to retrieve
-    // information about, this behaviour is a fact.
-    [controller setAdviceType:STAdviceTypeITP];
-}
-
 @end

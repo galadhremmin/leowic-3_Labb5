@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  leowic-3_Labb5
+
+  Created by Leonard Wickmark on 15/01/14.
+  Copyright (c) 2014 Softronic AB. All rights reserved.
+*/
+
+"Failed authentication" = "Misslyckad inloggning!";
+"You couldn't be logged in. Check your security code." = "Du kunde inte loggas in. Kontrollera säkerhetskoden.";
+"High" = "Hög";
+"Mid-high" = "Medelhög";
+"Mid-low" = "Medellåg";
+"Low" = "Låg";
+"Unknown" = "Okänd";
+"Your risk profile is %@." = "Din riskprofil är %@.";
+"Traditional financial management" = "Traditionell förvaltning";
+"Fund management" = "Fondförvaltning";
+"%@ management fee" = "%@ %% förvaltningsavgift";
+"Interest market" = "Räntemarknad";
+"Stock market" = "Aktiemarknad";
+"Properties" = "Fastigheter";
+"Other markets" = "Andra marknader";

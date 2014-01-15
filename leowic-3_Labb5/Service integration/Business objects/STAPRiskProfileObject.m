@@ -24,15 +24,15 @@
 {
     switch (self.calculatedRiskTendency) {
         case STRiskLevelLow:
-            return @"Låg";
+            return NSLocalizedString(@"Low", nil);
         case STRiskLevelMidLow:
-            return @"Medellåg";
+            return NSLocalizedString(@"Mid-low", nil);
         case STRiskLevelMidHigh:
-            return @"Medelhög";
+            return NSLocalizedString(@"Mid-high", nil);
         case STRiskLevelHigh:
-            return @"Hög";
+            return NSLocalizedString(@"High", nil);
         case STRiskLevelUnknown:
-            return @"Okänd";
+            return NSLocalizedString(@"Unknown", nil);
         default:
             [NSException raise:@"Okänd risknivå." format:@"Risknivån %d är okänd.", self.calculatedRiskTendency];
     }

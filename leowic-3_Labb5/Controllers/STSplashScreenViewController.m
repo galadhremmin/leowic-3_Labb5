@@ -78,7 +78,7 @@
         // Let's begin!
         [self performSegueWithIdentifier:@"GuideSegue" sender:nil];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Misslyckad inloggning!" message:@"Du kunde inte loggas in. Kontrollera säkerhetskoden." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed authentication", nil) message:NSLocalizedString(@"You couldn't be logged in. Check your security code.", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
     
