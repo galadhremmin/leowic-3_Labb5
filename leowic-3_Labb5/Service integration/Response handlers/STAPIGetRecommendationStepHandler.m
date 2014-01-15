@@ -60,7 +60,8 @@
         if (advice.companies.count) {
             
             for (STAPCompany *existingCompany in advice.companies) {
-                if (existingCompany.ID == company.ID) {
+                if (existingCompany.ID == company.ID &&
+                    existingCompany.isTrad == company.isTrad) {
                     // add the company's share to the existing one. Don't worry about the funds
                     // as these will always be identical across the company sections.
                     existingCompany.share += company.share;
