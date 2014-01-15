@@ -14,8 +14,10 @@
 
 @property (nonatomic, strong) UIViewController *waitDialogue;
 
+-(void) handleFailure: (id)noop;
 -(void) handleRiskProfile: (NSNumber *)calculatedRiskTendency;
 -(void) handleRecommendationCompleted: (id)noop;
+-(void) closeWaitDialogue: (void (^)(void))dialogClosedBlock;
 -(void (^)(void)) moveToAdviceBlock;
 
 @end
@@ -25,6 +27,7 @@
 -(void) viewWillAppear: (BOOL)animated
 {
     if (!self.waitDialogue) {
+        [self.coordinator registerSelector:@selector(handleFailure:) onDelegate:self forSignal:0];
         [self.coordinator registerSelector:@selector(handleRiskProfile:) onDelegate:self forSignal:STAPIUpdateRiskProfile];
         
         [self.coordinator registerSelector:@selector(handleRecommendationCompleted:) onDelegate:self forSignal:STAPIInitializeRecommendationSteps];
@@ -56,12 +59,23 @@
     [self.coordinator.serviceProxy APIInitializeRecommendationSteps];
 }
 
+-(void) handleFailure: (id)noop
+{
+    [self closeWaitDialogue:NULL];
+}
+
 -(void) handleRecommendationCompleted: (id)noop
+{
+    [self closeWaitDialogue:[self moveToAdviceBlock]];
+}
+
+-(void) closeWaitDialogue: (void (^)(void))dialogClosedBlock
 {
     // Close the modal dialogue and move on to the next step.
     if (![self.presentedViewController isBeingDismissed]) {
-        [self dismissViewControllerAnimated:YES completion:[self moveToAdviceBlock]];
+        [self dismissViewControllerAnimated:YES completion:dialogClosedBlock];
     }
+    
     [self setWaitDialogue:nil];
 }
 

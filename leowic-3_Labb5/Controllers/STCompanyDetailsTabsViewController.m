@@ -7,12 +7,21 @@
 //
 
 #import "STCompanyDetailsTabsViewController.h"
-
-@interface STCompanyDetailsTabsViewController ()
-
-@end
+#import "STFundsDetailsViewController.h"
 
 @implementation STCompanyDetailsTabsViewController
 
+-(void) viewWillAppear: (BOOL)animated
+{
+    // Find the tab bar item for the funds details view and enable or disable it
+    // depending on the isTrad flag for the associated company.
+    Class fundsControllerClass = [STFundsDetailsViewController class];
+    for (UIViewController *controller in self.viewControllers) {
+        if ([controller isKindOfClass:fundsControllerClass]) {
+            [controller.tabBarItem setEnabled:!self.company.isTrad];
+            break;
+        }
+    }
+}
 
 @end

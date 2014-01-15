@@ -45,7 +45,7 @@
     [self.feeLabel setText:feeText];
 }
 
--(void) viewDidAppear: (BOOL)animated
+-(void) viewWillAppear: (BOOL)animated
 {
     [self configureDataSource];
     [self configurePieChart];
@@ -161,6 +161,13 @@
 	pieChart.sliceDirection = CPTPieDirectionClockwise;
     pieChart.borderLineStyle = nil;
     
+    // The center anchor is the pie chart's  relative position on the canvas. The position
+    // is expressed in percentages, ranging from 0 to 1. Default is (0.5, 0.5) which is the
+    // middle of the canvas. As I want to move the chart to the left, so that the legends
+    // will fit, I'm using the pie radius to move the center of the pie so that there is a
+    // gap of 20 % from the left corner.
+    pieChart.centerAnchor = CGPointMake(pieChart.pieRadius * 1.2 / self.distributionChartView.bounds.size.width, 0.5);
+    
 	// Add pie  to graph
 	[graph addPlot:pieChart];
     
@@ -171,11 +178,11 @@
 	// Configure legend
     theLegend.borderLineStyle = nil;
     theLegend.textStyle = legendStyle;
-	theLegend.numberOfColumns = self.dataSource.count;
+	theLegend.numberOfColumns = 1;
     
 	// Add legend to graph
 	graph.legend = theLegend;
-	graph.legendAnchor = CPTRectAnchorTop;
+	graph.legendAnchor = CPTRectAnchorRight;
 	graph.legendDisplacement = CGPointZero;
 }
 

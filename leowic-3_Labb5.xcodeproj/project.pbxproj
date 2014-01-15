@@ -51,6 +51,7 @@
 		D7BE21361886E5A900CE178B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BE21351886E5A900CE178B /* libCorePlot-CocoaTouch.a */; };
 		D7BE21391886EA8D00CE178B /* STAPTradAllocationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE21381886EA8D00CE178B /* STAPTradAllocationObject.m */; };
 		D7BE213D1886F5F300CE178B /* STChartSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE213C1886F5F300CE178B /* STChartSeries.m */; };
+		D7BE2140188713AA00CE178B /* STFundsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE213F188713AA00CE178B /* STFundsDetailsViewController.m */; };
 		D7BE7D4E187D711E00210AB5 /* STAPGuideObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D4D187D711E00210AB5 /* STAPGuideObject.m */; };
 		D7BE7D51187D752C00210AB5 /* STAPICreateSessionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D50187D752C00210AB5 /* STAPICreateSessionHandler.m */; };
 		D7BE7D54187D798900210AB5 /* STAPRiskProfileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE7D53187D798900210AB5 /* STAPRiskProfileObject.m */; };
@@ -237,6 +238,8 @@
 		D7BE21381886EA8D00CE178B /* STAPTradAllocationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPTradAllocationObject.m; sourceTree = "<group>"; };
 		D7BE213B1886F5F300CE178B /* STChartSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STChartSeries.h; sourceTree = "<group>"; };
 		D7BE213C1886F5F300CE178B /* STChartSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STChartSeries.m; sourceTree = "<group>"; };
+		D7BE213E188713AA00CE178B /* STFundsDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STFundsDetailsViewController.h; sourceTree = "<group>"; };
+		D7BE213F188713AA00CE178B /* STFundsDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STFundsDetailsViewController.m; sourceTree = "<group>"; };
 		D7BE7D4C187D711E00210AB5 /* STAPGuideObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPGuideObject.h; sourceTree = "<group>"; };
 		D7BE7D4D187D711E00210AB5 /* STAPGuideObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPGuideObject.m; sourceTree = "<group>"; };
 		D7BE7D4F187D752C00210AB5 /* STAPICreateSessionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPICreateSessionHandler.h; sourceTree = "<group>"; };
@@ -362,6 +365,8 @@
 				D7BE20CF1886D8B400CE178B /* STCompanyDetailsTabsViewController.m */,
 				D7BE20CB1886D76C00CE178B /* STCompanyDetailsViewController.h */,
 				D7BE20CC1886D76C00CE178B /* STCompanyDetailsViewController.m */,
+				D7BE213E188713AA00CE178B /* STFundsDetailsViewController.h */,
+				D7BE213F188713AA00CE178B /* STFundsDetailsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -754,6 +759,7 @@
 				D7BE7D54187D798900210AB5 /* STAPRiskProfileObject.m in Sources */,
 				D7188A8A1885AC04002A5F2C /* STAPIGetRecommendationStepHandler.m in Sources */,
 				D7BE7D61187DA19500210AB5 /* STAPNameObject.m in Sources */,
+				D7BE2140188713AA00CE178B /* STFundsDetailsViewController.m in Sources */,
 				D7375A3A1876DC3100FBED76 /* STSplashScreenViewController.m in Sources */,
 				D7375A2B1876BCC800FBED76 /* STServiceConnection.m in Sources */,
 				D7D5C7821880423A000D2765 /* STAPGalleryItemObject.m in Sources */,

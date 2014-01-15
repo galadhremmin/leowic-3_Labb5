@@ -90,9 +90,14 @@
 
 -(void) populateCompany: (STAPCompany *)company withTradData: (NSDictionary *)data
 {
+    // Round to two decimals by multiplying with 100 (2 positions), rounding the result, and
+    // dividing with 100 thereafter. MAX is used here as undefined is -1 according to the
+    // API.
     double interest = round(100 * MAX([[data objectForKey:@"DistributionInterest"] doubleValue], 0)) * 0.01;
     double shares = round(100 * MAX([[data objectForKey:@"DistributionShares"] doubleValue], 0)) * 0.01;
     double property = round(100 * MAX([[data objectForKey:@"DistributionProperty"] doubleValue], 0)) * 0.01;
+    
+    // This is a rough estimation! But it's satisfactory for the purpose of this app.
     double other = 1 - interest - shares - property;
     
     STAPTradAllocationObject *allocation = [[STAPTradAllocationObject alloc] initWithInterest:interest shares:shares property:property other:other];
