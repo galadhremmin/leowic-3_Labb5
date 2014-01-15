@@ -142,9 +142,15 @@
 
 -(void) APIGetRecommendationStep: (NSUInteger)category
 {
-    NSDictionary *arguments = @{@"category": [NSNumber numberWithUnsignedInteger:category],
-                                @"fribrevVisiID": [NSNumber numberWithUnsignedInteger:0]};
+    NSDictionary *arguments = @{@"category": @(category),
+                                @"fribrevVisiID": @(0)};
     [self.APIGuideService execute:@"GetRecommendationStep" methodID:STAPIRecommendationStep arguments:arguments cache:NO];
+}
+
+-(void) APIGetFundData: (NSUInteger)fundID
+{
+    NSDictionary *arguments = @{@"fundID": @(fundID)};
+    [self.APIGuideService execute:@"GetFundData" methodID:STAPIGetFundData arguments:arguments cache:NO];
 }
 
 #pragma mark - STServiceDelegation
@@ -171,7 +177,13 @@
         NSObject<STAPIResponseHandler> *handler = [[handlerBlueprint alloc] init];
     
         // Performs the translation. We don't know the returning data type, hence _id_ in this case.
-        data = [handler handleResponseWithData:jsonData];
+        @try {
+            data = [handler handleResponseWithData:jsonData];
+        }
+        @catch (NSException *exception) {
+            [self service:service failedWithError:exception.userInfo];
+            return; // <-- cancel, as the parsing failed.
+        }
     }
     
     // The NSDictionary object does not accept nil, so assign all nil values to NSNull.

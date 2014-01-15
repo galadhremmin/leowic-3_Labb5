@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "STAPTradAllocationObject.h"
 
-@interface STAPCompany : NSObject
+@interface STAPCompanyObject : NSObject
 
 @property (nonatomic)         NSInteger       ID;
 @property (nonatomic, copy)   NSString       *name;

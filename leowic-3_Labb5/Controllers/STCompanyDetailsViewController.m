@@ -9,7 +9,7 @@
 #import "STCompanyDetailsViewController.h"
 #import "STCompanyDetailsTabsViewController.h"
 #import "STChartSeries.h"
-#import "STAPFund.h"
+#import "STAPFundObject.h"
 
 @interface STCompanyDetailsViewController ()
 
@@ -30,7 +30,7 @@
 
 -(void) viewDidLoad
 {
-    STAPCompany *company = self.parentController.company;
+    STAPCompanyObject *company = self.parentController.company;
     
     [self.companyNameLabel setText:company.name];
     [self.financialManagementLabel setText:company.isTrad ? NSLocalizedString(@"Traditional financial management", nil)
@@ -53,7 +53,7 @@
 
 -(void) configureDataSource
 {
-    STAPCompany *company = self.parentController.company;
+    STAPCompanyObject *company = self.parentController.company;
     NSMutableArray *data = [[NSMutableArray alloc] init];
     
     if (company.isTrad) {
@@ -100,7 +100,7 @@
     } else {
         double red = 120, green = 196, blue = 235;
         
-        for (STAPFund *fund in company.funds) {
+        for (STAPFundObject *fund in company.funds) {
             NSString *groupIdentifier = [NSString stringWithFormat:@"Fund Group %d", fund.fundGroupID];
             NSString *group = NSLocalizedString(groupIdentifier, nil);
             
@@ -195,7 +195,7 @@
 
 -(NSNumber *) numberForPlot: (CPTPlot *)plot field: (NSUInteger)fieldEnum recordIndex: (NSUInteger)index
 {
-	if (CPTPieChartFieldSliceWidth == fieldEnum) {
+	if (fieldEnum == CPTPieChartFieldSliceWidth) {
 		return [self.dataSource[index] dataValue];
 	}
     

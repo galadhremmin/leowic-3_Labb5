@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface STAPFund : NSObject
+@interface STAPFundObject : NSObject
 
 @property (nonatomic)       NSInteger   ID;
 @property (nonatomic)       NSInteger   fundGroupID;

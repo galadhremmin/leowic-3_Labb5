@@ -31,4 +31,9 @@
     [self.riskResultLabel setText:text];
 }
 
+-(BOOL) shouldAutorotate
+{
+    return [[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortrait;
+}
+
 @end

@@ -18,7 +18,8 @@ typedef enum {
     STAPIEstablishSession,
     STAPIUpdateRiskProfile,
     STAPIInitializeRecommendationSteps,
-    STAPIRecommendationStep
+    STAPIRecommendationStep,
+    STAPIGetFundData
 } STAPServiceMethod;
 
 +(NSString *)         APIKey;
@@ -33,6 +34,7 @@ typedef enum {
 -(void) APIUpdateRiskProfile: (STAPRiskProfileObject *)riskProfile;
 -(void) APIInitializeRecommendationSteps;
 -(void) APIGetRecommendationStep: (NSUInteger)category;
+-(void) APIGetFundData: (NSUInteger)fundID;
 
 -(void) addListener: (id)listener selector: (SEL)handler;
 -(void) removeListener: (id)listener;

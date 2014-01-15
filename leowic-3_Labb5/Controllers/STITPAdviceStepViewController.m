@@ -8,14 +8,14 @@
 
 #import "STITPAdviceStepViewController.h"
 #import "STCompanyDetailsTabsViewController.h"
-#import "STAPAdvice.h"
-#import "STAPCompany.h"
-#import "STAPFund.h"
+#import "STAPAdviceObject.h"
+#import "STAPCompanyObject.h"
+#import "STAPFundObject.h"
 #import "STFundCell.h"
 
 @interface STITPAdviceStepViewController ()
 
-@property (nonatomic, strong) STAPAdvice *advice;
+@property (nonatomic, strong) STAPAdviceObject *advice;
 
 -(void) handleAdviceData: (id)data;
 
@@ -39,7 +39,7 @@
     [self.coordinator.serviceProxy APIGetRecommendationStep:STAdviceTypeITP];
 }
 
--(void) handleAdviceData: (STAPAdvice *)adviceData
+-(void) handleAdviceData: (STAPAdviceObject *)adviceData
 {
     if (!adviceData) {
         return;
@@ -51,7 +51,7 @@
 
 -(UITableViewCell *) tableView: (UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    STAPCompany *company = [self.advice.companies objectAtIndex:indexPath.section];
+    STAPCompanyObject *company = [self.advice.companies objectAtIndex:indexPath.section];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CompanyCell"];
     
@@ -78,7 +78,7 @@
 
 -(NSString *) tableView: (UITableView *)tableView titleForHeaderInSection: (NSInteger)section
 {
-    STAPCompany *company = self.advice.companies[section];
+    STAPCompanyObject *company = self.advice.companies[section];
     NSString *sectionHeader = [NSString stringWithFormat:@"%d %% %@", company.share, company.isTrad
                                ? NSLocalizedString(@"Traditional financial management", nil)
                                : NSLocalizedString(@"Fund management", nil) ];
@@ -100,7 +100,7 @@
 {
     if ([segue.identifier isEqualToString:@"DetailsSegue"]) {
         NSNumber *section = (NSNumber *)sender;
-        STAPCompany *company = self.advice.companies[[section integerValue]];
+        STAPCompanyObject *company = self.advice.companies[[section integerValue]];
         
         id destination = (STCompanyDetailsTabsViewController *)[segue destinationViewController];
         

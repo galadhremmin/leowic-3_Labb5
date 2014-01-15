@@ -7,17 +7,17 @@
 //
 
 #import "STAPIGetRecommendationStepHandler.h"
-#import "STAPAdvice.h"
-#import "STAPCompany.h"
-#import "STAPFund.h"
+#import "STAPAdviceObject.h"
+#import "STAPCompanyObject.h"
+#import "STAPFundObject.h"
 
 @interface STAPIGetRecommendationStepHandler ()
 
--(void) populateAdvice: (STAPAdvice *)advice withData: (NSDictionary *)data;
--(void) populateAdvice: (STAPAdvice *)advice withCompanies: (NSArray *)dataForCompanies;
--(void) populateCompany: (STAPCompany *)company withData: (NSDictionary *)data;
--(void) populateCompany: (STAPCompany *)company withFunds: (NSArray *)dataForFunds;
--(void) populateCompany: (STAPCompany *)company withTradData: (NSDictionary *)data;
+-(void) populateAdvice: (STAPAdviceObject *)advice withData: (NSDictionary *)data;
+-(void) populateAdvice: (STAPAdviceObject *)advice withCompanies: (NSArray *)dataForCompanies;
+-(void) populateCompany: (STAPCompanyObject *)company withData: (NSDictionary *)data;
+-(void) populateCompany: (STAPCompanyObject *)company withFunds: (NSArray *)dataForFunds;
+-(void) populateCompany: (STAPCompanyObject *)company withTradData: (NSDictionary *)data;
 
 @end
 
@@ -26,14 +26,14 @@
 -(id) handleResponseWithData: (NSDictionary *)responseData
 {
     NSDictionary *root = [responseData objectForKey:@"GetRecommendationStepResult"];
-    STAPAdvice *advice = [[STAPAdvice alloc] init];
+    STAPAdviceObject *advice = [[STAPAdviceObject alloc] init];
     
     [self populateAdvice:advice withData:root];
 
     return advice;
 }
 
--(void) populateAdvice: (STAPAdvice *)advice withData: (NSDictionary *)root
+-(void) populateAdvice: (STAPAdviceObject *)advice withData: (NSDictionary *)root
 {
     [advice setFee:[[root objectForKey:@"Fee"] doubleValue]];
     
@@ -41,10 +41,10 @@
     [self populateAdvice:advice withCompanies:data];
 }
 
--(void) populateAdvice: (STAPAdvice *)advice withCompanies: (NSArray *)dataForCompanies
+-(void) populateAdvice: (STAPAdviceObject *)advice withCompanies: (NSArray *)dataForCompanies
 {
     for (NSDictionary *companyData in dataForCompanies) {
-        STAPCompany *company = [[STAPCompany alloc] init];
+        STAPCompanyObject *company = [[STAPCompanyObject alloc] init];
         
         [company setID:[[companyData objectForKey:@"CompanyID"] integerValue]];
         [company setName:[companyData objectForKey:@"CompanyName"]];
@@ -59,7 +59,7 @@
         // sections, if the company choices are the same.
         if (advice.companies.count) {
             
-            for (STAPCompany *existingCompany in advice.companies) {
+            for (STAPCompanyObject *existingCompany in advice.companies) {
                 if (existingCompany.ID == company.ID &&
                     existingCompany.isTrad == company.isTrad) { // must check due to AMF
                     // add the company's share to the existing one. Don't worry about the funds
@@ -77,7 +77,7 @@
     }
 }
 
--(void) populateCompany: (STAPCompany *)company withData: (NSDictionary *)root
+-(void) populateCompany: (STAPCompanyObject *)company withData: (NSDictionary *)root
 {
     [company setShare:[[root objectForKey:@"Share"] unsignedIntegerValue]];
     
@@ -88,7 +88,7 @@
     }
 }
 
--(void) populateCompany: (STAPCompany *)company withTradData: (NSDictionary *)data
+-(void) populateCompany: (STAPCompanyObject *)company withTradData: (NSDictionary *)data
 {
     // Round to two decimals by multiplying with 100 (2 positions), rounding the result, and
     // dividing with 100 thereafter. MAX is used here as undefined is -1 according to the
@@ -105,10 +105,10 @@
     [company setAllocation:allocation];
 }
 
--(void) populateCompany: (STAPCompany *)company withFunds: (NSArray *)dataForFunds
+-(void) populateCompany: (STAPCompanyObject *)company withFunds: (NSArray *)dataForFunds
 {
     for (NSDictionary *fundData in dataForFunds) {
-        STAPFund *fund = [[STAPFund alloc] init];
+        STAPFundObject *fund = [[STAPFundObject alloc] init];
         
         [fund setID:[[fundData objectForKey:@"FundID"] integerValue]];
         [fund setGroupID:[[fundData objectForKey:@"GroupID"] integerValue]];

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Softronic AB. All rights reserved.
 //
 
-#import "STAPFund.h"
+#import "STAPFundObject.h"
 
-@implementation STAPFund
+@implementation STAPFundObject
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CorePlot-CocoaTouch.h"
 
-@interface STCompanyDetailsViewController : UITableViewController<CPTPieChartDataSource, CPTPlotDataSource>
+@interface STCompanyDetailsViewController : UITableViewController<CPTPlotDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *companyNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *financialManagementLabel;

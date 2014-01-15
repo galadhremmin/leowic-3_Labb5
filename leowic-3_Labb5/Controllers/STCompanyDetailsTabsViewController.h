@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "STAPCompany.h"
+#import "STAPCompanyObject.h"
 
 @interface STCompanyDetailsTabsViewController : UITabBarController
 
-@property (nonatomic, strong) STAPCompany *company;
+@property (nonatomic, strong) STAPCompanyObject *company;
 
 @end

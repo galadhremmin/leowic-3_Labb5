@@ -60,6 +60,11 @@
     [self setCoordinator:nil];
 }
 
+-(BOOL) shouldAutorotate
+{
+    return [[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortrait;
+}
+
 #pragma mark - Service integration
 -(void) handleTestUsers: (id)users
 {

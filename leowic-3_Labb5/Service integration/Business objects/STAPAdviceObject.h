@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface STAPAdvice : NSObject
+@interface STAPAdviceObject : NSObject
 
 @property (nonatomic)         double          fee;
 @property (nonatomic, strong) NSMutableArray *companies;
