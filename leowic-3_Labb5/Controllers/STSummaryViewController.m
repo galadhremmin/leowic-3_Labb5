@@ -111,6 +111,7 @@
         [self openDocumentInteractionMenu:nil];
     } else {
         [self.coordinator.serviceProxy APIGetSummary:self.advice.adviceID];
+        [self.displayAdviceSummaryButton setEnabled:NO];
     }
 }
 
@@ -126,7 +127,7 @@
         [self setDocumentController:controller];
     }
     
-    //[controller presentOpenInMenuFromRect:self.view.bounds inView:self.view animated:YES];
+    [self.displayAdviceSummaryButton setEnabled:YES];
     [controller presentPreviewAnimated:YES];
 }
 
