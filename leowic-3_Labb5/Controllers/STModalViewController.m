@@ -28,7 +28,9 @@
 
 -(IBAction) dismissModality: (id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    if (![self.presentedViewController isBeingDismissed]) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
 
 @end

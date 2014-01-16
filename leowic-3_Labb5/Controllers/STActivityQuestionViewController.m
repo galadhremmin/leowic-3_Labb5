@@ -61,12 +61,12 @@
 
 -(void) handleFailure: (id)noop
 {
-    [self closeWaitDialogue:NULL];
+    [self performSelector:@selector(closeWaitDialogue:) withObject:NULL afterDelay:1.5];
 }
 
 -(void) handleRecommendationCompleted: (id)noop
 {
-    [self closeWaitDialogue:[self moveToAdviceBlock]];
+    [self performSelector:@selector(closeWaitDialogue:) withObject:[self moveToAdviceBlock] afterDelay:1.5];
 }
 
 -(void) closeWaitDialogue: (void (^)(void))dialogClosedBlock

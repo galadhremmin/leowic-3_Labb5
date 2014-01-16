@@ -82,20 +82,14 @@
 
 -(void) APIRequestLoginUsers
 {
-    // TODO: Acquire this list from the web service
+    // The API appears to assume that you know about these individuals already. Unfortunately,
+    // you can't acquire this list. For this reason, I've settled to hard-code them.
     NSMutableDictionary *users = [[NSMutableDictionary alloc] init];
-    
-    [users setObject:@"Albert Camus, alternativ ITP" forKey:@"13"];
-    [users setObject:@"Alice Munroe, ITP1" forKey:@"7"];
-    [users setObject:@"Gabriel Marquez, alternativ ITP, inkomst över 10 IBB" forKey:@"10"];
+
     [users setObject:@"Gustav Curie, ITP2, inkomst under 7,5 IBB" forKey:@"6"];
     [users setObject:@"Kerstin Hemingway, ITP2, inkomst över 7,5 IBB" forKey:@"4"];
     [users setObject:@"Linus Lagerlöf, ITP1" forKey:@"3"];
-    [users setObject:@"Mo Yan, ITP1 konverterad från ITP2, inkomst över 7,5 IBB" forKey:@"12"];
     [users setObject:@"Monika Röntgen, alternativ ITP" forKey:@"5"];
-    [users setObject:@"Sigrid Undset, ITP1" forKey:@"8"];
-    [users setObject:@"William Faulkner, ITP2, inkomst över 7,5 IBB" forKey:@"9"];
-    [users setObject:@"Winston Churchill, ITP2" forKey:@"11"];
     
     [self service:self.APIAuthenticationService finishedMethod:@"ApiAvailableUsers" methodID:STAPIRequestLoginUsers withData:users];
 }
