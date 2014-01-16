@@ -17,8 +17,11 @@
 @property(atomic, strong) NSCache        *cache;
 @property(atomic)         NSUInteger      activeRequests;
 
+-(void) enqueue: (STServiceConnection *)connection;
 -(void) executeNextItemInQueue;
 -(NSString *) convertDictionaryOfArgumentsToJSON: (NSDictionary *)arguments;
+
+-(void) method: (NSString *)methodName withID: (NSUInteger)methodID finishedWithData: (NSData *)data raw: (BOOL)isRaw;
 
 -(void) beginDataTraffic;
 -(void) endDataTraffic;
@@ -67,19 +70,34 @@
 
     STServiceConnection *serviceConnection = [[STServiceConnection alloc] initWithRequest:serviceRequest methodName:method methodID:methodID cache:cacheConfiguration delegate:self];
     
-    @synchronized(_executionQueue) {
-        [self.executionQueue addObject:serviceConnection];
-        
-        if (self.executionQueue.count == 1) {
-            [self executeNextItemInQueue];
-        }
-    }
+    [self enqueue:serviceConnection];
+}
+
+-(void) executeURLWithRawData: (NSURL *)url methodID: (NSUInteger)methodID
+{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    STServiceConnection *connection = [[STServiceConnection alloc] initWithRequest:request methodName:url.absoluteString methodID:methodID cache:nil delegate:self];
+    [connection setReturnsRawData:YES];
+    
+    [self enqueue:connection];
 }
 
 -(void) clearCache
 {
     // Remove all objects from the cache object
     [self.cache removeAllObjects];
+}
+
+-(void) enqueue: (STServiceConnection *)connection
+{
+    @synchronized(_executionQueue) {
+        [self.executionQueue addObject:connection];
+        
+        if (self.executionQueue.count == 1) {
+            [self executeNextItemInQueue];
+        }
+    }
 }
 
 -(void) executeNextItemInQueue
@@ -99,8 +117,10 @@
         STCacheItem *item = [self.cache objectForKey:serviceConnection.methodName];
         if (item != nil) {
             if (item.hash == [serviceConnection.cacheConfiguration.cacheHash unsignedIntegerValue]) {
+                NSLog(@"Cached response. Hash: %d", item.hash);
+                
                 // There's an item in the cache  which is up to date.
-                [self method:serviceConnection.methodName withID:serviceConnection.methodID didReceiveData:item.data];
+                [self method:serviceConnection.methodName withID:serviceConnection.methodID finishedWithData:item.data raw:serviceConnection.returnsRawData];
                 return;
             }
             
@@ -110,7 +130,11 @@
     }
     
     NSLog(@"-------------------------------");
-    NSLog(@"SERVICE REQUEST: %@", serviceConnection.methodName);
+    if (serviceConnection.returnsRawData) {
+        NSLog(@"RAW DATA REQUEST URL: %@", serviceConnection.methodName);
+    } else {
+        NSLog(@"SERVICE REQUEST: %@", serviceConnection.methodName);
+    }
     
     // The service communication will happen asynchronously
     [serviceConnection start];
@@ -126,7 +150,7 @@
     }
     
     NSError *serializationError;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arguments options:NSJSONWritingPrettyPrinted error:&serializationError];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arguments options:0 error:&serializationError];
     NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
     NSLog(@"ARGUMENTS: %@", json);
@@ -157,7 +181,7 @@
     
     [self endDataTraffic];
     
-    [self method:serviceConnection.methodName withID:serviceConnection.methodID didReceiveData:serviceConnection.receivedData];
+    [self method:serviceConnection.methodName withID:serviceConnection.methodID finishedWithData:serviceConnection.receivedData raw:serviceConnection.returnsRawData];
 }
 
 -(void) connection: (NSURLConnection *)connection didFailWithError: (NSError *)error
@@ -175,10 +199,18 @@
 
 #pragma mark - Handlers for response data 
 
--(void) method: (NSString *)methodName withID: (NSUInteger)methodID didReceiveData: (NSData *)data
+-(void) method: (NSString *)methodName withID: (NSUInteger)methodID finishedWithData: (NSData *)data raw: (BOOL)isRaw
 {
     // Execute next item in the queue, asyncronously.
     [self performSelector:@selector(executeNextItemInQueue) withObject:nil afterDelay:0];
+    
+    // Raw data requests doesn't assume that the request's result is formatted using JSON.
+    // For this reason, the response is, in its raw form, sent immediately to the delegate
+    // for further processing.
+    if (isRaw) {
+        [self.delegate service:self finishedMethodID:methodID withRawData:data];
+        return;
+    }
     
     // Handle the existing response, passing it on to the delegate.
     NSError *error;

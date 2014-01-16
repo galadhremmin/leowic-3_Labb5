@@ -14,6 +14,8 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [self.navigationController addDismissButton:self];
     [self setTitle:self.company.name];
     

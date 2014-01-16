@@ -794,17 +794,17 @@ Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina peng
         <!--Advice Step View Controller-->
         <scene sceneID="j0z-BQ-iR6">
             <objects>
-                <tableViewController id="aWu-4g-Ids" customClass="STITPAdviceStepViewController" sceneMemberID="viewController">
+                <tableViewController id="aWu-4g-Ids" customClass="STAdviceStepViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="mME-nm-pHk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CompanyCell" textLabel="FY3-O8-XNd" detailTextLabel="ISb-22-vXd" style="IBUITableViewCellStyleSubtitle" id="Dg4-XW-WsO">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CompanyCell" textLabel="FY3-O8-XNd" detailTextLabel="ISb-22-vXd" style="IBUITableViewCellStyleSubtitle" id="Dg4-XW-WsO">
                                 <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dg4-XW-WsO" id="qxU-5l-6V8">
-                                    <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FY3-O8-XNd">
@@ -830,14 +830,98 @@ Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina peng
                             <outlet property="delegate" destination="aWu-4g-Ids" id="EcA-r2-CDC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="7CW-l5-Tja"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="7CW-l5-Tja">
+                        <barButtonItem key="rightBarButtonItem" id="QFk-vR-lCC">
+                            <connections>
+                                <segue destination="aWu-4g-Ids" kind="push" identifier="AdviceStepSegue" id="Gww-DN-QKi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="Cot-Z2-loC" kind="modal" identifier="DetailsSegue" id="Zpi-va-M3a"/>
+                        <segue destination="f32-G9-leR" kind="modal" identifier="AdviceSummarySegue" id="XGN-gY-loJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CL4-p6-XIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4064" y="64"/>
+        </scene>
+        <!--Summary View Controller-->
+        <scene sceneID="rUm-mR-ARI">
+            <objects>
+                <viewController id="f32-G9-leR" customClass="STSummaryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yh8-95-v7b"/>
+                        <viewControllerLayoutGuide type="bottom" id="beI-F3-Oe1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ESY-Uj-WST">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rådgivning slutförd!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcg-Uj-oTL">
+                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Nom-Oe-Tln">
+                                <rect key="frame" x="20" y="49" width="280" height="264"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Du har nu slutfört rådgivning för ålderspension och fått ett råd för din ITP och din premiepension.
+
+Nedan så kan du ladda ner en sammanfattning av rådgivningen i PDF-format. Sammanfattningen innehåller även information om hur du går till väga för att följa rådet.
+
+Notera: denna rådgivning grundar sig på fiktiva data med fiktiva personer.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bw-IR-EeC">
+                                <rect key="frame" x="20" y="321" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Visa sammanfattning">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayAdviceSummary:" destination="f32-G9-leR" eventType="touchUpInside" id="SzF-lR-amh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrT-oV-Q2t">
+                                <rect key="frame" x="20" y="359" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Börja om">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startOver:" destination="f32-G9-leR" eventType="touchUpInside" id="QwC-10-q9a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Bw-IR-EeC" firstAttribute="leading" secondItem="ESY-Uj-WST" secondAttribute="leading" constant="20" id="6ya-5e-R6y"/>
+                            <constraint firstItem="NrT-oV-Q2t" firstAttribute="leading" secondItem="3Bw-IR-EeC" secondAttribute="leading" id="F1n-MO-XPr"/>
+                            <constraint firstAttribute="trailing" secondItem="3Bw-IR-EeC" secondAttribute="trailing" constant="20" id="HJT-jY-Pl0"/>
+                            <constraint firstItem="jcg-Uj-oTL" firstAttribute="leading" secondItem="ESY-Uj-WST" secondAttribute="leading" constant="20" symbolic="YES" id="aMf-uW-uZw"/>
+                            <constraint firstItem="NrT-oV-Q2t" firstAttribute="trailing" secondItem="3Bw-IR-EeC" secondAttribute="trailing" id="bMo-Cv-nLV"/>
+                            <constraint firstItem="NrT-oV-Q2t" firstAttribute="top" secondItem="3Bw-IR-EeC" secondAttribute="bottom" constant="8" symbolic="YES" id="gF5-9i-Tse"/>
+                            <constraint firstItem="jcg-Uj-oTL" firstAttribute="leading" secondItem="Nom-Oe-Tln" secondAttribute="leading" id="i7G-eo-pav"/>
+                            <constraint firstItem="jcg-Uj-oTL" firstAttribute="top" secondItem="ESY-Uj-WST" secondAttribute="top" constant="20" symbolic="YES" id="nDh-3i-oGp"/>
+                            <constraint firstItem="3Bw-IR-EeC" firstAttribute="top" secondItem="Nom-Oe-Tln" secondAttribute="bottom" constant="8" id="nu9-38-Pfu"/>
+                            <constraint firstItem="jcg-Uj-oTL" firstAttribute="trailing" secondItem="Nom-Oe-Tln" secondAttribute="trailing" id="pgO-ph-ill"/>
+                            <constraint firstItem="Nom-Oe-Tln" firstAttribute="top" secondItem="jcg-Uj-oTL" secondAttribute="bottom" constant="8" symbolic="YES" id="zOw-y2-g35"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MkF-Oa-bRd"/>
+                    <connections>
+                        <outlet property="displayAdviceSummaryButton" destination="3Bw-IR-EeC" id="Y7h-AJ-Fz5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dDg-hF-rPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4608" y="64"/>
         </scene>
         <!--Modal View Controller-->
         <scene sceneID="6WM-0o-Dzp">
@@ -1492,4 +1576,7 @@ Välj det alternativ som passar bäst in på dig.</string>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="AKe-uj-tD8"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -12,7 +12,7 @@
 
 @interface STAPGuideObject : NSObject
 
-@property (nonatomic)         NSUInteger             adviceID;
+@property (nonatomic)         NSInteger              adviceID;
 @property (nonatomic, strong) STAPPersonObject      *person;
 @property (nonatomic, strong) STAPRiskProfileObject *riskProfile;
 

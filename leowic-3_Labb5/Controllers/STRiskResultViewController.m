@@ -25,6 +25,8 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     STAPGuideObject *session = self.coordinator.session;
     
     NSString *text = [NSString stringWithFormat:NSLocalizedString(@"Your risk profile is %@.", nil), [session.riskProfile.calculatedRiskTendencyDescription lowercaseStringWithLocale:[NSLocale currentLocale]]];

@@ -10,6 +10,9 @@
 #import "STCoordinatedTableViewController.h"
 #import "STAdviceTypeEnum.h"
 
-@interface STITPAdviceStepViewController : STCoordinatedTableViewController
+@interface STAdviceStepViewController : STCoordinatedTableViewController
+
+@property (nonatomic) STAdviceTypeEnum adviceType;
+@property (nonatomic) STAdviceTypeEnum nextAdviceType;
 
 @end

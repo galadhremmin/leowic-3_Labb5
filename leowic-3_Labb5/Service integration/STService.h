@@ -21,6 +21,8 @@
 
 -(void) execute: (NSString *)method methodID: (NSUInteger)methodID arguments: (NSDictionary *)arguments cache: (BOOL)enableCache;
 
+-(void) executeURLWithRawData: (NSURL *)url methodID: (NSUInteger)methodID;
+
 -(void) clearCache;
 
 @end

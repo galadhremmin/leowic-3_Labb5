@@ -10,6 +10,7 @@
 
 @protocol STAPIResponseHandler <NSObject>
 
+@required
 -(id) handleResponseWithData: (NSDictionary *)responseData;
 
 @end

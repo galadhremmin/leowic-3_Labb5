@@ -27,6 +27,7 @@
         [self setMethodID:methodID];
         [self setCacheConfiguration:cacheConfiguration];
         [self setReceivedData:[[NSMutableData alloc] init]];
+        [self setReturnsRawData:NO];
     }
     return self;
 }

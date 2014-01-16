@@ -38,11 +38,11 @@
 		D74605C318831F81006141B1 /* STSingleChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74605C218831F81006141B1 /* STSingleChoiceViewController.m */; };
 		D74605C61883FC60006141B1 /* STActivityQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74605C51883FC60006141B1 /* STActivityQuestionViewController.m */; };
 		D7A9194E1878C2AD001707D2 /* STRiskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */; };
-		D7BD425118849384004BCFB0 /* STITPAdviceStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BD425018849384004BCFB0 /* STITPAdviceStepViewController.m */; };
+		D7BD425118849384004BCFB0 /* STAdviceStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BD425018849384004BCFB0 /* STAdviceStepViewController.m */; };
 		D7BD425418849458004BCFB0 /* STCoordinatedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BD425318849458004BCFB0 /* STCoordinatedTableViewController.m */; };
 		D7BD425718849ADC004BCFB0 /* STAPAdviceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BD425618849ADC004BCFB0 /* STAPAdviceObject.m */; };
 		D7BD425A18849D21004BCFB0 /* STAPCompanyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BD425918849D21004BCFB0 /* STAPCompanyObject.m */; };
-		D7BE20C61886A7BC00CE178B /* ITPHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7BE20C51886A7BC00CE178B /* ITPHeaderView.xib */; };
+		D7BE20C61886A7BC00CE178B /* PPMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7BE20C51886A7BC00CE178B /* PPMHeaderView.xib */; };
 		D7BE20CA1886B34200CE178B /* STFundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE20C91886B34200CE178B /* STFundCell.m */; };
 		D7BE20CD1886D76C00CE178B /* STCompanyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE20CC1886D76C00CE178B /* STCompanyDetailsViewController.m */; };
 		D7BE20D01886D8B400CE178B /* STCompanyDetailsTabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BE20CF1886D8B400CE178B /* STCompanyDetailsTabsViewController.m */; };
@@ -75,6 +75,10 @@
 		D7D9E094187C51E40017CA7E /* STCacheItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D9E093187C51E40017CA7E /* STCacheItem.m */; };
 		D7E75D5C1880A3830063DE67 /* STRiskResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E75D5B1880A3830063DE67 /* STRiskResultViewController.m */; };
 		D7FAC58418883AE100492F23 /* STModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FAC58318883AE100492F23 /* STModalViewController.m */; };
+		D7FAC5861888483900492F23 /* ITPHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FAC5851888483900492F23 /* ITPHeaderView.xib */; };
+		D7FAC58A1888545000492F23 /* STSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FAC5891888545000492F23 /* STSummaryViewController.m */; };
+		D7FAC58D188868D800492F23 /* STAPCompletedAdviceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FAC58C188868D800492F23 /* STAPCompletedAdviceObject.m */; };
+		D7FAC5901888690600492F23 /* STAPICompleteSessionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FAC58F1888690600492F23 /* STAPICompleteSessionHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,15 +146,15 @@
 		D74605C818841683006141B1 /* STRiskLevelEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STRiskLevelEnum.h; sourceTree = "<group>"; };
 		D7A9194C1878C2AD001707D2 /* STRiskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRiskQuestionViewController.h; sourceTree = "<group>"; };
 		D7A9194D1878C2AD001707D2 /* STRiskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRiskQuestionViewController.m; sourceTree = "<group>"; };
-		D7BD424F18849384004BCFB0 /* STITPAdviceStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STITPAdviceStepViewController.h; sourceTree = "<group>"; };
-		D7BD425018849384004BCFB0 /* STITPAdviceStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STITPAdviceStepViewController.m; sourceTree = "<group>"; };
+		D7BD424F18849384004BCFB0 /* STAdviceStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAdviceStepViewController.h; sourceTree = "<group>"; };
+		D7BD425018849384004BCFB0 /* STAdviceStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAdviceStepViewController.m; sourceTree = "<group>"; };
 		D7BD425218849458004BCFB0 /* STCoordinatedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCoordinatedTableViewController.h; sourceTree = "<group>"; };
 		D7BD425318849458004BCFB0 /* STCoordinatedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCoordinatedTableViewController.m; sourceTree = "<group>"; };
 		D7BD425518849ADC004BCFB0 /* STAPAdviceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPAdviceObject.h; sourceTree = "<group>"; };
 		D7BD425618849ADC004BCFB0 /* STAPAdviceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPAdviceObject.m; sourceTree = "<group>"; };
 		D7BD425818849D21004BCFB0 /* STAPCompanyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPCompanyObject.h; sourceTree = "<group>"; };
 		D7BD425918849D21004BCFB0 /* STAPCompanyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPCompanyObject.m; sourceTree = "<group>"; };
-		D7BE20C51886A7BC00CE178B /* ITPHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ITPHeaderView.xib; sourceTree = "<group>"; };
+		D7BE20C51886A7BC00CE178B /* PPMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPMHeaderView.xib; sourceTree = "<group>"; };
 		D7BE20C81886B34200CE178B /* STFundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STFundCell.h; sourceTree = "<group>"; };
 		D7BE20C91886B34200CE178B /* STFundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STFundCell.m; sourceTree = "<group>"; };
 		D7BE20CB1886D76C00CE178B /* STCompanyDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCompanyDetailsViewController.h; sourceTree = "<group>"; };
@@ -283,6 +287,13 @@
 		D7E75D5B1880A3830063DE67 /* STRiskResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRiskResultViewController.m; sourceTree = "<group>"; };
 		D7FAC58218883AE100492F23 /* STModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STModalViewController.h; sourceTree = "<group>"; };
 		D7FAC58318883AE100492F23 /* STModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STModalViewController.m; sourceTree = "<group>"; };
+		D7FAC5851888483900492F23 /* ITPHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ITPHeaderView.xib; sourceTree = "<group>"; };
+		D7FAC5881888545000492F23 /* STSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSummaryViewController.h; sourceTree = "<group>"; };
+		D7FAC5891888545000492F23 /* STSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSummaryViewController.m; sourceTree = "<group>"; };
+		D7FAC58B188868D800492F23 /* STAPCompletedAdviceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPCompletedAdviceObject.h; sourceTree = "<group>"; };
+		D7FAC58C188868D800492F23 /* STAPCompletedAdviceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPCompletedAdviceObject.m; sourceTree = "<group>"; };
+		D7FAC58E1888690600492F23 /* STAPICompleteSessionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAPICompleteSessionHandler.h; sourceTree = "<group>"; };
+		D7FAC58F1888690600492F23 /* STAPICompleteSessionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAPICompleteSessionHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +370,7 @@
 				D7BE21451887251800CE178B /* Authentication */,
 				D7BE21441887250A00CE178B /* Risk assessment */,
 				D7BE21461887253E00CE178B /* Recommendations */,
+				D7FAC5871888543000492F23 /* Summary */,
 				D7BE213A1886F5D900CE178B /* Utility classes */,
 				D7D5C77B18803115000D2765 /* STGalleryViewController.h */,
 				D7D5C77C18803115000D2765 /* STGalleryViewController.m */,
@@ -395,6 +407,8 @@
 				D7188A861885AAE7002A5F2C /* STAPFundObject.m */,
 				D7BE214718872C3400CE178B /* STAPFundDataObject.h */,
 				D7BE214818872C3400CE178B /* STAPFundDataObject.m */,
+				D7FAC58B188868D800492F23 /* STAPCompletedAdviceObject.h */,
+				D7FAC58C188868D800492F23 /* STAPCompletedAdviceObject.m */,
 			);
 			path = "Business objects";
 			sourceTree = "<group>";
@@ -415,6 +429,8 @@
 				D7188A891885AC04002A5F2C /* STAPIGetRecommendationStepHandler.m */,
 				D7BE214A18872D9400CE178B /* STAPIGetFundDataHandler.h */,
 				D7BE214B18872D9400CE178B /* STAPIGetFundDataHandler.m */,
+				D7FAC58E1888690600492F23 /* STAPICompleteSessionHandler.h */,
+				D7FAC58F1888690600492F23 /* STAPICompleteSessionHandler.m */,
 			);
 			path = "Response handlers";
 			sourceTree = "<group>";
@@ -502,7 +518,8 @@
 		D7BE20C41886A76600CE178B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D7BE20C51886A7BC00CE178B /* ITPHeaderView.xib */,
+				D7FAC5851888483900492F23 /* ITPHeaderView.xib */,
+				D7BE20C51886A7BC00CE178B /* PPMHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -638,8 +655,8 @@
 			isa = PBXGroup;
 			children = (
 				D7FAC58118883AC400492F23 /* Details */,
-				D7BD424F18849384004BCFB0 /* STITPAdviceStepViewController.h */,
-				D7BD425018849384004BCFB0 /* STITPAdviceStepViewController.m */,
+				D7BD424F18849384004BCFB0 /* STAdviceStepViewController.h */,
+				D7BD425018849384004BCFB0 /* STAdviceStepViewController.m */,
 			);
 			name = Recommendations;
 			sourceTree = "<group>";
@@ -698,6 +715,15 @@
 				D7BE21421887250100CE178B /* STFundDetailsViewController.m */,
 			);
 			name = Details;
+			sourceTree = "<group>";
+		};
+		D7FAC5871888543000492F23 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				D7FAC5881888545000492F23 /* STSummaryViewController.h */,
+				D7FAC5891888545000492F23 /* STSummaryViewController.m */,
+			);
+			name = Summary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -780,10 +806,11 @@
 				D7D5C78C1880451D000D2765 /* pension-bildspel-3.png in Resources */,
 				D7BE20D21886DD5600CE178B /* Localizable.strings in Resources */,
 				D7375A361876D8AA00FBED76 /* logo.png in Resources */,
-				D7BE20C61886A7BC00CE178B /* ITPHeaderView.xib in Resources */,
+				D7BE20C61886A7BC00CE178B /* PPMHeaderView.xib in Resources */,
 				D7D5C78D1880451D000D2765 /* pension-bildspel-4.png in Resources */,
 				D73FCDD1187557BD00742C26 /* Images.xcassets in Resources */,
 				D7D5C78B1880451D000D2765 /* pension-bildspel-2.png in Resources */,
+				D7FAC5861888483900492F23 /* ITPHeaderView.xib in Resources */,
 				D73FCDBD187557BC00742C26 /* InfoPlist.strings in Resources */,
 				D73FCDC6187557BC00742C26 /* Main.storyboard in Resources */,
 				D7D5C78518804386000D2765 /* Gallery Configuration.plist in Resources */,
@@ -824,7 +851,7 @@
 				D7BE7D57187D9AE300210AB5 /* STAPPersonObject.m in Sources */,
 				D7BE21431887250100CE178B /* STFundDetailsViewController.m in Sources */,
 				D7188A871885AAE7002A5F2C /* STAPFundObject.m in Sources */,
-				D7BD425118849384004BCFB0 /* STITPAdviceStepViewController.m in Sources */,
+				D7BD425118849384004BCFB0 /* STAdviceStepViewController.m in Sources */,
 				D73FCDBF187557BC00742C26 /* main.m in Sources */,
 				D74605C318831F81006141B1 /* STSingleChoiceViewController.m in Sources */,
 				D73FCDC3187557BC00742C26 /* STAppDelegate.m in Sources */,
@@ -832,7 +859,9 @@
 				D7BE214918872C3400CE178B /* STAPFundDataObject.m in Sources */,
 				D7174DF7187EE5AE00D8DE63 /* STAPNotificationCoordinator.m in Sources */,
 				D7BE20D01886D8B400CE178B /* STCompanyDetailsTabsViewController.m in Sources */,
+				D7FAC58D188868D800492F23 /* STAPCompletedAdviceObject.m in Sources */,
 				D7375A491876EE5700FBED76 /* STAPIApiAvailableUsersHandler.m in Sources */,
+				D7FAC5901888690600492F23 /* STAPICompleteSessionHandler.m in Sources */,
 				D7BD425418849458004BCFB0 /* STCoordinatedTableViewController.m in Sources */,
 				D7D5C77D18803115000D2765 /* STGalleryViewController.m in Sources */,
 				D7FAC58418883AE100492F23 /* STModalViewController.m in Sources */,
@@ -849,6 +878,7 @@
 				D7BE213D1886F5F300CE178B /* STChartSeries.m in Sources */,
 				D73FCDC9187557BD00742C26 /* leowic_3_Labb5.xcdatamodeld in Sources */,
 				D7375A451876ECE200FBED76 /* STAPTestUserObject.m in Sources */,
+				D7FAC58A1888545000492F23 /* STSummaryViewController.m in Sources */,
 				D7BE21391886EA8D00CE178B /* STAPTradAllocationObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

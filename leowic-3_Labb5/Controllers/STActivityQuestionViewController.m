@@ -7,7 +7,7 @@
 //
 
 #import "STActivityQuestionViewController.h"
-#import "STITPAdviceStepViewController.h"
+#import "STAdviceStepViewController.h"
 #import "STActivityLevelEnum.h"
 
 @interface STActivityQuestionViewController ()
@@ -101,4 +101,13 @@
     
     return indexPath;
 }
+
+-(void) prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender
+{
+    if ([segue.identifier isEqualToString:@"AdviceStepSegue"]) {
+        id destination = (STAdviceStepViewController *) segue.destinationViewController;
+        [destination setAdviceType:STAdviceTypeITP];
+    }
+}
+
 @end

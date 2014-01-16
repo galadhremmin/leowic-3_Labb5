@@ -41,7 +41,7 @@
 
 -(void) populateSession: (STAPGuideObject *)guideSession withData: (NSDictionary *)data
 {
-    [guideSession setAdviceID:[[data objectForKey:@"AdviceId"] unsignedIntegerValue]];
+    [guideSession setAdviceID:[[data objectForKey:@"AdviceId"] integerValue]];
 }
 
 -(void) populateRiskProfile: (STAPRiskProfileObject *)riskProfile withData: (NSDictionary *)data

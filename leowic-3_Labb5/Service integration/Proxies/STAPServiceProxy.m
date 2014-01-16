@@ -7,15 +7,19 @@
 //
 
 #import "STServiceCacheConfiguration.h"
+#import "STAdviceTypeEnum.h"
 #import "STService.h"
 #import "STAPServiceProxy.h"
 #import "STAPIResponseHandler.h"
 
 @interface STAPServiceProxy ()
 
-@property(nonatomic, strong) STService   *APIAuthenticationService;
-@property(nonatomic, strong) STService   *APIGuideService;
- 
+@property (nonatomic, strong) STService *APIAuthenticationService;
+@property (nonatomic, strong) STService *APIGuideService;
+@property (nonatomic, copy)   NSString  *APISummaryURLFragment;
+
+-(void) notifyMethodsCompletion: (NSUInteger)methodID data: (id)data;
+
 @end
 
 @implementation STAPServiceProxy
@@ -66,6 +70,9 @@
         URL = [NSURL URLWithString:[bundle objectForInfoDictionaryKey:@"API Guide URL"]];
         service = [[STService alloc] initWithURL:URL delegate:self];
         [self setAPIGuideService:service];
+        
+        NSString *URLFragment = [bundle objectForInfoDictionaryKey:@"API Summary URL fragment"];
+        [self setAPISummaryURLFragment:URLFragment];
     }
     return self;
 }
@@ -131,6 +138,15 @@
 
 -(void) APIInitializeRecommendationSteps
 {
+    // Some individuals might have fribrev of substantial value, resulting in their
+    // immediate inclusion in the default collection of pension holdings. Instruct the
+    // API that we want recommendations for ITP and PPM, and nothing else. The empty
+    // array of "fribrev" would otherwise contain fribrev IDs.
+    NSDictionary *arguments = @{@"categories": @[@(STAdviceTypeITP), @(STAdviceTypePPM)],
+                                @"fribrev": @[]};
+    
+    [self.APIGuideService execute:@"UpdateAlderspensionAdviceRequirements" methodID:STAPIUpdateRequirements arguments:arguments cache:NO];
+    
     [self.APIGuideService execute:@"InitializeRecommendationSteps" methodID:STAPIInitializeRecommendationSteps arguments:nil cache:NO];
 }
 
@@ -141,10 +157,32 @@
     [self.APIGuideService execute:@"GetRecommendationStep" methodID:STAPIRecommendationStep arguments:arguments cache:NO];
 }
 
--(void) APIGetFundData: (NSUInteger)fundID
+-(void) APIGetFundData: (NSInteger)fundID
 {
     NSDictionary *arguments = @{@"fundID": @(fundID)};
     [self.APIGuideService execute:@"GetFundData" methodID:STAPIGetFundData arguments:arguments cache:NO];
+}
+
+-(void) APIGetRecommendations
+{
+    NSDictionary *arguments = @{@"needs": [NSNull null]};
+    [self.APIGuideService execute:@"GetRecommendation" methodID:STAPIGetRecommendations arguments:arguments cache:NO];
+}
+
+-(void) APICompleteGuideSession
+{
+    [self.APIGuideService execute:@"CompleteSession" methodID:STAPICompleteGuideSession arguments:nil cache:NO];
+}
+
+-(void) APIGetSummary: (NSInteger)adviceID
+{
+    [self.APIGuideService executeURLWithRawData:[self buildSummaryURL:adviceID] methodID:STAPIGetAdviceSummary];
+}
+
+-(NSURL *) buildSummaryURL: (NSInteger)adviceID
+{
+    NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:self.APISummaryURLFragment, adviceID]];
+    return url;
 }
 
 #pragma mark - STServiceDelegation
@@ -180,24 +218,35 @@
         }
     }
     
+    [self notifyMethodsCompletion:methodID data:data];
+}
+
+-(void) service: (STService *)service finishedMethodID: (NSUInteger)methodID withRawData: (NSData *)data
+{
+    [self notifyMethodsCompletion:methodID data:data];
+}
+
+-(void) service: (STService *)service failedWithError: (NSDictionary *)errorData
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"STAPServiceProxy" object:self userInfo:errorData];
+}
+
+-(void) notifyMethodsCompletion: (NSUInteger)methodID data: (id)data
+{
     // The NSDictionary object does not accept nil, so assign all nil values to NSNull.
     if (!data) {
         data = [NSNull null];
     }
     
-    // Connstruct a user info dictionary, which unfortunately is the only viable way to relay the
-    // response data.
+    // Relay the response data through an user info dictionary associated with the
+    // notification. It's up to the listeners to understand the nature of the data
+    // they receive.
     NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               data, @"data",
                               [NSNumber numberWithUnsignedInteger:methodID], @"methodID",
                               nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"STAPServiceProxy" object:self userInfo:userInfo];
-}
-
--(void) service: (STService *)service failedWithError: (NSDictionary *)errorData
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"STAPServiceProxy" object:self userInfo:errorData];
 }
 
 @end

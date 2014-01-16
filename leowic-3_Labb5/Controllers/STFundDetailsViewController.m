@@ -67,6 +67,8 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     // Add the dismiss modal dialogue button ("done")
     [self.navigationController addDismissButton:self];
     
@@ -77,6 +79,7 @@
 
 -(void) viewWillDisappear: (BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [self.coordinator stopCoordination];
 }
 
@@ -141,7 +144,8 @@
 
 -(void) loadChart: (STAPFundDataObject *)fundData
 {
-    /* There is no time for this. Removed until further notice.
+    /* There is no time for this. Why does the API has to be so complicated? 
+       Removed until further notice.
      
     // Populate the data set with performance data
     [self loadDataSet:fundData];

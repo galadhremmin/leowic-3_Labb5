@@ -52,6 +52,8 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     // Add the dismiss modal dialogue button ("done")
     [self.navigationController addDismissButton:self];
     
@@ -173,8 +175,8 @@
     // is expressed in percentages, ranging from 0 to 1. Default is (0.5, 0.5) which is the
     // middle of the canvas. As I want to move the chart to the left, so that the legends
     // will fit, I'm using the pie radius to move the center of the pie so that there is a
-    // gap of 20 % from the left corner.
-    pieChart.centerAnchor = CGPointMake(pieChart.pieRadius * 1.2 / self.distributionChartView.bounds.size.width, 0.5);
+    // gap of 30 % (of its radius) between itself and the canvas' left corner.
+    pieChart.centerAnchor = CGPointMake(pieChart.pieRadius * 1.3 / self.distributionChartView.bounds.size.width, 0.5);
     
 	// Add pie  to graph
 	[graph addPlot:pieChart];

@@ -11,6 +11,11 @@
 typedef enum {
   
     STAdviceTypeITP = 0,
-    STAdviceTypePPM
+    STAPAdviceFribrev,
+    STAdviceTypePPM,
+    
+    // This is not an actual member, bur rather the number of different variants
+    // there are.
+    STAdviceTypeCount
     
 } STAdviceTypeEnum;

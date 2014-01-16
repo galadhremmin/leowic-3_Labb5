@@ -11,10 +11,11 @@
 
 @interface STServiceConnection : NSURLConnection
 
-@property(nonatomic, readonly, strong) STServiceCacheConfiguration *cacheConfiguration;
-@property(nonatomic, readonly, strong) NSMutableData               *receivedData;
-@property(nonatomic, readonly, copy)   NSString                    *methodName;
-@property(nonatomic, readonly)         NSUInteger                   methodID;
+@property (nonatomic, readonly, strong) STServiceCacheConfiguration *cacheConfiguration;
+@property (nonatomic, readonly, strong) NSMutableData               *receivedData;
+@property (nonatomic, readonly, copy)   NSString                    *methodName;
+@property (nonatomic, readonly)         NSUInteger                   methodID;
+@property (nonatomic)                   BOOL                         returnsRawData;
 
 -(id) initWithRequest: (NSURLRequest *)request methodName: (NSString *)methodName methodID: (NSUInteger)methodID cache: (STServiceCacheConfiguration *)cacheConfiguration delegate: (id)delegate;
 

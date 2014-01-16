@@ -6,15 +6,16 @@
 //  Copyright (c) 2014 Softronic AB. All rights reserved.
 //
 
-#import "STITPAdviceStepViewController.h"
+#import "STAdviceStepViewController.h"
 #import "STCompanyDetailsTabsViewController.h"
 #import "STModalViewController.h"
+#import "STSummaryViewController.h"
 #import "STAPAdviceObject.h"
 #import "STAPCompanyObject.h"
 #import "STAPFundObject.h"
 #import "STFundCell.h"
 
-@interface STITPAdviceStepViewController ()
+@interface STAdviceStepViewController ()
 
 @property (nonatomic, strong) STAPAdviceObject *advice;
 
@@ -22,14 +23,42 @@
 
 @end
 
-@implementation STITPAdviceStepViewController
+@implementation STAdviceStepViewController
 
 -(void) viewDidLoad
 {
     [super viewDidLoad];
     
+    NSString *nibName, *title, *nextTitle;
+    switch (self.adviceType) {
+        case STAdviceTypeITP:
+            nibName = @"ITPHeaderView";
+            title = NSLocalizedString(@"ITP", nil);
+            nextTitle = NSLocalizedString(@"PPM", nil);
+            
+            // PPM after ITP. This is necessary as fribrev is technically in between
+            // but these are not included/supported by this app due to time constraints.
+            [self setNextAdviceType:STAdviceTypePPM];
+            break;
+        case STAdviceTypePPM:
+            nibName = @"PPMHeaderView";
+            title = NSLocalizedString(@"PPM", nil);
+            nextTitle = NSLocalizedString(@"Finish advice", nil);
+            
+            // Set next advice type to an invalid value, which will inform the segue
+            // button that the next step is meant to complete the advice and show the
+            // summary.
+            [self setNextAdviceType:STAdviceTypeCount];
+            break;
+        default:
+            [NSException raise:@"Okänd rådtyp." format:@"Råd av typen %d stöds inte av denna app", self.adviceType];
+    }
+    
+    [self setTitle:title];
+    [self.navigationItem.rightBarButtonItem setTitle:nextTitle];
+    
     // Load the table header view
-    UIView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"ITPHeaderView" owner:self options:nil] firstObject];
+    UIView *headerView = [[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil] firstObject];
     self.tableView.tableHeaderView = headerView;
 }
 
@@ -39,7 +68,9 @@
     
     [super viewWillAppear:animated];
     
-    [self.coordinator.serviceProxy APIGetRecommendationStep:STAdviceTypeITP];
+    if (!self.advice) {
+        [self.coordinator.serviceProxy APIGetRecommendationStep:self.adviceType];
+    }
 }
 
 -(void) handleAdviceData: (STAPAdviceObject *)adviceData
@@ -108,6 +139,33 @@
         id destination = (STCompanyDetailsTabsViewController *) [(STModalViewController *) [segue destinationViewController] initialViewController];
         [destination setCompany:company];
     }
+    
+    if ([segue.identifier isEqualToString:@"AdviceStepSegue"]) {
+        id destination = (STAdviceStepViewController *) segue.destinationViewController;
+        [destination setAdviceType:self.nextAdviceType];
+    }
+    
+    if ([segue.identifier isEqualToString:@"AdviceSummarySegue"]) {
+        id destination = (STSummaryViewController *) segue.destinationViewController;
+        [destination setParentController:self];
+    }
 }
 
+-(BOOL) shouldPerformSegueWithIdentifier: (NSString *)identifier sender: (id)sender
+{
+    BOOL OK = YES;
+    
+    if ([identifier isEqualToString:@"AdviceStepSegue"]) {
+        OK =  self.nextAdviceType != STAdviceTypeCount;
+        
+        if (!OK) {
+            // If the next advice type is invalid, assume that the user has review
+            // all segments of the advice given, and is ready to move on to the
+            // summary. It's a bit of a hack to execute this here.
+            [self performSelector:@selector(performSegueWithIdentifier:sender:) withObject:@"AdviceSummarySegue" afterDelay:0.1];
+        }
+    }
+    
+    return OK;
+}
 @end

@@ -22,6 +22,8 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     // Add the dismiss modal dialogue button ("done")
     [self.navigationController addDismissButton:self];
 }
