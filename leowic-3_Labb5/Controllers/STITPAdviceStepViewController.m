@@ -8,6 +8,7 @@
 
 #import "STITPAdviceStepViewController.h"
 #import "STCompanyDetailsTabsViewController.h"
+#import "STModalViewController.h"
 #import "STAPAdviceObject.h"
 #import "STAPCompanyObject.h"
 #import "STAPFundObject.h"
@@ -25,6 +26,8 @@
 
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
+    
     // Load the table header view
     UIView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"ITPHeaderView" owner:self options:nil] firstObject];
     self.tableView.tableHeaderView = headerView;
@@ -102,8 +105,7 @@
         NSNumber *section = (NSNumber *)sender;
         STAPCompanyObject *company = self.advice.companies[[section integerValue]];
         
-        id destination = (STCompanyDetailsTabsViewController *)[segue destinationViewController];
-        
+        id destination = (STCompanyDetailsTabsViewController *) [(STModalViewController *) [segue destinationViewController] initialViewController];
         [destination setCompany:company];
     }
 }

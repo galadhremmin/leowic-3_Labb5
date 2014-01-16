@@ -74,6 +74,7 @@
 		D7D5C78D1880451D000D2765 /* pension-bildspel-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D5C7891880451D000D2765 /* pension-bildspel-4.png */; };
 		D7D9E094187C51E40017CA7E /* STCacheItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D9E093187C51E40017CA7E /* STCacheItem.m */; };
 		D7E75D5C1880A3830063DE67 /* STRiskResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E75D5B1880A3830063DE67 /* STRiskResultViewController.m */; };
+		D7FAC58418883AE100492F23 /* STModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7FAC58318883AE100492F23 /* STModalViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +281,8 @@
 		D7D9E093187C51E40017CA7E /* STCacheItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCacheItem.m; sourceTree = "<group>"; };
 		D7E75D5A1880A3830063DE67 /* STRiskResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRiskResultViewController.h; sourceTree = "<group>"; };
 		D7E75D5B1880A3830063DE67 /* STRiskResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRiskResultViewController.m; sourceTree = "<group>"; };
+		D7FAC58218883AE100492F23 /* STModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STModalViewController.h; sourceTree = "<group>"; };
+		D7FAC58318883AE100492F23 /* STModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STModalViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -634,16 +637,9 @@
 		D7BE21461887253E00CE178B /* Recommendations */ = {
 			isa = PBXGroup;
 			children = (
+				D7FAC58118883AC400492F23 /* Details */,
 				D7BD424F18849384004BCFB0 /* STITPAdviceStepViewController.h */,
 				D7BD425018849384004BCFB0 /* STITPAdviceStepViewController.m */,
-				D7BE20CE1886D8B400CE178B /* STCompanyDetailsTabsViewController.h */,
-				D7BE20CF1886D8B400CE178B /* STCompanyDetailsTabsViewController.m */,
-				D7BE20CB1886D76C00CE178B /* STCompanyDetailsViewController.h */,
-				D7BE20CC1886D76C00CE178B /* STCompanyDetailsViewController.m */,
-				D7BE213E188713AA00CE178B /* STFundsDetailsViewController.h */,
-				D7BE213F188713AA00CE178B /* STFundsDetailsViewController.m */,
-				D7BE21411887250100CE178B /* STFundDetailsViewController.h */,
-				D7BE21421887250100CE178B /* STFundDetailsViewController.m */,
 			);
 			name = Recommendations;
 			sourceTree = "<group>";
@@ -685,6 +681,23 @@
 				D7D9E093187C51E40017CA7E /* STCacheItem.m */,
 			);
 			name = Cache;
+			sourceTree = "<group>";
+		};
+		D7FAC58118883AC400492F23 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				D7FAC58218883AE100492F23 /* STModalViewController.h */,
+				D7FAC58318883AE100492F23 /* STModalViewController.m */,
+				D7BE20CE1886D8B400CE178B /* STCompanyDetailsTabsViewController.h */,
+				D7BE20CF1886D8B400CE178B /* STCompanyDetailsTabsViewController.m */,
+				D7BE20CB1886D76C00CE178B /* STCompanyDetailsViewController.h */,
+				D7BE20CC1886D76C00CE178B /* STCompanyDetailsViewController.m */,
+				D7BE213E188713AA00CE178B /* STFundsDetailsViewController.h */,
+				D7BE213F188713AA00CE178B /* STFundsDetailsViewController.m */,
+				D7BE21411887250100CE178B /* STFundDetailsViewController.h */,
+				D7BE21421887250100CE178B /* STFundDetailsViewController.m */,
+			);
+			name = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -822,6 +835,7 @@
 				D7375A491876EE5700FBED76 /* STAPIApiAvailableUsersHandler.m in Sources */,
 				D7BD425418849458004BCFB0 /* STCoordinatedTableViewController.m in Sources */,
 				D7D5C77D18803115000D2765 /* STGalleryViewController.m in Sources */,
+				D7FAC58418883AE100492F23 /* STModalViewController.m in Sources */,
 				D7BE7D51187D752C00210AB5 /* STAPICreateSessionHandler.m in Sources */,
 				D7174DF8187EE5AE00D8DE63 /* STCoordinatorItem.m in Sources */,
 				D7BD425A18849D21004BCFB0 /* STAPCompanyObject.m in Sources */,

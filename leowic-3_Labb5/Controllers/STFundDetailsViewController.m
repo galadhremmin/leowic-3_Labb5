@@ -10,6 +10,7 @@
 #import "STAPNotificationCoordinator.h"
 #import "STAPFundDataObject.h"
 #import "STChartSeries.h"
+#import "STModalViewController.h"
 
 @interface STFundDetailsViewController ()
 
@@ -26,6 +27,8 @@
 
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
+    
     STAPFundObject *fund = self.fund;
     
     // Assign the fund's name to the title as well as the name label.
@@ -64,6 +67,9 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
+    // Add the dismiss modal dialogue button ("done")
+    [self.navigationController addDismissButton:self];
+    
     [self.coordinator registerSelector:@selector(handleFundData:) onDelegate:self forSignal:STAPIGetFundData];
     [self.coordinator startCoordination];
     [self.coordinator.serviceProxy APIGetFundData:self.fund.ID];
@@ -135,8 +141,11 @@
 
 -(void) loadChart: (STAPFundDataObject *)fundData
 {
+    /* There is no time for this. Removed until further notice.
+     
     // Populate the data set with performance data
     [self loadDataSet:fundData];
+    
     
     // Create the graph
     CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.chartingView.bounds];
@@ -155,6 +164,7 @@
 	CGFloat xMax = self.dataSource.count;
 	CGFloat yMin = -100.0f;
 	CGFloat yMax = 100.0f;
+    
 	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
 	plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xMin) length:CPTDecimalFromFloat(xMax)];
 	plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax)];
@@ -164,11 +174,15 @@
         CPTBarPlot *plot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor blueColor] horizontalBars:YES];
         plot.identifier = data.dataLegend;
 		plot.dataSource = self;
+        plot.barWidth = CPTDecimalFromDouble(0.1);
+        plot.barOffset = CPTDecimalFromDouble(0.1 * (i + 1));
+        plot.fill = [[CPTFill alloc] initWithColor:[CPTColor blueColor]];
 
         [graph addPlot:plot toPlotSpace:graph.defaultPlotSpace];
         
         i += 1;
     }
+    */
     
     [self.activityIndicator stopAnimating];
 }

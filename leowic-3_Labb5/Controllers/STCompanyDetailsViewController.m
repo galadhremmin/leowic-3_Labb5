@@ -10,6 +10,7 @@
 #import "STCompanyDetailsTabsViewController.h"
 #import "STChartSeries.h"
 #import "STAPFundObject.h"
+#import "STModalViewController.h"
 
 @interface STCompanyDetailsViewController ()
 
@@ -30,9 +31,13 @@
 
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
+    
     STAPCompanyObject *company = self.parentController.company;
     
     [self.companyNameLabel setText:company.name];
+    [self setTitle:company.name];
+    
     [self.financialManagementLabel setText:company.isTrad ? NSLocalizedString(@"Traditional financial management", nil)
                                                           : NSLocalizedString(@"Fund management", nil) ];
     [self.shareLabel setText:[NSString stringWithFormat:@"%d %%", company.share]];
@@ -47,6 +52,9 @@
 
 -(void) viewWillAppear: (BOOL)animated
 {
+    // Add the dismiss modal dialogue button ("done")
+    [self.navigationController addDismissButton:self];
+    
     [self configureDataSource];
     [self configurePieChart];
 }

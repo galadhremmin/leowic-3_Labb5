@@ -10,6 +10,7 @@
 #import "STCompanyDetailsTabsViewController.h"
 #import "STFundDetailsViewController.h"
 #import "STAPFundObject.h"
+#import "STModalViewController.h"
 
 @interface STFundsDetailsViewController ()
 
@@ -18,6 +19,12 @@
 @end
 
 @implementation STFundsDetailsViewController
+
+-(void) viewWillAppear: (BOOL)animated
+{
+    // Add the dismiss modal dialogue button ("done")
+    [self.navigationController addDismissButton:self];
+}
 
 -(STCompanyDetailsTabsViewController *) parentController
 {

@@ -29,6 +29,7 @@
 
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"slideshow-background" ofType:@"png"];
     UIImage *image = [UIImage imageWithContentsOfFile:path];
     UIColor *backgroundImage = [UIColor colorWithPatternImage:image];
