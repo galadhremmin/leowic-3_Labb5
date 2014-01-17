@@ -8,7 +8,8 @@
 
 #import "STAppearance.h"
 #import "STSlideshowView.h"
-#import "STQuestionCell.h"
+#import "STTransparentCell.h"
+#import "STTableView.h"
 
 @implementation STAppearance
 
@@ -16,6 +17,9 @@
 {
     id appearance = [STSlideshowView appearance];
     [appearance setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"slideshow-background.png"]]];
+    
+    appearance = [UILabel appearance];
+    [appearance setBackgroundColor:[UIColor clearColor]];
     
     appearance = [UILabel appearanceWhenContainedIn:[STSlideshowView class], nil];
     [appearance setColor:[UIColor blackColor]];
@@ -25,13 +29,13 @@
     
     appearance = [UITableView appearance];
     [appearance setBackgroundColor:[UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1]];
-    
-    appearance = [UITableViewCell appearance];
+
+    appearance = [UITableViewCell appearanceWhenContainedIn:[STTableView class], nil];
     [appearance setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"cell-background.png"]]];
     [appearance setTintColor:[UIColor darkGrayColor]];
     
-    appearance = [STQuestionCell appearance];
-    [appearance setBackgroundColor:[UIColor colorWithWhite:1 alpha:0]];
+    appearance = [STTransparentCell appearanceWhenContainedIn:[STTableView class], nil];
+    [appearance setBackgroundColor:[UIColor clearColor]];
 }
 
 @end

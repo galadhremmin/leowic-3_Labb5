@@ -66,7 +66,8 @@
 		D7D41D41188978CC00618399 /* button-background.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D41D40188978CC00618399 /* button-background.png */; };
 		D7D41D4418897AC600618399 /* STButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D41D4318897AC600618399 /* STButton.m */; };
 		D7D41D46188981CB00618399 /* cell-background.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D41D45188981CB00618399 /* cell-background.png */; };
-		D7D41D49188986C400618399 /* STQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D41D48188986C400618399 /* STQuestionCell.m */; };
+		D7D41D49188986C400618399 /* STTransparentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D41D48188986C400618399 /* STTransparentCell.m */; };
+		D7D41D4C18898B6600618399 /* STQuestionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D41D4B18898B6600618399 /* STQuestionTableView.m */; };
 		D7D5C77818802B64000D2765 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D5C77718802B64000D2765 /* CoreImage.framework */; };
 		D7D5C77A18802B6D000D2765 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D5C77918802B6D000D2765 /* QuartzCore.framework */; };
 		D7D5C77D18803115000D2765 /* STGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D5C77C18803115000D2765 /* STGalleryViewController.m */; };
@@ -204,8 +205,10 @@
 		D7D41D4218897AC600618399 /* STButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STButton.h; sourceTree = "<group>"; };
 		D7D41D4318897AC600618399 /* STButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STButton.m; sourceTree = "<group>"; };
 		D7D41D45188981CB00618399 /* cell-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background.png"; sourceTree = "<group>"; };
-		D7D41D47188986C400618399 /* STQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STQuestionCell.h; sourceTree = "<group>"; };
-		D7D41D48188986C400618399 /* STQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STQuestionCell.m; sourceTree = "<group>"; };
+		D7D41D47188986C400618399 /* STTransparentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTransparentCell.h; sourceTree = "<group>"; };
+		D7D41D48188986C400618399 /* STTransparentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTransparentCell.m; sourceTree = "<group>"; };
+		D7D41D4A18898B6600618399 /* STTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTableView.h; sourceTree = "<group>"; };
+		D7D41D4B18898B6600618399 /* STQuestionTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STQuestionTableView.m; sourceTree = "<group>"; };
 		D7D5C77718802B64000D2765 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		D7D5C77918802B6D000D2765 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D7D5C77B18803115000D2765 /* STGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGalleryViewController.h; sourceTree = "<group>"; };
@@ -471,8 +474,10 @@
 				D7D41D3818895A4900618399 /* STSlideshowView.m */,
 				D7D41D4218897AC600618399 /* STButton.h */,
 				D7D41D4318897AC600618399 /* STButton.m */,
-				D7D41D47188986C400618399 /* STQuestionCell.h */,
-				D7D41D48188986C400618399 /* STQuestionCell.m */,
+				D7D41D47188986C400618399 /* STTransparentCell.h */,
+				D7D41D48188986C400618399 /* STTransparentCell.m */,
+				D7D41D4A18898B6600618399 /* STTableView.h */,
+				D7D41D4B18898B6600618399 /* STQuestionTableView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 			files = (
 				D7BE20CA1886B34200CE178B /* STFundCell.m in Sources */,
 				D7A9194E1878C2AD001707D2 /* STRiskQuestionViewController.m in Sources */,
+				D7D41D4C18898B6600618399 /* STQuestionTableView.m in Sources */,
 				D7BE7D54187D798900210AB5 /* STAPRiskProfileObject.m in Sources */,
 				D7D41D3C18895C8500618399 /* STAppearance.m in Sources */,
 				D7BE214C18872D9400CE178B /* STAPIGetFundDataHandler.m in Sources */,
@@ -767,7 +773,7 @@
 				D7BE20CD1886D76C00CE178B /* STCompanyDetailsViewController.m in Sources */,
 				D7BD425718849ADC004BCFB0 /* STAPAdviceObject.m in Sources */,
 				D7BE213D1886F5F300CE178B /* STChartSeries.m in Sources */,
-				D7D41D49188986C400618399 /* STQuestionCell.m in Sources */,
+				D7D41D49188986C400618399 /* STTransparentCell.m in Sources */,
 				D73FCDC9187557BD00742C26 /* leowic_3_Labb5.xcdatamodeld in Sources */,
 				D7375A451876ECE200FBED76 /* STAPTestUserObject.m in Sources */,
 				D7FAC58A1888545000492F23 /* STSummaryViewController.m in Sources */,

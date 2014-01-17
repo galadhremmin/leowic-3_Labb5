@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Softronic AB. All rights reserved.
 //
 
-#import "STQuestionCell.h"
+#import "STTransparentCell.h"
 
-@implementation STQuestionCell
+@implementation STTransparentCell
 
 -(void) addSubview: (UIView *)view
 {
