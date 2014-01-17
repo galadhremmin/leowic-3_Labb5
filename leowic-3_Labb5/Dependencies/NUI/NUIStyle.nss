@@ -35,7 +35,7 @@ Button {
     font-color: @primaryFontColor;
     font-color-highlighted: @secondaryFontColor;
     font-name: @secondaryFontName;
-    font-size: 18;
+    font-size: 16;
     height: 37;
     corner-radius: 7;
     exclude-views: UIAlertButton;
@@ -53,7 +53,7 @@ SmallButton {
 }
 Label {
     font-name: @secondaryFontName;
-    font-size: 20;
+    font-size: 16;
     font-color: @primaryFontColor;
     text-auto-fit: false;
 }
