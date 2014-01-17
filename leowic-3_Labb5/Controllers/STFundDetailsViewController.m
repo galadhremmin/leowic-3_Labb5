@@ -20,6 +20,7 @@
 -(void) handleFundData: (STAPFundDataObject *)fundData;
 -(void) loadDataSet: (STAPFundDataObject *)fundData;
 -(void) loadChart: (STAPFundDataObject *)fundData;
+-(void) setPerformance: (double)performance toLabel: (UILabel *)label;
 
 @end
 
@@ -61,8 +62,6 @@
     [self.PPMCell.detailTextLabel setText:@"-"];
     [self.ISINCell.detailTextLabel setText:@"-"];
     [self.currencyCell.detailTextLabel setText:@"-"];
-    
-    [self.activityIndicator startAnimating];
 }
 
 -(void) viewWillAppear: (BOOL)animated
@@ -144,51 +143,37 @@
 
 -(void) loadChart: (STAPFundDataObject *)fundData
 {
-    /* There is no time for this. Why does the API has to be so complicated? 
-       Removed until further notice.
-     
-    // Populate the data set with performance data
-    [self loadDataSet:fundData];
-    
-    
-    // Create the graph
-    CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.chartingView.bounds];
-    graph.plotAreaFrame.masksToBorder = NO;
-    self.chartingView.hostedGraph = graph;
-    
-    // Configure the graph
-    graph.paddingBottom += 5;
-    graph.paddingLeft   += 5;
-    graph.paddingTop    += 5;
-    graph.paddingRight  += 5;
-    graph.borderLineStyle = nil;
-    graph.plotAreaFrame.borderLineStyle = nil;
-    
-    CGFloat xMin = 0.0f;
-	CGFloat xMax = self.dataSource.count;
-	CGFloat yMin = -100.0f;
-	CGFloat yMax = 100.0f;
-    
-	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-	plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xMin) length:CPTDecimalFromFloat(xMax)];
-	plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax)];
-    
-    int i = 0;
-    for (STChartSeries *data in self.dataSource) {
-        CPTBarPlot *plot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor blueColor] horizontalBars:YES];
-        plot.identifier = data.dataLegend;
-		plot.dataSource = self;
-        plot.barWidth = CPTDecimalFromDouble(0.1);
-        plot.barOffset = CPTDecimalFromDouble(0.1 * (i + 1));
-        plot.fill = [[CPTFill alloc] initWithColor:[CPTColor blueColor]];
+    [self setPerformance:fundData.returnFirstMonth toLabel:self.performanceFirstMonth];
+    [self setPerformance:fundData.returnThreeMonths toLabel:self.performanceThreeMonths];
+    [self setPerformance:fundData.returnFirstYear toLabel:self.performanceFirstYear];
+    [self setPerformance:fundData.returnThreeYears toLabel:self.performanceThreeYears];
+    [self setPerformance:fundData.returnFiveYears toLabel:self.performanceFiveYears];
+}
 
-        [graph addPlot:plot toPlotSpace:graph.defaultPlotSpace];
-        
-        i += 1;
-    }
-    */
+-(void) setPerformance: (double)performance toLabel: (UILabel *)label
+{
+    NSString *symbol;
+    UIColor *color;
     
-    [self.activityIndicator stopAnimating];
+    if (performance > 0) {
+        color = [UIColor colorWithRed:49/255.0 green:120/255.0 blue:115/255.0 alpha:1];
+        symbol = @"▲";
+    } else if (performance < 0) {
+        color = [UIColor redColor];
+        symbol = @"▼";
+    } else {
+        color = [UIColor grayColor];
+        symbol = @"-";
+    }
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    formatter.maximumFractionDigits = 2;
+    
+    NSString *labelText = [NSString stringWithFormat:@"%@ %@ %%", symbol, [formatter stringFromNumber:@(performance)]];
+    
+    [label setText:labelText];
+    [label setTextColor:color];
 }
 
 #pragma mark - CPTBarChartDelegate methods

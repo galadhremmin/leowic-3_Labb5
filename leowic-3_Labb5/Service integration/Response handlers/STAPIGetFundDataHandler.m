@@ -36,19 +36,19 @@
     }
     
     value = [root objectForKey:@"ReturnFirstMonth"];
-    [data setReturnFirstMonth:[value doubleValue]];
+    [data setReturnFirstMonth:([value doubleValue] - 1) * 100];
     
     value = [root objectForKey:@"ReturnThreeMonths"];
-    [data setReturnThreeMonths:[value doubleValue]];
+    [data setReturnThreeMonths:([value doubleValue] - 1) * 100];
     
     value = [root objectForKey:@"ReturnFirstYear"];
-    [data setReturnFirstYear:[value doubleValue]];
+    [data setReturnFirstYear:([value doubleValue] - 1) * 100];
     
     value = [root objectForKey:@"ReturnThreeYears"];
-    [data setReturnThreeYears:[value doubleValue]];
+    [data setReturnThreeYears:([value doubleValue] - 1) * 100];
     
     value = [root objectForKey:@"ReturnFiveYears"];
-    [data setReturnFiveYears:[value doubleValue]];
+    [data setReturnFiveYears:([value doubleValue] - 1) * 100];
     
     return data;
 }

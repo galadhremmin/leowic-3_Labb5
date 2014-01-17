@@ -24,9 +24,6 @@
     appearance = [UILabel appearanceWhenContainedIn:[STSlideshowView class], nil];
     [appearance setColor:[UIColor blackColor]];
     
-    appearance = [UILabel appearanceWhenContainedIn:[UITableViewCell class], nil];
-    [appearance setColor:[UIColor blackColor]];
-    
     appearance = [UITableView appearance];
     [appearance setBackgroundColor:[UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1]];
 

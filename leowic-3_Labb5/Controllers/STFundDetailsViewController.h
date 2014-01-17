@@ -20,10 +20,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *feeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shareLabel;
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *chartingView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *ISINCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *PPMCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *currencyCell;
+
+@property (weak, nonatomic) IBOutlet UILabel *performanceFirstMonth;
+@property (weak, nonatomic) IBOutlet UILabel *performanceThreeMonths;
+@property (weak, nonatomic) IBOutlet UILabel *performanceFirstYear;
+@property (weak, nonatomic) IBOutlet UILabel *performanceThreeYears;
+@property (weak, nonatomic) IBOutlet UILabel *performanceFiveYears;
 
 @end
