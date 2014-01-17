@@ -10,7 +10,7 @@ This is by no means a finished product. In fact, it's not even a product–it's 
 
 Installation instructions
 ------------------------
-To succesfully compile this project, you will need CoreParse and CorePlot. Fortunately, [CocoaPods](http://cocoapods.org/) makes it easy to set it up.
+To succesfully compile this project, you will need CorePlot. Fortunately, [CocoaPods](http://cocoapods.org/) makes it easy to set it up.
 
 * Install CocoaPods
 `sudo gem install cocoapods`
