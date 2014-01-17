@@ -73,12 +73,10 @@
                                     <outlet property="delegate" destination="DWB-Kd-a70" id="RVY-8q-IBm"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lt0-9s-GQQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lt0-9s-GQQ" customClass="STButton">
                                 <rect key="frame" x="56" y="523" width="209" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Testa PTK Rådgivningstjänst">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" title="Testa PTK Rådgivningstjänst"/>
                                 <connections>
                                     <action selector="performAuthenticationTest:" destination="DWB-Kd-a70" eventType="touchUpInside" id="K8p-M1-Xdn"/>
                                 </connections>
@@ -136,7 +134,7 @@
                         <viewControllerLayoutGuide type="top" id="2yj-rA-m8R"/>
                         <viewControllerLayoutGuide type="bottom" id="JbV-nl-1Sc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DLb-Ki-vPv">
+                    <view key="view" contentMode="scaleToFill" id="DLb-Ki-vPv" customClass="STSlideshowView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -151,7 +149,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="4nO-IJ-hdr">
                                 <rect key="frame" x="20" y="20" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Uze-Qj-DMh">
@@ -204,18 +202,17 @@
                         <sections>
                             <tableViewSection id="h8s-B5-vxC">
                                 <cells>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="KLp-tz-8E7" rowHeight="100" style="IBUITableViewCellStyleDefault" id="0v6-TU-1yq">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="100"/>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="KLp-tz-8E7" rowHeight="40" style="IBUITableViewCellStyleDefault" id="0v6-TU-1yq" customClass="STQuestionCell">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0v6-TU-1yq" id="GWT-i8-RuB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag bor på följande sätt:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" id="KLp-tz-8E7">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="99"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag bor på följande sätt:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KLp-tz-8E7">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="39"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -225,15 +222,15 @@
                             </tableViewSection>
                             <tableViewSection id="W0t-FX-Kgq">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ylr-39-TTU" rowHeight="65" style="IBUITableViewCellStyleDefault" id="zMO-lM-HFy">
-                                        <rect key="frame" x="0.0" y="155" width="320" height="65"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ylr-39-TTU" rowHeight="65" style="IBUITableViewCellStyleDefault" id="zMO-lM-HFy">
+                                        <rect key="frame" x="0.0" y="95" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zMO-lM-HFy" id="iTp-NA-Vux">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag hyr/är inneboende" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ylr-39-TTU">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="64"/>
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -242,15 +239,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="f1v-6n-4Sx" rowHeight="65" style="IBUITableViewCellStyleDefault" id="XQo-wa-XtT">
-                                        <rect key="frame" x="0.0" y="220" width="320" height="65"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="f1v-6n-4Sx" rowHeight="65" style="IBUITableViewCellStyleDefault" id="XQo-wa-XtT">
+                                        <rect key="frame" x="0.0" y="160" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XQo-wa-XtT" id="FxH-cv-ntw">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag bor i hus eller lägenhet med belåning över 60 % av värdet" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="f1v-6n-4Sx">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="64"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag bor i hus eller lägenhet med belåning över 60 % av värdet" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="f1v-6n-4Sx">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -259,15 +256,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="k9w-BW-rnN" rowHeight="65" style="IBUITableViewCellStyleDefault" id="V2k-NS-Dke">
-                                        <rect key="frame" x="0.0" y="285" width="320" height="65"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="k9w-BW-rnN" rowHeight="65" style="IBUITableViewCellStyleDefault" id="V2k-NS-Dke">
+                                        <rect key="frame" x="0.0" y="225" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V2k-NS-Dke" id="kiI-Tz-RSU">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag bor i hus eller lägenhet med belåning under 60 % av värdet" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="k9w-BW-rnN">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="64"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag bor i hus eller lägenhet med belåning under 60 % av värdet" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="k9w-BW-rnN">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -276,15 +273,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="0fr-mG-Dta" rowHeight="65" style="IBUITableViewCellStyleDefault" id="Md3-HB-Wot">
-                                        <rect key="frame" x="0.0" y="350" width="320" height="65"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="0fr-mG-Dta" rowHeight="65" style="IBUITableViewCellStyleDefault" id="Md3-HB-Wot">
+                                        <rect key="frame" x="0.0" y="290" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Md3-HB-Wot" id="Tfs-MW-MzP">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag bor i hus eller lägenhet utan belåning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="0fr-mG-Dta">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="64"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag bor i hus eller lägenhet utan belåning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="0fr-mG-Dta">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -321,19 +318,16 @@
                         <sections>
                             <tableViewSection id="UJB-rN-Fc2">
                                 <cells>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="5XB-Ii-Qxw" rowHeight="100" style="IBUITableViewCellStyleDefault" id="bJ1-XP-bTf">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="100"/>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="5XB-Ii-Qxw" rowHeight="57" style="IBUITableViewCellStyleDefault" id="bJ1-XP-bTf" customClass="STQuestionCell">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJ1-XP-bTf" id="any-Di-PCd">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="5XB-Ii-Qxw">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="99"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="För närvarande är min arbetssituation följande:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="5XB-Ii-Qxw">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="56"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <string key="text">För närvarande är min arbetssituation följande:
-
-</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -345,15 +339,15 @@
                             </tableViewSection>
                             <tableViewSection id="avv-Ck-kTr">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="h2a-Tj-3pO" rowHeight="65" style="IBUITableViewCellStyleDefault" id="Fxx-eH-C9C">
-                                        <rect key="frame" x="0.0" y="155" width="320" height="65"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="h2a-Tj-3pO" rowHeight="65" style="IBUITableViewCellStyleDefault" id="Fxx-eH-C9C">
+                                        <rect key="frame" x="0.0" y="112" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fxx-eH-C9C" id="Aew-qU-5wQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag är arbetssökande" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h2a-Tj-3pO">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="64"/>
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -362,15 +356,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="FAN-P1-ZvP" rowHeight="65" style="IBUITableViewCellStyleDefault" id="p8N-0G-Dfr">
-                                        <rect key="frame" x="0.0" y="220" width="320" height="65"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="FAN-P1-ZvP" rowHeight="65" style="IBUITableViewCellStyleDefault" id="p8N-0G-Dfr">
+                                        <rect key="frame" x="0.0" y="177" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8N-0G-Dfr" id="B84-MA-F2z">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag har eget företag" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="FAN-P1-ZvP">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="64"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag har eget företag" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="FAN-P1-ZvP">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -379,15 +373,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="GHf-4V-eCz" rowHeight="65" style="IBUITableViewCellStyleDefault" id="xBk-Ai-dZt">
-                                        <rect key="frame" x="0.0" y="285" width="320" height="65"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="GHf-4V-eCz" rowHeight="65" style="IBUITableViewCellStyleDefault" id="xBk-Ai-dZt">
+                                        <rect key="frame" x="0.0" y="242" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xBk-Ai-dZt" id="t50-y6-9Qx">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag är anställd, men har inte fast anställning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="GHf-4V-eCz">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="64"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag är anställd, men har inte fast anställning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="GHf-4V-eCz">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -396,15 +390,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Qyg-Vo-0Br" rowHeight="65" style="IBUITableViewCellStyleDefault" id="tpA-i4-3Vd">
-                                        <rect key="frame" x="0.0" y="350" width="320" height="65"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Qyg-Vo-0Br" rowHeight="65" style="IBUITableViewCellStyleDefault" id="tpA-i4-3Vd">
+                                        <rect key="frame" x="0.0" y="307" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tpA-i4-3Vd" id="n66-gK-K6F">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag är fast anställd med en tillsvidareanställning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="Qyg-Vo-0Br">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="64"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag är fast anställd med en tillsvidareanställning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="Qyg-Vo-0Br">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -441,19 +435,16 @@
                         <sections>
                             <tableViewSection id="8ZY-U0-ZSS">
                                 <cells>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="g1P-2x-s9F" rowHeight="100" style="IBUITableViewCellStyleDefault" id="8Mi-RY-pIo">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="100"/>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="g1P-2x-s9F" rowHeight="45" style="IBUITableViewCellStyleDefault" id="8Mi-RY-pIo" customClass="STQuestionCell">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Mi-RY-pIo" id="Qbo-e4-soE">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="g1P-2x-s9F">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="99"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Följande investeringar passar mig:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="g1P-2x-s9F">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <string key="text">Följande investeringar passar mig:
-
-</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -465,15 +456,15 @@
                             </tableViewSection>
                             <tableViewSection id="LrB-eU-Tr6">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="BPc-9A-o8f" rowHeight="85" style="IBUITableViewCellStyleDefault" id="Erx-rj-1LH">
-                                        <rect key="frame" x="0.0" y="155" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="BPc-9A-o8f" rowHeight="95" style="IBUITableViewCellStyleDefault" id="Erx-rj-1LH">
+                                        <rect key="frame" x="0.0" y="100" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Erx-rj-1LH" id="Eah-4v-89U">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" Jag föredrar säkra kapitalplaceringar med ingen eller mycket liten risk att de förlorar i värde." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="BPc-9A-o8f">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" Jag föredrar säkra kapitalplaceringar med ingen eller mycket liten risk att de förlorar i värde." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="BPc-9A-o8f">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="94"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -482,15 +473,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NmN-Fq-fGg" rowHeight="85" style="IBUITableViewCellStyleDefault" id="dSC-cj-UgO">
-                                        <rect key="frame" x="0.0" y="240" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NmN-Fq-fGg" rowHeight="95" style="IBUITableViewCellStyleDefault" id="dSC-cj-UgO">
+                                        <rect key="frame" x="0.0" y="195" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dSC-cj-UgO" id="XaL-eV-pQe">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag föredrar möjlighet till högre avkastning om det innebär låg risk att de förlorar i värde." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="NmN-Fq-fGg">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag föredrar möjlighet till högre avkastning om det innebär låg risk att de förlorar i värde." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="NmN-Fq-fGg">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="94"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -499,15 +490,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xJL-Ll-R5f" rowHeight="85" style="IBUITableViewCellStyleDefault" id="Qo1-go-jvE">
-                                        <rect key="frame" x="0.0" y="325" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xJL-Ll-R5f" rowHeight="95" style="IBUITableViewCellStyleDefault" id="Qo1-go-jvE">
+                                        <rect key="frame" x="0.0" y="290" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qo1-go-jvE" id="hP0-TS-zvq">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag är beredd att ta risker för att få chans till högre avkastning." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="xJL-Ll-R5f">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Jag är beredd att ta risker för att få chans till högre avkastning." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="xJL-Ll-R5f">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="94"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -516,15 +507,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rln-ep-ZJR" rowHeight="85" style="IBUITableViewCellStyleDefault" id="9At-Zg-UVa">
-                                        <rect key="frame" x="0.0" y="410" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rln-ep-ZJR" rowHeight="95" style="IBUITableViewCellStyleDefault" id="9At-Zg-UVa">
+                                        <rect key="frame" x="0.0" y="385" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9At-Zg-UVa" id="Hhk-I9-TQn">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="rln-ep-ZJR">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="rln-ep-ZJR">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="94"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Jag är beredd att ta stora risker att kapitalplaceringar förlorar i värde, för att ha möjlighet till hög eller mycket hög avkastning.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -562,15 +553,15 @@
                         <sections>
                             <tableViewSection id="y3O-Qe-0gr">
                                 <cells>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Jcs-xl-nnk" rowHeight="100" style="IBUITableViewCellStyleDefault" id="8Jw-Ug-U5E">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="100"/>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Jcs-xl-nnk" rowHeight="120" style="IBUITableViewCellStyleDefault" id="8Jw-Ug-U5E" customClass="STQuestionCell">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Jw-Ug-U5E" id="1VQ-Te-zih">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="Jcs-xl-nnk">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="99"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="Jcs-xl-nnk">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="119"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Föreställ dig att du ställs inför ett val när du går i pension. Du har ingen inkomst utöver din ålderspension och ingen möjlighet att arbeta.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -584,15 +575,15 @@
                             </tableViewSection>
                             <tableViewSection id="ouy-8C-qGv">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bmi-Cv-7iT" rowHeight="85" style="IBUITableViewCellStyleDefault" id="rsD-1j-kuy">
-                                        <rect key="frame" x="0.0" y="155" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bmi-Cv-7iT" rowHeight="110" style="IBUITableViewCellStyleDefault" id="rsD-1j-kuy">
+                                        <rect key="frame" x="0.0" y="175" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rsD-1j-kuy" id="SCa-NW-DeH">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Då vill jag få en ålderspension som motsvarar min slutlön före pension." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="bmi-Cv-7iT">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Då vill jag få en ålderspension som motsvarar min slutlön före pension." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="bmi-Cv-7iT">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="109"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -601,15 +592,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="gkS-R5-IGZ" rowHeight="85" style="IBUITableViewCellStyleDefault" id="PQr-tL-yYj">
-                                        <rect key="frame" x="0.0" y="240" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="gkS-R5-IGZ" rowHeight="110" style="IBUITableViewCellStyleDefault" id="PQr-tL-yYj">
+                                        <rect key="frame" x="0.0" y="285" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PQr-tL-yYj" id="2w8-Zh-Wjx">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="gkS-R5-IGZ">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="gkS-R5-IGZ">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="109"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Då vill jag med lika stor sannolikhet få en av dessa pensionsnivåer resten av livet: dubbelt så mycket som min slutlön eller 20 % mindre än min slutlön.</string>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
@@ -647,15 +638,15 @@
                         <sections>
                             <tableViewSection id="J2p-fb-YPl">
                                 <cells>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4UW-kC-ORJ" rowHeight="114" style="IBUITableViewCellStyleDefault" id="kzA-Ge-q61">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="114"/>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4UW-kC-ORJ" rowHeight="120" style="IBUITableViewCellStyleDefault" id="kzA-Ge-q61" customClass="STQuestionCell">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kzA-Ge-q61" id="HsI-pi-clu">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="4UW-kC-ORJ">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="113"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="4UW-kC-ORJ">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="119"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Vad väljer du om det skulle vara de här nivåerna och samma situation? Du har ingen inkomst utöver din ålderspension och ingen möjlighet att arbeta.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -669,15 +660,15 @@
                             </tableViewSection>
                             <tableViewSection id="OpT-Jz-h7j">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="XGW-km-dob" rowHeight="85" style="IBUITableViewCellStyleDefault" id="hlL-jE-PsF">
-                                        <rect key="frame" x="0.0" y="169" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="XGW-km-dob" rowHeight="110" style="IBUITableViewCellStyleDefault" id="hlL-jE-PsF">
+                                        <rect key="frame" x="0.0" y="175" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hlL-jE-PsF" id="n4Y-Y2-UxA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Då vill jag få en ålderspension som motsvarar min slutlön före pension." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="XGW-km-dob">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Då vill jag få en ålderspension som motsvarar min slutlön före pension." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="XGW-km-dob">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="109"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -686,15 +677,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="IRw-xh-BZF" rowHeight="85" style="IBUITableViewCellStyleDefault" id="ii5-K9-kMN">
-                                        <rect key="frame" x="0.0" y="254" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="IRw-xh-BZF" rowHeight="110" style="IBUITableViewCellStyleDefault" id="ii5-K9-kMN">
+                                        <rect key="frame" x="0.0" y="285" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ii5-K9-kMN" id="ZG8-WI-iyF">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="IRw-xh-BZF">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="IRw-xh-BZF">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="109"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Då vill jag med lika stor sannolikhet få en av dessa pensionsnivåer resten av livet: dubbelt så mycket som min slutlön eller 35% mindre än min slutlön.</string>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
@@ -729,10 +720,17 @@
                         <viewControllerLayoutGuide type="top" id="66l-1w-Wev"/>
                         <viewControllerLayoutGuide type="bottom" id="cOB-y8-vzS"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9MU-Nh-9Xq">
+                    <view key="view" contentMode="scaleToFill" id="9MU-Nh-9Xq" customClass="STSlideshowView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pension-bildspel-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="REP-xQ-VyX">
+                                <rect key="frame" x="-2" y="38" width="337" height="298"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="298" id="gKu-rM-k3Z"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nu har vi tagit fram din riskprofil. Den avgör vilka rekommendationer du kommer att få." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="Bqz-Dw-9gR">
                                 <rect key="frame" x="20" y="20" width="272" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -743,7 +741,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Läser in din riskprofil ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0X-uR-6IT">
                                 <rect key="frame" x="20" y="99" width="272" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="10M-08-FvU">
@@ -772,11 +770,14 @@ Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina peng
                             <constraint firstItem="10M-08-FvU" firstAttribute="top" secondItem="P0X-uR-6IT" secondAttribute="bottom" constant="21" id="4gH-Mo-JEW"/>
                             <constraint firstItem="P0X-uR-6IT" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="A08-F8-cp8"/>
                             <constraint firstItem="Bqz-Dw-9gR" firstAttribute="top" secondItem="66l-1w-Wev" secondAttribute="bottom" constant="20" id="C6m-sf-emd"/>
+                            <constraint firstItem="REP-xQ-VyX" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="-2" id="DQ5-Hf-8tR"/>
+                            <constraint firstItem="Ofu-0s-eJy" firstAttribute="top" secondItem="REP-xQ-VyX" secondAttribute="bottom" constant="9" id="Ek9-mp-HxX"/>
                             <constraint firstItem="Ofu-0s-eJy" firstAttribute="top" secondItem="10M-08-FvU" secondAttribute="bottom" constant="21" id="Mcv-ib-xPk"/>
                             <constraint firstAttribute="trailing" secondItem="Ofu-0s-eJy" secondAttribute="trailing" constant="20" id="RCU-CM-oQT"/>
                             <constraint firstAttribute="trailing" secondItem="Bqz-Dw-9gR" secondAttribute="trailing" constant="28" id="RaI-WC-ywg"/>
                             <constraint firstItem="Bqz-Dw-9gR" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="Rla-9v-wqk"/>
                             <constraint firstItem="Ofu-0s-eJy" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="T4D-HD-7Us"/>
+                            <constraint firstAttribute="trailing" secondItem="REP-xQ-VyX" secondAttribute="trailing" constant="-15" id="UNX-qc-TFp"/>
                             <constraint firstAttribute="trailing" secondItem="P0X-uR-6IT" secondAttribute="trailing" constant="28" id="lpD-7e-Bj3"/>
                             <constraint firstAttribute="trailing" secondItem="10M-08-FvU" secondAttribute="trailing" constant="28" id="pLy-gE-2WQ"/>
                             <constraint firstItem="10M-08-FvU" firstAttribute="leading" secondItem="9MU-Nh-9Xq" secondAttribute="leading" constant="20" id="ptX-Dw-feh"/>
@@ -839,7 +840,6 @@ Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina peng
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="Cot-Z2-loC" kind="modal" identifier="DetailsSegue" id="Zpi-va-M3a"/>
                         <segue destination="f32-G9-leR" kind="modal" identifier="AdviceSummarySegue" id="XGN-gY-loJ"/>
@@ -857,18 +857,25 @@ Om du har en låg riskprofil har du goda möjligheter att få tillbaka dina peng
                         <viewControllerLayoutGuide type="top" id="yh8-95-v7b"/>
                         <viewControllerLayoutGuide type="bottom" id="beI-F3-Oe1"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ESY-Uj-WST">
+                    <view key="view" contentMode="scaleToFill" id="ESY-Uj-WST" customClass="STSlideshowView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pension-bildspel-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mht-u3-u6j">
+                                <rect key="frame" x="7" y="14" width="320" height="336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="336" id="W8o-bB-Ljy"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rådgivning slutförd!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcg-Uj-oTL">
-                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                <rect key="frame" x="20" y="48" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Nom-Oe-Tln">
-                                <rect key="frame" x="20" y="49" width="280" height="264"/>
+                                <rect key="frame" x="20" y="78" width="280" height="264"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Du har nu slutfört rådgivning för ålderspension och fått ett råd för din ITP och din premiepension.
 
@@ -878,8 +885,8 @@ Notera: denna rådgivning grundar sig på fiktiva data med fiktiva personer.</st
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bw-IR-EeC">
-                                <rect key="frame" x="20" y="321" width="280" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bw-IR-EeC" customClass="STButton">
+                                <rect key="frame" x="20" y="358" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Visa sammanfattning">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -888,8 +895,8 @@ Notera: denna rådgivning grundar sig på fiktiva data med fiktiva personer.</st
                                     <action selector="displayAdviceSummary:" destination="f32-G9-leR" eventType="touchUpInside" id="SzF-lR-amh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrT-oV-Q2t">
-                                <rect key="frame" x="20" y="359" width="280" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrT-oV-Q2t" customClass="STButton">
+                                <rect key="frame" x="20" y="396" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Börja om">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -904,14 +911,17 @@ Notera: denna rådgivning grundar sig på fiktiva data med fiktiva personer.</st
                             <constraint firstItem="3Bw-IR-EeC" firstAttribute="leading" secondItem="ESY-Uj-WST" secondAttribute="leading" constant="20" id="6ya-5e-R6y"/>
                             <constraint firstItem="NrT-oV-Q2t" firstAttribute="leading" secondItem="3Bw-IR-EeC" secondAttribute="leading" id="F1n-MO-XPr"/>
                             <constraint firstAttribute="trailing" secondItem="3Bw-IR-EeC" secondAttribute="trailing" constant="20" id="HJT-jY-Pl0"/>
+                            <constraint firstItem="Mht-u3-u6j" firstAttribute="leading" secondItem="ESY-Uj-WST" secondAttribute="leading" constant="7" id="JiM-qt-NBd"/>
+                            <constraint firstAttribute="trailing" secondItem="Mht-u3-u6j" secondAttribute="trailing" constant="-7" id="XpU-zu-GWf"/>
                             <constraint firstItem="jcg-Uj-oTL" firstAttribute="leading" secondItem="ESY-Uj-WST" secondAttribute="leading" constant="20" symbolic="YES" id="aMf-uW-uZw"/>
                             <constraint firstItem="NrT-oV-Q2t" firstAttribute="trailing" secondItem="3Bw-IR-EeC" secondAttribute="trailing" id="bMo-Cv-nLV"/>
                             <constraint firstItem="NrT-oV-Q2t" firstAttribute="top" secondItem="3Bw-IR-EeC" secondAttribute="bottom" constant="8" symbolic="YES" id="gF5-9i-Tse"/>
                             <constraint firstItem="jcg-Uj-oTL" firstAttribute="leading" secondItem="Nom-Oe-Tln" secondAttribute="leading" id="i7G-eo-pav"/>
-                            <constraint firstItem="jcg-Uj-oTL" firstAttribute="top" secondItem="ESY-Uj-WST" secondAttribute="top" constant="20" symbolic="YES" id="nDh-3i-oGp"/>
-                            <constraint firstItem="3Bw-IR-EeC" firstAttribute="top" secondItem="Nom-Oe-Tln" secondAttribute="bottom" constant="8" id="nu9-38-Pfu"/>
+                            <constraint firstItem="jcg-Uj-oTL" firstAttribute="top" secondItem="ESY-Uj-WST" secondAttribute="top" constant="48" id="nDh-3i-oGp"/>
+                            <constraint firstItem="3Bw-IR-EeC" firstAttribute="top" secondItem="Nom-Oe-Tln" secondAttribute="bottom" constant="16" id="nu9-38-Pfu"/>
                             <constraint firstItem="jcg-Uj-oTL" firstAttribute="trailing" secondItem="Nom-Oe-Tln" secondAttribute="trailing" id="pgO-ph-ill"/>
-                            <constraint firstItem="Nom-Oe-Tln" firstAttribute="top" secondItem="jcg-Uj-oTL" secondAttribute="bottom" constant="8" symbolic="YES" id="zOw-y2-g35"/>
+                            <constraint firstItem="3Bw-IR-EeC" firstAttribute="top" secondItem="Mht-u3-u6j" secondAttribute="bottom" constant="8" symbolic="YES" id="ur0-Ja-M1I"/>
+                            <constraint firstItem="Nom-Oe-Tln" firstAttribute="top" secondItem="jcg-Uj-oTL" secondAttribute="bottom" constant="9" id="zOw-y2-g35"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MkF-Oa-bRd"/>
@@ -950,7 +960,6 @@ Notera: denna rådgivning grundar sig på fiktiva data med fiktiva personer.</st
                 <tabBarController definesPresentationContext="YES" id="icS-hi-YQZ" customClass="STCompanyDetailsTabsViewController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="vqD-OH-EQI"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="mW0-AX-FsA">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -1438,14 +1447,14 @@ Notera: denna rådgivning grundar sig på fiktiva data med fiktiva personer.</st
                         <viewControllerLayoutGuide type="top" id="6nn-nj-h2x"/>
                         <viewControllerLayoutGuide type="bottom" id="7qT-PT-iap"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sK4-KL-D8R">
+                    <view key="view" contentMode="scaleToFill" id="sK4-KL-D8R" customClass="STSlideshowView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Var god vänta..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4x-OD-IyH">
                                 <rect key="frame" x="20" y="48" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1461,8 +1470,11 @@ Du skickas automatiskt vidare till nästa steg när det är färdigt.</string>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dSz-NE-UOL">
                                 <rect key="frame" x="263" y="40" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.46666666670000001" green="0.72156862749999995" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pension-bildspel-3.png" translatesAutoresizingMaskIntoConstraints="NO" id="hyl-ad-j9M">
+                                <rect key="frame" x="20" y="204" width="300" height="344"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1470,7 +1482,10 @@ Du skickas automatiskt vidare till nästa steg när det är färdigt.</string>
                             <constraint firstItem="cRN-7Y-Gs6" firstAttribute="leading" secondItem="h4x-OD-IyH" secondAttribute="leading" id="2h2-Fk-bx2"/>
                             <constraint firstItem="h4x-OD-IyH" firstAttribute="leading" secondItem="sK4-KL-D8R" secondAttribute="leading" constant="20" id="9oi-mv-KHd"/>
                             <constraint firstItem="cRN-7Y-Gs6" firstAttribute="top" secondItem="h4x-OD-IyH" secondAttribute="bottom" constant="25" id="IpT-LB-Fmf"/>
+                            <constraint firstItem="7qT-PT-iap" firstAttribute="top" secondItem="hyl-ad-j9M" secondAttribute="bottom" constant="20" id="Sz3-xn-3js"/>
                             <constraint firstItem="cRN-7Y-Gs6" firstAttribute="trailing" secondItem="h4x-OD-IyH" secondAttribute="trailing" id="VdQ-1i-SXX"/>
+                            <constraint firstAttribute="trailing" secondItem="hyl-ad-j9M" secondAttribute="trailing" id="g8A-nI-0ac"/>
+                            <constraint firstItem="hyl-ad-j9M" firstAttribute="leading" secondItem="sK4-KL-D8R" secondAttribute="leading" constant="20" id="iJz-0E-bVX"/>
                             <constraint firstAttribute="trailing" secondItem="dSz-NE-UOL" secondAttribute="trailing" constant="20" id="ogZ-dv-cnF"/>
                             <constraint firstItem="dSz-NE-UOL" firstAttribute="top" secondItem="6nn-nj-h2x" secondAttribute="bottom" constant="20" id="uMV-bb-mOg"/>
                             <constraint firstItem="h4x-OD-IyH" firstAttribute="top" secondItem="6nn-nj-h2x" secondAttribute="bottom" constant="28" id="vRs-nK-uIk"/>
@@ -1492,20 +1507,24 @@ Du skickas automatiskt vidare till nästa steg när det är färdigt.</string>
                         <sections>
                             <tableViewSection id="ZnM-ou-87x">
                                 <cells>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Nm6-F9-fZp" rowHeight="135" style="IBUITableViewCellStyleDefault" id="iAf-QS-6mQ">
-                                        <rect key="frame" x="0.0" y="35" width="320" height="135"/>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Nm6-F9-fZp" detailTextLabel="ctl-Xo-l6D" rowHeight="76" style="IBUITableViewCellStyleSubtitle" id="iAf-QS-6mQ" customClass="STQuestionCell">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iAf-QS-6mQ" id="r3e-9Z-8It">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="Nm6-F9-fZp">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="134"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Hur ofta kommer du att se över dina placeringar?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="282" id="Nm6-F9-fZp">
+                                                    <rect key="frame" x="15" y="10" width="282" height="41"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <string key="text">Hur ofta kommer du att se över dina placeringar?
-
-Välj det alternativ som passar bäst in på dig.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Välj det alternativ som passar bäst in på dig." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ctl-Xo-l6D">
+                                                    <rect key="frame" x="15" y="51" width="248" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1516,15 +1535,15 @@ Välj det alternativ som passar bäst in på dig.</string>
                             </tableViewSection>
                             <tableViewSection id="a6D-Hf-f5y">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="7zO-hY-EHr" rowHeight="85" style="IBUITableViewCellStyleDefault" id="Jfr-R1-QpO">
-                                        <rect key="frame" x="0.0" y="190" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="7zO-hY-EHr" rowHeight="85" style="IBUITableViewCellStyleDefault" id="Jfr-R1-QpO">
+                                        <rect key="frame" x="0.0" y="131" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jfr-R1-QpO" id="ox9-QW-Iof">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" Jag kommer att se över mina placeringar vartannat år eller oftare" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="7zO-hY-EHr">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" Jag kommer att se över mina placeringar vartannat år eller oftare" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="7zO-hY-EHr">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="84"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1533,15 +1552,15 @@ Välj det alternativ som passar bäst in på dig.</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Zor-vi-Gb2" rowHeight="85" style="IBUITableViewCellStyleDefault" id="c6x-t2-zs4">
-                                        <rect key="frame" x="0.0" y="275" width="320" height="85"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Zor-vi-Gb2" rowHeight="85" style="IBUITableViewCellStyleDefault" id="c6x-t2-zs4">
+                                        <rect key="frame" x="0.0" y="216" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c6x-t2-zs4" id="LBP-Hy-Wp7">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" Jag kommer att se över mina placeringar vart tredje år eller mer sällan" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" id="Zor-vi-Gb2">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="84"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" Jag kommer att se över mina placeringar vart tredje år eller mer sällan" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" id="Zor-vi-Gb2">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="84"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1570,6 +1589,9 @@ Välj det alternativ som passar bäst in på dig.</string>
     </scenes>
     <resources>
         <image name="logo.png" width="388" height="61"/>
+        <image name="pension-bildspel-1.png" width="480" height="344"/>
+        <image name="pension-bildspel-2.png" width="480" height="344"/>
+        <image name="pension-bildspel-3.png" width="480" height="344"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

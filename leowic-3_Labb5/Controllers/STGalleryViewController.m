@@ -27,15 +27,6 @@
 
 @implementation STGalleryViewController
 
--(void) viewDidLoad
-{
-    [super viewDidLoad];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"slideshow-background" ofType:@"png"];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    UIColor *backgroundImage = [UIColor colorWithPatternImage:image];
-    [self.view setBackgroundColor:backgroundImage];
-}
-
 -(void) viewWillAppear: (BOOL)animated
 {
     [self.coordinator registerSelector:@selector(handleSession:) onDelegate:self forSignal:STAPIEstablishSession];
