@@ -158,7 +158,7 @@
     if (performance > 0) {
         color = [UIColor colorWithRed:49/255.0 green:120/255.0 blue:115/255.0 alpha:1];
         symbol = @"▲";
-    } else if (performance < 0) {
+    } else if (performance < 0 && performance > -100) {
         color = [UIColor redColor];
         symbol = @"▼";
     } else {
