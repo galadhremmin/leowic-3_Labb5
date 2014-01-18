@@ -12,6 +12,7 @@
 
 -(void) addSubview: (UIView *)view
 {
+    // Hack! This prevents the separator view from being added to this view.
     NSString *className = NSStringFromClass([view class]);
     if ([className hasSuffix:@"UITableViewCellSeparatorView"]) {
         return;
