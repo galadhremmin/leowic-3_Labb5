@@ -4,3 +4,5 @@
 *.xcworkspace
 Podfile.lock
 Pods/
+Säkerhetsnyckel.txt
+
