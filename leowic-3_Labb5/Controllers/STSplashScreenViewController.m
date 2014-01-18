@@ -110,7 +110,20 @@
 -(BOOL) textFieldShouldReturn: (UITextField *)textField
 {
     [textField resignFirstResponder];
-    [STAPServiceProxy setAPIKey:textField.text];
+    
+    @try {
+        [STAPServiceProxy setAPIKey:textField.text];
+    }
+    @catch (NSException *exception) {
+        [textField setText:@""];
+        
+        NSString *message = exception.description;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oj, något gick fel!" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+    
+    
     return NO;
 }
 

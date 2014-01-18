@@ -134,6 +134,7 @@
         NSLog(@"RAW DATA REQUEST URL: %@", serviceConnection.methodName);
     } else {
         NSLog(@"SERVICE REQUEST: %@", serviceConnection.methodName);
+        NSLog(@"REQUEST URL: %@", serviceConnection.originalRequest.URL);
     }
     
     // The service communication will happen asynchronously
