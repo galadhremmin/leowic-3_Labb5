@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>API Summary URL fragment</key>
-	<string>http://test.radgivningstjanst.se/Contents/HTTPHandlers/DownloadAdviceSummary.ashx?AdviceID=%d</string>
+	<string>http://demo.radgivningstjanst.se/Contents/HTTPHandlers/DownloadAdviceSummary.ashx?AdviceID=%d</string>
 	<key>API Authentication URL</key>
-	<string>http://test.radgivningstjanst.se/Services/Authorization.svc</string>
+	<string>http://demo.radgivningstjanst.se/Services/Authorization.svc</string>
 	<key>API Guide URL</key>
-	<string>http://test.radgivningstjanst.se/Services/Guide.svc</string>
+	<string>http://demo.radgivningstjanst.se/Services/Guide.svc</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
